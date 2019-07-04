@@ -1,0 +1,2280 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+		<title>
+						Make your own blog
+			&gt; Introduction		</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+				            <link type="text/css" rel="stylesheet" href="Make%20your%20own%20blog%20%3E%20Introduction_files/local-file.css">
+		
+				<style id="dynamic-styles">
+			#content		{
+							font-family: 'Open Sans', sans-serif;
+			
+							font-weight: 300;
+					}
+			#contents-menu		{
+							font-family: 'Open Sans', sans-serif;
+			
+							font-weight: 300;
+					}
+			#contents-menu h2		{
+			
+							font-weight: 400;
+					}
+			#content h1		{
+			
+							font-weight: 300;
+					}
+			#content h2		{
+			
+							font-weight: 400;
+					}
+			.sidebar .heading p		{
+			
+							font-weight: 400;
+					}
+	</style>
+
+				<script type="text/javascript" async="" defer="defer" src="Make%20your%20own%20blog%20%3E%20Introduction_files/piwik.js"></script><script src="Make%20your%20own%20blog%20%3E%20Introduction_files/compiled.js"></script>
+
+				<link type="text/css" rel="stylesheet" href="Make%20your%20own%20blog%20%3E%20Introduction_files/compiled.css">
+
+	</head>
+	<body>
+		<div id="fixed-panel">
+			<div id="version-chooser">
+				<div class="inner">
+					<p>
+	Choose a version here. If you've not already started the tutorial, just go
+	with the latest one.
+</p>
+
+<table>
+	<tbody>
+					<tr>
+				<td>30 Aug 2014</td>
+				<td>Preview version</td>
+				<td>
+					<a href="https://ilovephp.jondh.me.uk/en/tutorial/make-your-own-blog/introduction?version=v1">Choose</a>
+									</td>
+			</tr>
+					<tr>
+				<td>5 Oct 2014</td>
+				<td>Explicitly adds a specific charset for htmlspecialchars(), and wraps it with a custom function</td>
+				<td>
+					<a href="https://ilovephp.jondh.me.uk/en/tutorial/make-your-own-blog/introduction?version=v2">Choose</a>
+									</td>
+			</tr>
+					<tr>
+				<td>16 Oct 2014</td>
+				<td>Updated redirect function to work with vhost subfolders</td>
+				<td>
+					<a href="https://ilovephp.jondh.me.uk/en/tutorial/make-your-own-blog/introduction?version=v3">Choose</a>
+									</td>
+			</tr>
+					<tr>
+				<td>4 Nov 2014</td>
+				<td>Minor improvements: added missing docblock, fixed security 
+issue, CSS tweak. Switched hashing method to DEFAULT instead of BCRYPT, 
+this is best practice.</td>
+				<td>
+					<a href="https://ilovephp.jondh.me.uk/en/tutorial/make-your-own-blog/introduction?version=v4">Choose</a>
+									</td>
+			</tr>
+					<tr>
+				<td>25 Nov 2014</td>
+				<td>Improve the notes on getting started, in particular choosing a programmer's editor. Added introduction to mod_rewrite rules.</td>
+				<td>
+					<a href="https://ilovephp.jondh.me.uk/en/tutorial/make-your-own-blog/introduction?version=v5">Choose</a>
+									</td>
+			</tr>
+					<tr>
+				<td>16 Aug 2018</td>
+				<td>Some bug fixes, remove compatibility library for earlier version of PHP</td>
+				<td>
+					<a href="https://ilovephp.jondh.me.uk/en/tutorial/make-your-own-blog/introduction?version=v6">Choose</a>
+											♥
+									</td>
+			</tr>
+			</tbody>
+</table>				</div>
+			</div>
+			<div id="header">
+				<div id="header-inner">
+					<a href="https://ilovephp.jondh.me.uk/" title="Home">I ♥ PHP</a>
+
+
+
+
+<a id="version-chooser-toggle" class="section" title="See the different available versions">
+	Versions
+</a>
+				</div>
+			</div>
+		</div>
+
+				<div id="hidden-padding"></div>
+
+					<div id="versions-note">
+		<span id="versions-note-close">
+			OK
+		</span>
+		<div id="versions-note-inner">
+			NB:
+			There are several versions of this tutorial, each successive one
+			containing additional improvements. If you're in the middle of
+			working through it, please check the versions panel above, to
+			ensure you're not mixing code from different versions.
+		</div>
+	</div>
+
+							<div id="popup-sections">
+				
+<div id="contents-menu">
+	<h2>Contents</h2>
+
+			<div class="menu-entry selected">
+			<div class="title">
+				1.
+
+														Introduction							</div>
+					</div>
+			<div class="menu-entry unselected">
+			<div class="title">
+				2.
+
+									<a href="https://ilovephp.jondh.me.uk/en/tutorial/make-your-own-blog/using-real-data">Using real data</a>
+							</div>
+					</div>
+			<div class="menu-entry unselected">
+			<div class="title">
+				3.
+
+									<a href="https://ilovephp.jondh.me.uk/en/tutorial/make-your-own-blog/adding-more-features">Adding more features</a>
+							</div>
+					</div>
+			<div class="menu-entry unselected">
+			<div class="title">
+				4.
+
+									<a href="https://ilovephp.jondh.me.uk/en/tutorial/make-your-own-blog/improving-the-installer">Improving the installer</a>
+							</div>
+					</div>
+			<div class="menu-entry unselected">
+			<div class="title">
+				5.
+
+									<a href="https://ilovephp.jondh.me.uk/en/tutorial/make-your-own-blog/commenting-form">Commenting form</a>
+							</div>
+					</div>
+			<div class="menu-entry unselected">
+			<div class="title">
+				6.
+
+									<a href="https://ilovephp.jondh.me.uk/en/tutorial/make-your-own-blog/adding-a-login-system">Adding a login system</a>
+							</div>
+					</div>
+			<div class="menu-entry unselected">
+			<div class="title">
+				7.
+
+									<a href="https://ilovephp.jondh.me.uk/en/tutorial/make-your-own-blog/tidy-up">Tidy up</a>
+							</div>
+					</div>
+			<div class="menu-entry unselected">
+			<div class="title">
+				8.
+
+									<a href="https://ilovephp.jondh.me.uk/en/tutorial/make-your-own-blog/new-post-creation">New post creation</a>
+							</div>
+					</div>
+			<div class="menu-entry unselected">
+			<div class="title">
+				9.
+
+									<a href="https://ilovephp.jondh.me.uk/en/tutorial/make-your-own-blog/post-editing">Post editing</a>
+							</div>
+					</div>
+			<div class="menu-entry unselected">
+			<div class="title">
+				10.
+
+									<a href="https://ilovephp.jondh.me.uk/en/tutorial/make-your-own-blog/all-posts-page">All posts page</a>
+							</div>
+					</div>
+			<div class="menu-entry unselected">
+			<div class="title">
+				11.
+
+									<a href="https://ilovephp.jondh.me.uk/en/tutorial/make-your-own-blog/comment-admin">Comment admin</a>
+							</div>
+					</div>
+			<div class="menu-entry unselected">
+			<div class="title">
+				12.
+
+									<a href="https://ilovephp.jondh.me.uk/en/tutorial/make-your-own-blog/adding-some-polish">Adding some polish</a>
+							</div>
+					</div>
+	</div>
+							</div>
+
+			<div id="content">
+				<h1>Make your own blog</h1>
+
+									<h2>Introduction</h2>
+
+
+<p id="hash-6249cf92f8" class="commentable">
+	In this tutorial, I'll present how to write a simple blog system, using the PHP language and
+	the Apache web server. For the database, we'll use SQLite, to keep things simple. Don't worry
+	if these terms don't mean anything yet, that's okay. I'm assuming readers are familiar
+	with how to use their computer, but perhaps have not programmed before. That said, even a
+	beginner's tutorial can get non-trivial quickly, so if you are brand new to programming, you
+	may wish to research unfamiliar keywords (usually on <a href="http://php.net/">the PHP website</a>).
+</p>
+
+<p id="hash-e093b1a969" class="commentable">
+	The application we will build together was built prior to writing the tutorial. The text is
+	therefore written around the way I think development happens in real life; some steps may
+	introduce bugs, or be written in ways the purist might consider non-ideal. However, for the most
+	part, these problems will be ironed out as we go. At the end of this project, we'll have a
+	<b>functional</b>, <b>maintainable</b> and <b>secure</b> application, but there'll be much
+	that can still be improved on (which will likely make for a subsequent tutorial).
+</p>
+
+
+<p id="hash-2faef7a255" class="commentable">
+	If you are new to programming, it is possible that you might feel somewhat lost as you work
+	through the material. Whilst any prior practice will always help, the before-and-after code
+	samples should see you right through to the end, even if you don't initially understand every
+	step. You should find that some of this will sink in, and will contribute to your future "aha"
+	moment, even if it is daunting at the start. The elation of getting it working will, I hope,
+	encourage you to dive even deeper into programming. Enjoy the ride!
+</p>
+
+<blockquote class="sidebar">
+	<h3>
+		A word about PHP tutorials on the web
+	</h3>
+	<p id="hash-84d0670a73" class="commentable">
+		To become proficient with a programming language, it makes sense to obtain your learning
+		materials from as wide a source as possible. PHP owes its success, I think, to its very
+		low barriers to entry, but that situation has given birth to plenty of tutorials on the
+		Internet that make two fundamental errors.
+	</p>
+	<p id="hash-702abdb011" class="commentable">
+		The first is that the <code class="inline">mysql_</code> library is still in use (a <em>library</em> is
+		just a package of useful functions). This has been a staple of database access
+		in PHP applications for some ten years, but has now been superceded by newer systems.
+		In particular, libraries such as PDO and mysqli offer <em>parameterisation</em>, a feature
+		that helps prevent miscreants and ne'erdowells from cracking system security.
+	</p>
+	<p id="hash-1af41b43e6" class="commentable">
+		The other problem I see a great deal of are tutorials that interleave <em>business logic</em>
+		(what an application does) with <em>layout</em> (what an application looks like).
+		This isn't wrong exactly, but having separation between the two does tend to make
+		for systems that are more maintainable.
+	</p>
+</blockquote>
+
+<p id="hash-856c1fc8c6" class="commentable">
+	For your development environment, here's what you will need:
+</p>
+
+<ol id="hash-9610dc0ef6" class="commentable">
+	<li>The Apache web server</li>
+	<li>PHP, any version after 5.5</li>
+	<li>SQLite PHP module, for database access</li>
+	<li>Any programmer's editor, ideally with syntax highlighting</li>
+</ol>
+
+
+<p id="hash-3bd976af5f" class="commentable">
+	The first three things can be installed in one go, by installing
+	<a href="https://www.apachefriends.org/">XAMPP</a> — just download and run the appropriate
+	package for your operating system. Note that if you use Linux, PHP and Apache may be installed
+	already; there is often a ready-made web folder at <code class="inline">/var/www</code> from which you can run
+	your files. By all means use that, but if in doubt, XAMPP works on Linux too, and adds a
+	user-friendly control panel.
+</p>
+
+<p class="commentable">
+	You'll also need a programmer's editor. There are many different ones available, and the one
+	that you choose will depend on your preference as well as what you find works best on your
+	system. I'll therefore mention several, in no particular order, so you can decide for yourself.
+	In most cases you can download the appropriate installer, double-click it from your Downloads
+	folder, and install as you would any software.
+</p>
+
+<p class="commentable">
+	For convenience, I have supplied official download links for each product. If you like, you
+	can verify these links by exploring the appropriate website and looking for the 'Downloads'
+	section.
+</p>
+
+
+<p class="commentable">
+	First up is <a href="http://brackets.io/">Brackets</a>, which is available on all platforms.
+	Download here:
+</p>
+
+<ul class="commentable">
+	<li>
+		<a href="https://github.com/adobe/brackets/releases/download/release-1.0/Brackets.Release.1.0.msi">Windows</a>
+	</li>
+	<li>
+		<a href="https://github.com/adobe/brackets/releases/download/release-1.0/Brackets.Release.1.0.dmg">Mac OS X</a>
+	</li>
+	<li>
+		Linux <a href="https://github.com/adobe/brackets/releases/download/release-1.0/Brackets.Release.1.0.32-bit.deb">32-bit</a>
+		and <a href="https://github.com/adobe/brackets/releases/download/release-1.0/Brackets.Release.1.0.64-bit.deb">64-bit</a>
+	</li>
+</ul>
+
+<p class="commentable">
+	Next is <a href="http://lighttable.com/">Light Table</a>:
+</p>
+
+<ul class="commentable">
+	<li>
+		<a href="https://d35ac8ww5dfjyg.cloudfront.net/playground/bins/0.7.2/LightTableWin.zip">Windows</a>
+	</li>
+	<li>
+		<a href="https://d35ac8ww5dfjyg.cloudfront.net/playground/bins/0.7.2/LightTableMac.zip">Mac OS X</a>
+	</li>
+	<li>
+		Linux <a href="https://d35ac8ww5dfjyg.cloudfront.net/playground/bins/0.7.2/LightTableLinux.tar.gz">32-bit</a><a>
+		and </a><a href="https://d35ac8ww5dfjyg.cloudfront.net/playground/bins/0.7.2/LightTableLinux64.tar.gz">64-bit</a>
+	</li>
+</ul>
+
+<p class="commentable">
+	If you are running Linux, have a look at <a href="https://wiki.gnome.org/Apps/Gedit">Gedit</a>,
+	which is pre-installed on the Ubuntu and Mint distributions (and probably others too). It does
+	syntax highlighting for PHP as standard.
+</p>
+
+
+<p class="commentable">
+	If the above editors don't work on your system, or you don't get on with them, that's no
+	problem — there's a <a href="https://en.wikipedia.org/wiki/List_of_text_editors">substantial
+	list of editors</a> on Wikipedia.
+</p>
+
+<div class="intermission">~</div>
+
+<p id="hash-3a25f60975" class="commentable">
+	In designing this tutorial, I wrote out a list of things I thought would be great to have, and
+	then developed until I had a basic complete product. In retrospect, it would have been better to
+	decide this prior to development; regardless of whether you are setting up a business or programming
+	for fun, having a simple and achievable plan is miles better than an all-singing,
+	all-dancing one that ends up abandoned half-way through (either through boredom, bankruptcy, or
+	both).
+</p>
+
+<p id="hash-277002af1f" class="commentable">Here's the initial list of features/technologies I put on paper:</p>
+
+<blockquote class="list">
+	<p id="hash-048efbdb7b" class="commentable">
+		Login, Logout, Add comment, Create user, Amend user, Delete user, Email validation for new user
+		accounts, Display post, Accept markdown format, Create post, Edit post, Unpublish post, Delete post,
+		Unit tests, List posts, AJAX posting/commenting, Database profiler, Internationalisation,
+		Pretty URLs, Use template engine, Per-environment configuration files, Post pagination,
+		Comment pagination, Unpublish comment, Delete comment, Foreign key constraints, Unique constraints,
+		User access levels.
+	</p>
+</blockquote>
+
+<p id="hash-da10773400" class="commentable">
+	To illustrate how much an "initial working product" should trim the initial wishlist, here's
+	what made it into the first version:
+</p>
+
+<blockquote class="list">
+	<p id="hash-1c2b7c8acf" class="commentable">
+		Login, Logout, Add comment, Display post, Create post, Edit post, Delete post, List posts,
+		Delete comment, Foreign key constraints.
+	</p>
+</blockquote>
+
+<p id="hash-cfbe6c24b1" class="commentable">
+	It's worth pointing out that, with any software project, rejecting a feature <em>now</em> does
+	not mean you can never add that feature. It just means that you are prioritising getting
+	important things done, so that the product is in a releasable state quickly. Once it is out the
+	door, you can then find a few more items on your list to add into the next iteration. In a
+	commercial situation, this approach is helpful because if your users don't like a change you've
+	made, you've wasted two months rather than two years — a saving that could be the difference
+	between steering things back on track, and going bust.
+</p>
+
+<p id="hash-9f8d522367" class="commentable">
+	One of the other features of this tutorial is that it uses no additional
+	software to get it working. Software projects nearly always make use of libraries,
+	each of which offer some particular pre-written functionality. These are well worth using in
+	proper development, since they are better-tested by more people than an individual can usually
+	achieve on their own. However, for a tutorial I think they can add integration complexity, and
+	explaining the advanced-level code within is usually quite a distraction. Thus, I have eschewed
+	libraries more than I would normally.
+</p>
+
+<div class="intermission">~</div>
+
+<p id="hash-6372f99fd0" class="commentable">
+	So, let us get started. I'll assume you know how to create, edit, save and delete files in your
+	editor, and that you can create folders as required. This might be in the root of your "htdocs"
+	or "www" folder, depending on what you used to install Apache. You can use a subfolder of "blog"
+	if you wish, or for more advanced users, feel free to set up a new vhost. So, when I use
+	<code class="inline">http://localhost/</code>, you can assume I am referring to the root of your project, even
+	if your URL is somewhat different.
+</p>
+
+<p id="hash-79ad16a7a2" class="commentable">
+	Let us first check that your server installation is working okay. Create a file called
+	<span class="filename">info.php</span> in the root of your project folder:
+</p>
+
+	<div class="tab-container" id="tab-container-phpinfo" data-easytabs="true">
+
+	<div class="tabs-chopper">
+		<ul class="tabs">
+			<li class="tab active">
+				<a href="#tabs-phpinfo" class="active">/info.php</a>
+				<span class="active">/info.php</span>
+			</li>
+		</ul>
+	</div>
+	
+	
+	<div id="tabs-phpinfo" class="insert-diff active" style="">
+		<div class="diff-scroll">
+			<div class="diff-body">
+				<div class="file full-width">
+				<div class="right side">
+			<div class="inner-side">
+				
+<div class="diff-content">
+			<div class="section ">
+												<div class="line diff-line diff-line-added">
+						<code>&lt;?php phpinfo();</code>
+					</div>
+									</div>
+	</div>
+			</div>
+		</div>
+	</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<p id="hash-4a26ddfcaf" class="commentable">
+	Then, run this in your browser, by accessing the URL <code class="inline">http://localhost/info.php</code>.
+	You should see a PHP configuration page. If you do, then check you are running a version later
+	than 5.5; if it is earlier than this then
+	you will need to upgrade. If you don't see this screen at all, then check that you have created
+	the file in the right folder.
+</p>
+
+<p class="commentable">
+	It is also worth ensuring your PHP installation has the necessary database support. Double-check
+	this by searching the list of modules until you find the two modules highlighted in the
+	screenshot below: <code class="inline">PDO</code> and <code class="inline">pdo_sqlite</code>.
+    It may help to know that the modules are listed in alphabetical order:
+</p>
+
+<p style="text-align: center;">
+	<img src="Make%20your%20own%20blog%20%3E%20Introduction_files/phpinfo.gif" alt="Screenshot of PHP info output">
+</p>
+
+<p id="hash-c2f256454e" class="commentable">
+	Once you have this showing an acceptable version number and the required modules, you
+	can delete this file.
+</p>
+
+<p id="hash-4868732436" class="commentable">Here's the first bit of code to add:</p>
+
+<div class="first">
+	
+<div class="tab-container" id="tab-container-8b492805bfaea954a8511994fc7030beb7ab4faa" data-easytabs="true">
+	
+			<img class="expand-toggle icon" src="Make%20your%20own%20blog%20%3E%20Introduction_files/code-expand.png" alt="Expand/contract code area">
+
+		<img class="tabs-move-left tabs-move icon" src="Make%20your%20own%20blog%20%3E%20Introduction_files/tab-left.png" alt="Select previous tab" style="display: none;">
+
+	<div class="tabs-chopper">
+
+				<ul class="tabs">
+							<li class="tab active">
+										<a href="#tabs-8b137435a04eac77404f-0" class="active">index.php</a>
+
+										<span class="active">index.php</span>
+				</li>
+					</ul>
+
+	</div>
+
+	<img class="tabs-move-right tabs-move icon" src="Make%20your%20own%20blog%20%3E%20Introduction_files/tab-right.png" alt="Select next tab" style="display: none;">
+
+				<div id="tabs-8b137435a04eac77404f-0" class="insert-diff active" style="">
+			<div class="top-bar">
+
+				
+				<div class="download-block">
+					<span class="download">
+						<a href="https://ilovephp.jondh.me.uk/checkouts/rebase5/8b137435a04eac77404f/index.php" target="_blank"><img src="Make%20your%20own%20blog%20%3E%20Introduction_files/disk.png" alt="">
+						Download</a>
+					</span>
+				</div>
+
+			</div>
+			<div class="diff-scroll contracted">
+				<div class="diff-body">
+					<div class="file full-width">
+				<div class="right side">
+			<div class="inner-side">
+				
+<div class="line-numbers">
+			<div class="line-numbers-section ">
+												<div class="line line-number-line">
+						<code>1</code>
+					</div>
+																<div class="line line-number-line">
+						<code>2</code>
+					</div>
+																<div class="line line-number-line">
+						<code>3</code>
+					</div>
+																<div class="line line-number-line">
+						<code>4</code>
+					</div>
+																<div class="line line-number-line">
+						<code>5</code>
+					</div>
+																<div class="line line-number-line">
+						<code>6</code>
+					</div>
+																<div class="line line-number-line">
+						<code>7</code>
+					</div>
+																<div class="line line-number-line">
+						<code>8</code>
+					</div>
+																<div class="line line-number-line">
+						<code>9</code>
+					</div>
+																<div class="line line-number-line">
+						<code>10</code>
+					</div>
+																<div class="line line-number-line">
+						<code>11</code>
+					</div>
+																<div class="line line-number-line">
+						<code>12</code>
+					</div>
+																<div class="line line-number-line">
+						<code>13</code>
+					</div>
+																<div class="line line-number-line">
+						<code>14</code>
+					</div>
+																<div class="line line-number-line">
+						<code>15</code>
+					</div>
+																<div class="line line-number-line">
+						<code>16</code>
+					</div>
+																<div class="line line-number-line">
+						<code>17</code>
+					</div>
+																<div class="line line-number-line">
+						<code>18</code>
+					</div>
+																<div class="line line-number-line">
+						<code>19</code>
+					</div>
+																<div class="line line-number-line">
+						<code>20</code>
+					</div>
+																<div class="line line-number-line">
+						<code>21</code>
+					</div>
+																<div class="line line-number-line">
+						<code>22</code>
+					</div>
+																<div class="line line-number-line">
+						<code>23</code>
+					</div>
+																<div class="line line-number-line">
+						<code>24</code>
+					</div>
+																<div class="line line-number-line">
+						<code>25</code>
+					</div>
+									</div>
+	</div>
+<div class="diff-content">
+			<div class="section ">
+												<div class="line diff-line diff-line-added">
+						<code>&lt;!DOCTYPE html&gt;</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>&lt;html&gt;</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&lt;head&gt;</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;title&gt;A blog application&lt;/title&gt;</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;meta http-equiv="Content-Type" content="text/html;charset=utf-8" /&gt;</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&lt;/head&gt;</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&lt;body&gt;</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;h1&gt;Blog title&lt;/h1&gt;</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;p&gt;This paragraph summarises what the blog is about.&lt;/p&gt;</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code></code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;h2&gt;Article 1 title&lt;/h2&gt;</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;div&gt;dd Mon YYYY&lt;/div&gt;</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;p&gt;A paragraph summarising article 1.&lt;/p&gt;</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;p&gt;</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;a href="#"&gt;Read more...&lt;/a&gt;</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/p&gt;</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code></code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;h2&gt;Article 2 title&lt;/h2&gt;</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;div&gt;dd Mon YYYY&lt;/div&gt;</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;p&gt;A paragraph summarising article 2.&lt;/p&gt;</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;p&gt;</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;a href="#"&gt;Read more...&lt;/a&gt;</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/p&gt;</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&lt;/body&gt;</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>&lt;/html&gt;</code>
+					</div>
+									</div>
+	</div>
+			</div>
+		</div>
+	</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<p id="hash-8030e067d3" class="commentable">
+	This is the initial file, so all we have to do is copy and paste it in. To do so, create
+	<span class="filename">index.php</span> in the root of your project folder, open it in your
+	editor, and ensure it is empty before pasting in the code. Then visit
+	<code class="inline">http://localhost/index.php</code> in your browser, to ensure that you can see the
+	initial mock-up of our blog's home page.
+</p>
+
+<p id="hash-7ea2d06281" class="commentable">
+	If you can, then your first piece of coding is done! The language is HTML, which is understood
+	by your web browser as a way to describe documents on the web. HTML is not actually a
+	programming language: it is properly referred to as a <em>markup language</em>. The markup itself
+	is made up of <em>tags</em> such as <code class="inline">&lt;body&gt;</code> and
+    <code class="inline">&lt;h1&gt;</code>, each of which has an opening tag (without the slash)
+    and a closing tag (with the slash).
+
+	These
+	are nested to form a hierarchy in the same way as an ordinary letter is hierarchical: instead of
+	an envelope containing a document containing headings and paragraphs, we have an
+	<code class="inline">&lt;html&gt;</code> containing a <code class="inline">&lt;body&gt;</code> containing
+	<code class="inline">&lt;h1&gt;</code> and <code class="inline">&lt;p&gt;</code>. Easy peasy!
+</p>
+
+<blockquote class="sidebar">
+	<h3>
+		What do the tags mean?
+	</h3>
+	<ul id="hash-2cd7d4ae34" class="commentable">
+		<li><code class="inline">DOCTYPE</code>: this tells the browser to expect a particular dialect of HTML
+			— in this case HTML5</li>
+		<li><code class="inline">html</code>: this is the "envelope" for the whole document. It acts as a container for
+			everything</li>
+		<li><code class="inline">head</code>: this contains stuff about the document, such as the title</li>
+		<li><code class="inline">body</code>: unsurprisingly, this contains the main part of the document</li>
+		<li><code class="inline">h1</code>, <code class="inline">h2</code>, <code class="inline">h3</code>: title headings of decreasing
+			importance</li>
+		<li><code class="inline">p</code>: a paragraph of text</li>
+		<li><code class="inline">div</code>: a "division", i.e. a section</li>
+		<li><code class="inline">a</code>: a hyperlink</li>
+	</ul>
+
+	<p id="hash-0319f24754" class="commentable">We'll use a few more as we go on, but those are the main ones.</p>
+</blockquote>
+
+<p id="hash-ff19bfbcda" class="commentable">
+	Let us start improving our skeleton home page. One of the observations we can make is that there
+	is a fair bit of repetition: there are two articles that both have a heading, date, summary
+	and hyperlink. Since this is just test data, let us add a loop around the first article block
+	and delete the second one.
+</p>
+
+<p id="hash-331c81c7ae" class="commentable">
+	Here is how I am presenting the changes in this tutorial. This will be good practice for you,
+	since all changes will be shown in this way. The approach of showing code changes like this is
+	known as a <em>diff</em>, for obvious reasons (though the diffs I use are more colourful than
+	the usual monochrome versions).
+</p>
+
+
+<div class="tab-container" id="tab-container-8e7743fc7c3c0e0f995619b54a60c338e454d7a3" data-easytabs="true">
+	
+			<img class="expand-toggle icon" src="Make%20your%20own%20blog%20%3E%20Introduction_files/code-expand.png" alt="Expand/contract code area" style="display: none;">
+
+		<img class="tabs-move-left tabs-move icon" src="Make%20your%20own%20blog%20%3E%20Introduction_files/tab-left.png" alt="Select previous tab" style="display: none;">
+
+	<div class="tabs-chopper">
+
+				<ul class="tabs">
+							<li class="tab active">
+										<a href="#tabs-0c29dd8da83ac5120aaa-0" class="active">index.php</a>
+
+										<span class="active">index.php</span>
+				</li>
+					</ul>
+
+	</div>
+
+	<img class="tabs-move-right tabs-move icon" src="Make%20your%20own%20blog%20%3E%20Introduction_files/tab-right.png" alt="Select next tab" style="display: none;">
+
+				<div id="tabs-0c29dd8da83ac5120aaa-0" class="insert-diff active" style="">
+			<div class="top-bar">
+
+				
+				<div class="download-block">
+					<span class="download">
+						<a href="https://ilovephp.jondh.me.uk/checkouts/rebase5/0c29dd8da83ac5120aaa/index.php" target="_blank"><img src="Make%20your%20own%20blog%20%3E%20Introduction_files/disk.png" alt="">
+						Download</a>
+					</span>
+				</div>
+
+			</div>
+			<div class="diff-scroll contracted">
+				<div class="diff-body">
+					<div class="file ">
+			<div class="left side">
+			<div class="inner-side">
+				
+<div class="line-numbers">
+			<div class="line-numbers-section top-missing">
+												<div class="line line-number-line">
+						<code>8</code>
+					</div>
+																<div class="line line-number-line">
+						<code>9</code>
+					</div>
+																<div class="line line-number-line">
+						<code>10</code>
+					</div>
+																<div class="line line-number-line">
+						<code>11</code>
+					</div>
+																<div class="line line-number-line">
+						<code>12</code>
+					</div>
+																<div class="line line-number-line">
+						<code>13</code>
+					</div>
+																<div class="line line-number-line">
+						<code>14</code>
+					</div>
+																<div class="line line-number-line">
+						<code>15</code>
+					</div>
+																<div class="line line-number-line">
+						<code>16</code>
+					</div>
+																<div class="line line-number-empty">
+						<code>&nbsp;</code>
+					</div>
+																<div class="line line-number-empty">
+						<code>&nbsp;</code>
+					</div>
+																<div class="line line-number-line">
+						<code>17</code>
+					</div>
+																<div class="line line-number-line">
+						<code>18</code>
+					</div>
+																<div class="line line-number-line">
+						<code>19</code>
+					</div>
+																<div class="line line-number-line">
+						<code>20</code>
+					</div>
+																<div class="line line-number-line">
+						<code>21</code>
+					</div>
+																<div class="line line-number-line">
+						<code>22</code>
+					</div>
+																<div class="line line-number-line">
+						<code>23</code>
+					</div>
+																<div class="line line-number-line">
+						<code>24</code>
+					</div>
+																<div class="line line-number-line">
+						<code>25</code>
+					</div>
+									</div>
+	</div>
+<div class="diff-content">
+			<div class="section top-missing">
+												<div class="line diff-line ">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;h1&gt;Blog title&lt;/h1&gt;</code>
+					</div>
+																<div class="line diff-line ">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;p&gt;This paragraph summarises what the blog is about.&lt;/p&gt;</code>
+					</div>
+																<div class="line diff-line ">
+						<code></code>
+					</div>
+																<div class="line diff-line diff-line-deleted">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;h2&gt;Article 1 title&lt;/h2&gt;</code>
+					</div>
+																<div class="line diff-line diff-line-deleted">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;div&gt;dd Mon YYYY&lt;/div&gt;</code>
+					</div>
+																<div class="line diff-line diff-line-deleted">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;p&gt;A paragraph summarising article 1.&lt;/p&gt;</code>
+					</div>
+																<div class="line diff-line diff-line-deleted">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;p&gt;</code>
+					</div>
+																<div class="line diff-line diff-line-deleted">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;a href="#"&gt;Read more...&lt;/a&gt;</code>
+					</div>
+																<div class="line diff-line diff-line-deleted">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/p&gt;</code>
+					</div>
+																<div class="line diff-line-empty">
+						<code></code>
+					</div>
+																<div class="line diff-line-empty">
+						<code></code>
+					</div>
+																<div class="line diff-line ">
+						<code></code>
+					</div>
+																<div class="line diff-line diff-line-deleted">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;h2&gt;Article 2 title&lt;/h2&gt;</code>
+					</div>
+																<div class="line diff-line diff-line-deleted">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;div&gt;dd Mon YYYY&lt;/div&gt;</code>
+					</div>
+																<div class="line diff-line diff-line-deleted">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;p&gt;A paragraph summarising article 2.&lt;/p&gt;</code>
+					</div>
+																<div class="line diff-line diff-line-deleted">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;p&gt;</code>
+					</div>
+																<div class="line diff-line diff-line-deleted">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;a href="#"&gt;Read more...&lt;/a&gt;</code>
+					</div>
+																<div class="line diff-line diff-line-deleted">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/p&gt;</code>
+					</div>
+																<div class="line diff-line ">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&lt;/body&gt;</code>
+					</div>
+																<div class="line diff-line ">
+						<code>&lt;/html&gt;</code>
+					</div>
+									</div>
+	</div>
+			</div>
+		</div>	
+				<div class="right side">
+			<div class="inner-side">
+				
+<div class="line-numbers">
+			<div class="line-numbers-section top-missing">
+												<div class="line line-number-line">
+						<code>8</code>
+					</div>
+																<div class="line line-number-line">
+						<code>9</code>
+					</div>
+																<div class="line line-number-line">
+						<code>10</code>
+					</div>
+																<div class="line line-number-line">
+						<code>11</code>
+					</div>
+																<div class="line line-number-line">
+						<code>12</code>
+					</div>
+																<div class="line line-number-line">
+						<code>13</code>
+					</div>
+																<div class="line line-number-line">
+						<code>14</code>
+					</div>
+																<div class="line line-number-line">
+						<code>15</code>
+					</div>
+																<div class="line line-number-line">
+						<code>16</code>
+					</div>
+																<div class="line line-number-line">
+						<code>17</code>
+					</div>
+																<div class="line line-number-line">
+						<code>18</code>
+					</div>
+																<div class="line line-number-line">
+						<code>19</code>
+					</div>
+																<div class="line line-number-empty">
+						<code>&nbsp;</code>
+					</div>
+																<div class="line line-number-empty">
+						<code>&nbsp;</code>
+					</div>
+																<div class="line line-number-empty">
+						<code>&nbsp;</code>
+					</div>
+																<div class="line line-number-empty">
+						<code>&nbsp;</code>
+					</div>
+																<div class="line line-number-empty">
+						<code>&nbsp;</code>
+					</div>
+																<div class="line line-number-empty">
+						<code>&nbsp;</code>
+					</div>
+																<div class="line line-number-line">
+						<code>20</code>
+					</div>
+																<div class="line line-number-line">
+						<code>21</code>
+					</div>
+									</div>
+	</div>
+<div class="diff-content">
+			<div class="section top-missing">
+												<div class="line diff-line ">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;h1&gt;Blog title&lt;/h1&gt;</code>
+					</div>
+																<div class="line diff-line ">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;p&gt;This paragraph summarises what the blog is about.&lt;/p&gt;</code>
+					</div>
+																<div class="line diff-line ">
+						<code></code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;?php for ($postId = 1; $postId &lt;= 3; $postId++): ?&gt;</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;h2&gt;Article &lt;?php echo $postId ?&gt; title&lt;/h2&gt;</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;div&gt;dd Mon YYYY&lt;/div&gt;</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;p&gt;A paragraph summarising article &lt;?php echo $postId ?&gt;.&lt;/p&gt;</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;p&gt;</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;a href="#"&gt;Read more...&lt;/a&gt;</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/p&gt;</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;?php endfor ?&gt;</code>
+					</div>
+																<div class="line diff-line ">
+						<code></code>
+					</div>
+																<div class="line diff-line-empty">
+						<code></code>
+					</div>
+																<div class="line diff-line-empty">
+						<code></code>
+					</div>
+																<div class="line diff-line-empty">
+						<code></code>
+					</div>
+																<div class="line diff-line-empty">
+						<code></code>
+					</div>
+																<div class="line diff-line-empty">
+						<code></code>
+					</div>
+																<div class="line diff-line-empty">
+						<code></code>
+					</div>
+																<div class="line diff-line ">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&lt;/body&gt;</code>
+					</div>
+																<div class="line diff-line ">
+						<code>&lt;/html&gt;</code>
+					</div>
+									</div>
+	</div>
+			</div>
+		</div>
+	</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+<p id="hash-bae34ae4af" class="commentable">
+	The rules for making these changes are simple: the code on the left shows the old file, and the
+	code on the right shows the new one. Also, red lines are deleted, green lines are added. So,
+	the two red blocks on the left are in the existing file, and can be removed. The green block
+	on the right should be added. Where you see a solid horizontal bar across the whole diff,
+	that's just a sign that some identical lines have been missed out for brevity.
+</p>
+<p id="hash-9522216502" class="commentable">
+	Thus, if you wish, you can delete both article blocks and replace them with the new loop block
+	(containing the <code class="inline">for()</code> through to the <code class="inline">endfor</code>). However, the way this was
+	actually written was as follows:
+</p>
+
+<ul id="hash-203035c72e" class="commentable">
+	<li>Delete the second article</li>
+	<li>Insert the start of the <code class="inline">for()</code> loop before the first article, on a new line</li>
+	<li>Insert the end of the loop (<code class="inline">endfor</code>) at the end of the first article, on a new
+		line</li>
+	<li>Indent the contents of the loop (in most editors, you can do this by selecting the article
+		markup and pressing the Tab key)</li>
+	<li>Finally, the two snippets of PHP to output the <code class="inline">$postId</code> are inserted into the
+		article
+</li></ul>
+
+<p id="hash-8ce56dda2a" class="commentable">
+	In summary, it doesn't matter too much how you apply these changes (or, indeed, any changes in
+	this tutorial). That said, understanding the way in which changes are written in real
+	life may help towards a greater understanding of the code. Don't worry though if you think you've
+	made a mistake; the full file for each change is available above each one.
+</p>
+
+<blockquote class="sidebar">
+	<h3>
+		What are loops?
+	</h3>
+	<p id="hash-7a7cb9f792" class="commentable">
+		The <code class="inline">for()</code> and <code class="inline">endfor</code> you have seen form a <em>loop</em> block. This is
+		a way of telling PHP that you want the enclosed code to be run a number of times. In this
+		case, it sets a value to 1, and carries on looping whilst that value is less than or equal
+		to 3. For each iteration of the loop, the value is incremented by 1, which is carried out by
+		the <code class="inline">++</code> operator.
+	</p>
+</blockquote>
+
+<p id="hash-ad12a69598" class="commentable">
+	So, finally, refresh your browser screen, and make sure your changes work. You should now see
+	<em>three</em> articles, each with a different heading and paragraph.
+</p>
+
+<div class="intermission">~</div>
+
+<p id="hash-e175959303" class="commentable">
+	The next step we will take is to set up the database. We'll use a database system called
+	SQLite (pronounced "see-kwel light") as it is really easy to connect to, and does not
+	require a database server. Create the following two files in your project, paste in the contents,
+	and then we'll discuss what they do.
+</p>
+
+<p id="hash-52dd4d9b49" class="commentable">
+	You'll notice that some changes in this tutorial — including one of these files,
+	<span class="filename">data/init.sql</span> — has a name that contains a forward slash.
+	This means that the file is stored in a sub-directory, and that you'll need to create that
+	manually if it does not already exist.
+</p>
+
+
+<div class="tab-container" id="tab-container-36008f07bb999835759399c2f513479dadf247f9" data-easytabs="true">
+	
+			<img class="expand-toggle icon" src="Make%20your%20own%20blog%20%3E%20Introduction_files/code-expand.png" alt="Expand/contract code area">
+
+		<img class="tabs-move-left tabs-move icon" src="Make%20your%20own%20blog%20%3E%20Introduction_files/tab-left.png" alt="Select previous tab" style="display: none;">
+
+	<div class="tabs-chopper">
+
+				<ul class="tabs">
+							<li class="tab active">
+										<a href="#tabs-1d454f2557a93de3ea7a-0" class="active">data/init.sql</a>
+
+										<span class="active">data/init.sql</span>
+				</li>
+							<li class="tab">
+										<a href="#tabs-1d454f2557a93de3ea7a-1">install.php</a>
+
+										<span>install.php</span>
+				</li>
+					</ul>
+
+	</div>
+
+	<img class="tabs-move-right tabs-move icon" src="Make%20your%20own%20blog%20%3E%20Introduction_files/tab-right.png" alt="Select next tab" style="display: none;">
+
+				<div id="tabs-1d454f2557a93de3ea7a-0" class="insert-diff active" style="">
+			<div class="top-bar">
+
+				
+				<div class="download-block">
+					<span class="download">
+						<a href="https://ilovephp.jondh.me.uk/checkouts/rebase5/1d454f2557a93de3ea7a/data/init.sql" target="_blank"><img src="Make%20your%20own%20blog%20%3E%20Introduction_files/disk.png" alt="">
+						Download</a>
+					</span>
+				</div>
+
+			</div>
+			<div class="diff-scroll contracted">
+				<div class="diff-body">
+					<div class="file full-width">
+				<div class="right side">
+			<div class="inner-side">
+				
+<div class="line-numbers">
+			<div class="line-numbers-section ">
+												<div class="line line-number-line">
+						<code>1</code>
+					</div>
+																<div class="line line-number-line">
+						<code>2</code>
+					</div>
+																<div class="line line-number-line">
+						<code>3</code>
+					</div>
+																<div class="line line-number-line">
+						<code>4</code>
+					</div>
+																<div class="line line-number-line">
+						<code>5</code>
+					</div>
+																<div class="line line-number-line">
+						<code>6</code>
+					</div>
+																<div class="line line-number-line">
+						<code>7</code>
+					</div>
+																<div class="line line-number-line">
+						<code>8</code>
+					</div>
+																<div class="line line-number-line">
+						<code>9</code>
+					</div>
+																<div class="line line-number-line">
+						<code>10</code>
+					</div>
+																<div class="line line-number-line">
+						<code>11</code>
+					</div>
+																<div class="line line-number-line">
+						<code>12</code>
+					</div>
+																<div class="line line-number-line">
+						<code>13</code>
+					</div>
+																<div class="line line-number-line">
+						<code>14</code>
+					</div>
+																<div class="line line-number-line">
+						<code>15</code>
+					</div>
+																<div class="line line-number-line">
+						<code>16</code>
+					</div>
+																<div class="line line-number-line">
+						<code>17</code>
+					</div>
+																<div class="line line-number-line">
+						<code>18</code>
+					</div>
+																<div class="line line-number-line">
+						<code>19</code>
+					</div>
+																<div class="line line-number-line">
+						<code>20</code>
+					</div>
+																<div class="line line-number-line">
+						<code>21</code>
+					</div>
+																<div class="line line-number-line">
+						<code>22</code>
+					</div>
+																<div class="line line-number-line">
+						<code>23</code>
+					</div>
+																<div class="line line-number-line">
+						<code>24</code>
+					</div>
+																<div class="line line-number-line">
+						<code>25</code>
+					</div>
+																<div class="line line-number-line">
+						<code>26</code>
+					</div>
+																<div class="line line-number-line">
+						<code>27</code>
+					</div>
+																<div class="line line-number-line">
+						<code>28</code>
+					</div>
+																<div class="line line-number-line">
+						<code>29</code>
+					</div>
+																<div class="line line-number-line">
+						<code>30</code>
+					</div>
+																<div class="line line-number-line">
+						<code>31</code>
+					</div>
+																<div class="line line-number-line">
+						<code>32</code>
+					</div>
+																<div class="line line-number-line">
+						<code>33</code>
+					</div>
+																<div class="line line-number-line">
+						<code>34</code>
+					</div>
+																<div class="line line-number-line">
+						<code>35</code>
+					</div>
+																<div class="line line-number-line">
+						<code>36</code>
+					</div>
+																<div class="line line-number-line">
+						<code>37</code>
+					</div>
+																<div class="line line-number-line">
+						<code>38</code>
+					</div>
+																<div class="line line-number-line">
+						<code>39</code>
+					</div>
+																<div class="line line-number-line">
+						<code>40</code>
+					</div>
+																<div class="line line-number-line">
+						<code>41</code>
+					</div>
+																<div class="line line-number-line">
+						<code>42</code>
+					</div>
+																<div class="line line-number-line">
+						<code>43</code>
+					</div>
+																<div class="line line-number-line">
+						<code>44</code>
+					</div>
+																<div class="line line-number-line">
+						<code>45</code>
+					</div>
+																<div class="line line-number-line">
+						<code>46</code>
+					</div>
+																<div class="line line-number-line">
+						<code>47</code>
+					</div>
+																<div class="line line-number-line">
+						<code>48</code>
+					</div>
+																<div class="line line-number-line">
+						<code>49</code>
+					</div>
+																<div class="line line-number-line">
+						<code>50</code>
+					</div>
+																<div class="line line-number-line">
+						<code>51</code>
+					</div>
+																<div class="line line-number-line">
+						<code>52</code>
+					</div>
+																<div class="line line-number-line">
+						<code>53</code>
+					</div>
+																<div class="line line-number-line">
+						<code>54</code>
+					</div>
+																<div class="line line-number-line">
+						<code>55</code>
+					</div>
+																<div class="line line-number-line">
+						<code>56</code>
+					</div>
+																<div class="line line-number-line">
+						<code>57</code>
+					</div>
+									</div>
+	</div>
+<div class="diff-content">
+			<div class="section ">
+												<div class="line diff-line diff-line-added">
+						<code>/**</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code> * Database creation script</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code> */</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code></code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>DROP TABLE IF EXISTS post;</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code></code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>CREATE TABLE post (</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;title VARCHAR NOT NULL,</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;body VARCHAR NOT NULL,</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;user_id INTEGER NOT NULL,</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;created_at VARCHAR NOT NULL,</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;updated_at VARCHAR</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>);</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code></code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>INSERT INTO</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;post</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;(</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;title, body, user_id, created_at</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;)</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;VALUES(</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Here's our first post",</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"This is the body of the first post.</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code></code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>It is split into paragraphs.",</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1,</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;date('now', '-2 months')</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;)</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>;</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code></code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>INSERT INTO</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;post</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;(</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;title, body, user_id, created_at</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;)</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;VALUES(</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Now for a second article",</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"This is the body of the second post.</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>This is another paragraph.",</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1,</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;date('now', '-40 days')</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;)</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>;</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code></code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>INSERT INTO</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;post</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;(</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;title, body, user_id, created_at</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;)</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;VALUES(</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Here's a third post",</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"This is the body of the third post.</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>This is split into paragraphs.",</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1,</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;date('now', '-13 days')</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;)</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>;</code>
+					</div>
+									</div>
+	</div>
+			</div>
+		</div>
+	</div>
+				</div>
+			</div>
+		</div>
+			<div id="tabs-1d454f2557a93de3ea7a-1" class="insert-diff" style="display: none;">
+			<div class="top-bar">
+
+				
+				<div class="download-block">
+					<span class="download">
+						<a href="https://ilovephp.jondh.me.uk/checkouts/rebase5/1d454f2557a93de3ea7a/install.php" target="_blank"><img src="Make%20your%20own%20blog%20%3E%20Introduction_files/disk.png" alt="">
+						Download</a>
+					</span>
+				</div>
+
+			</div>
+			<div class="diff-scroll contracted">
+				<div class="diff-body">
+					<div class="file full-width">
+				<div class="right side">
+			<div class="inner-side">
+				
+<div class="line-numbers">
+			<div class="line-numbers-section ">
+												<div class="line line-number-line">
+						<code>1</code>
+					</div>
+																<div class="line line-number-line">
+						<code>2</code>
+					</div>
+																<div class="line line-number-line">
+						<code>3</code>
+					</div>
+																<div class="line line-number-line">
+						<code>4</code>
+					</div>
+																<div class="line line-number-line">
+						<code>5</code>
+					</div>
+																<div class="line line-number-line">
+						<code>6</code>
+					</div>
+																<div class="line line-number-line">
+						<code>7</code>
+					</div>
+																<div class="line line-number-line">
+						<code>8</code>
+					</div>
+																<div class="line line-number-line">
+						<code>9</code>
+					</div>
+																<div class="line line-number-line">
+						<code>10</code>
+					</div>
+																<div class="line line-number-line">
+						<code>11</code>
+					</div>
+																<div class="line line-number-line">
+						<code>12</code>
+					</div>
+																<div class="line line-number-line">
+						<code>13</code>
+					</div>
+																<div class="line line-number-line">
+						<code>14</code>
+					</div>
+																<div class="line line-number-line">
+						<code>15</code>
+					</div>
+																<div class="line line-number-line">
+						<code>16</code>
+					</div>
+																<div class="line line-number-line">
+						<code>17</code>
+					</div>
+																<div class="line line-number-line">
+						<code>18</code>
+					</div>
+																<div class="line line-number-line">
+						<code>19</code>
+					</div>
+																<div class="line line-number-line">
+						<code>20</code>
+					</div>
+																<div class="line line-number-line">
+						<code>21</code>
+					</div>
+																<div class="line line-number-line">
+						<code>22</code>
+					</div>
+																<div class="line line-number-line">
+						<code>23</code>
+					</div>
+																<div class="line line-number-line">
+						<code>24</code>
+					</div>
+																<div class="line line-number-line">
+						<code>25</code>
+					</div>
+																<div class="line line-number-line">
+						<code>26</code>
+					</div>
+																<div class="line line-number-line">
+						<code>27</code>
+					</div>
+																<div class="line line-number-line">
+						<code>28</code>
+					</div>
+																<div class="line line-number-line">
+						<code>29</code>
+					</div>
+																<div class="line line-number-line">
+						<code>30</code>
+					</div>
+																<div class="line line-number-line">
+						<code>31</code>
+					</div>
+																<div class="line line-number-line">
+						<code>32</code>
+					</div>
+																<div class="line line-number-line">
+						<code>33</code>
+					</div>
+																<div class="line line-number-line">
+						<code>34</code>
+					</div>
+																<div class="line line-number-line">
+						<code>35</code>
+					</div>
+																<div class="line line-number-line">
+						<code>36</code>
+					</div>
+																<div class="line line-number-line">
+						<code>37</code>
+					</div>
+																<div class="line line-number-line">
+						<code>38</code>
+					</div>
+																<div class="line line-number-line">
+						<code>39</code>
+					</div>
+																<div class="line line-number-line">
+						<code>40</code>
+					</div>
+																<div class="line line-number-line">
+						<code>41</code>
+					</div>
+																<div class="line line-number-line">
+						<code>42</code>
+					</div>
+																<div class="line line-number-line">
+						<code>43</code>
+					</div>
+																<div class="line line-number-line">
+						<code>44</code>
+					</div>
+																<div class="line line-number-line">
+						<code>45</code>
+					</div>
+																<div class="line line-number-line">
+						<code>46</code>
+					</div>
+																<div class="line line-number-line">
+						<code>47</code>
+					</div>
+																<div class="line line-number-line">
+						<code>48</code>
+					</div>
+																<div class="line line-number-line">
+						<code>49</code>
+					</div>
+																<div class="line line-number-line">
+						<code>50</code>
+					</div>
+																<div class="line line-number-line">
+						<code>51</code>
+					</div>
+																<div class="line line-number-line">
+						<code>52</code>
+					</div>
+																<div class="line line-number-line">
+						<code>53</code>
+					</div>
+																<div class="line line-number-line">
+						<code>54</code>
+					</div>
+																<div class="line line-number-line">
+						<code>55</code>
+					</div>
+																<div class="line line-number-line">
+						<code>56</code>
+					</div>
+																<div class="line line-number-line">
+						<code>57</code>
+					</div>
+																<div class="line line-number-line">
+						<code>58</code>
+					</div>
+																<div class="line line-number-line">
+						<code>59</code>
+					</div>
+																<div class="line line-number-line">
+						<code>60</code>
+					</div>
+																<div class="line line-number-line">
+						<code>61</code>
+					</div>
+																<div class="line line-number-line">
+						<code>62</code>
+					</div>
+																<div class="line line-number-line">
+						<code>63</code>
+					</div>
+																<div class="line line-number-line">
+						<code>64</code>
+					</div>
+																<div class="line line-number-line">
+						<code>65</code>
+					</div>
+																<div class="line line-number-line">
+						<code>66</code>
+					</div>
+																<div class="line line-number-line">
+						<code>67</code>
+					</div>
+																<div class="line line-number-line">
+						<code>68</code>
+					</div>
+																<div class="line line-number-line">
+						<code>69</code>
+					</div>
+																<div class="line line-number-line">
+						<code>70</code>
+					</div>
+																<div class="line line-number-line">
+						<code>71</code>
+					</div>
+																<div class="line line-number-line">
+						<code>72</code>
+					</div>
+																<div class="line line-number-line">
+						<code>73</code>
+					</div>
+																<div class="line line-number-line">
+						<code>74</code>
+					</div>
+																<div class="line line-number-line">
+						<code>75</code>
+					</div>
+																<div class="line line-number-line">
+						<code>76</code>
+					</div>
+																<div class="line line-number-line">
+						<code>77</code>
+					</div>
+																<div class="line line-number-line">
+						<code>78</code>
+					</div>
+																<div class="line line-number-line">
+						<code>79</code>
+					</div>
+																<div class="line line-number-line">
+						<code>80</code>
+					</div>
+																<div class="line line-number-line">
+						<code>81</code>
+					</div>
+																<div class="line line-number-line">
+						<code>82</code>
+					</div>
+																<div class="line line-number-line">
+						<code>83</code>
+					</div>
+																<div class="line line-number-line">
+						<code>84</code>
+					</div>
+																<div class="line line-number-line">
+						<code>85</code>
+					</div>
+																<div class="line line-number-line">
+						<code>86</code>
+					</div>
+																<div class="line line-number-line">
+						<code>87</code>
+					</div>
+																<div class="line line-number-line">
+						<code>88</code>
+					</div>
+																<div class="line line-number-line">
+						<code>89</code>
+					</div>
+																<div class="line line-number-line">
+						<code>90</code>
+					</div>
+																<div class="line line-number-line">
+						<code>91</code>
+					</div>
+																<div class="line line-number-line">
+						<code>92</code>
+					</div>
+																<div class="line line-number-line">
+						<code>93</code>
+					</div>
+																<div class="line line-number-line">
+						<code>94</code>
+					</div>
+																<div class="line line-number-line">
+						<code>95</code>
+					</div>
+																<div class="line line-number-line">
+						<code>96</code>
+					</div>
+									</div>
+	</div>
+<div class="diff-content">
+			<div class="section ">
+												<div class="line diff-line diff-line-added">
+						<code>&lt;?php</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>// Get the PDO DSN string</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>$root = realpath(__DIR__);</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>$database = $root . '/data/data.sqlite';</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>$dsn = 'sqlite:' . $database;</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code></code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>$error = '';</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code></code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>// A security measure, to avoid anyone resetting the database if it already exists</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>if (is_readable($database) &amp;&amp; filesize($database) &gt; 0)</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>{</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;$error = 'Please delete the existing database manually before installing it afresh';</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>}</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code></code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>// Create an empty file for the database</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>if (!$error)</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>{</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;$createdOk = @touch($database);</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;if (!$createdOk)</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;{</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$error = sprintf(</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'Could not create the database, please allow the server to create new files in \'%s\'',</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dirname($database)</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;);</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;}</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>}</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code></code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>// Grab the SQL commands we want to run on the database</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>if (!$error)</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>{</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;$sql = file_get_contents($root . '/data/init.sql');</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code></code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;if ($sql === false)</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;{</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$error = 'Cannot find SQL file';</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;}</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>}</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code></code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>// Connect to the new database and try to run the SQL commands</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>if (!$error)</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>{</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;$pdo = new PDO($dsn);</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;$result = $pdo-&gt;exec($sql);</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;if ($result === false)</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;{</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$error = 'Could not run SQL: ' . print_r($pdo-&gt;errorInfo(), true);</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;}</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>}</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code></code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>// See how many rows we created, if any</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>$count = null;</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>if (!$error)</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>{</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;$sql = "SELECT COUNT(*) AS c FROM post";</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;$stmt = $pdo-&gt;query($sql);</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;if ($stmt)</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;{</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$count = $stmt-&gt;fetchColumn();</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;}</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>}</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code></code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>?&gt;</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>&lt;!DOCTYPE html&gt;</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>&lt;html&gt;</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&lt;head&gt;</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;title&gt;Blog installer&lt;/title&gt;</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;meta http-equiv="Content-Type" content="text/html;charset=utf-8" /&gt;</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;style type="text/css"&gt;</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.box {</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;border: 1px dotted silver;</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;border-radius: 5px;</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;padding: 4px;</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.error {</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;background-color: #ff6666;</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.success {</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;background-color: #88ff88;</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/style&gt;</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&lt;/head&gt;</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&lt;body&gt;</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;?php if ($error): ?&gt;</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;div class="error box"&gt;</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;?php echo $error ?&gt;</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;?php else: ?&gt;</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;div class="success box"&gt;</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The database and demo data was created OK.</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;?php if ($count): ?&gt;</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;?php echo $count ?&gt; new rows were created.</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;?php endif ?&gt;</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;?php endif ?&gt;</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&lt;/body&gt;</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>&lt;/html&gt;</code>
+					</div>
+									</div>
+	</div>
+			</div>
+		</div>
+	</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+<p id="hash-96d5f928d5" class="commentable">
+	This change comprises of two new files, a SQL file and a PHP file. I'll discuss the SQL file
+	first.
+</p>
+
+<blockquote class="sidebar">
+	<h3>
+		What is SQL?
+	</h3>
+	<p id="hash-263f737e7c" class="commentable">
+		SQL is a programming language for databases. It has been mostly standardised between different
+		database systems, so it looks nearly the same regardless of whether you are connecting to
+		MySQL or PostgreSQL or (as we are) SQLite. We will use it to set up our database initially,
+		save information to our blog, and query information from our blog.
+	</p>
+</blockquote>
+
+<p id="hash-41f97a02b0" class="commentable">
+	Broadly, databases are stored in terms of <em>tables</em>, <em>columns</em> and <em>rows</em>. Each
+	different kind of data we wish to store needs its own table, but to start with, we only have one:
+	a post. The <code class="inline">CREATE TABLE</code> statement specifies which properties we want a post to have,
+	namely:
+</p>
+
+<ul id="hash-35855b6a1c" class="commentable">
+	<li>id: a unique identifier to help us tell posts apart</li>
+	<li>title: the heading</li>
+	<li>body: the main text of the article</li>
+	<li>user_id: which user created the article (we'll use this later on)</li>
+	<li>created_at: when the article was created</li>
+	<li>updated_at: when the article was updated</li>
+</ul>
+
+<p id="hash-f1b938d8f8" class="commentable">
+	The column <code class="inline">id</code> has two particular features:
+</p>
+
+<ul id="hash-5f5a683984" class="commentable">
+	<li>We declare it as a <code class="inline">PRIMARY KEY</code> in order to mark it as the predominant unique
+		identifier for the row. This makes it suitable to refer to the row from another
+		table (which we will do later on)</li>
+	<li>We specify the <code class="inline">AUTOINCREMENT</code> option, so unique values are generated for us
+		by the database server automatically</li>
+</ul>
+
+<p id="hash-af6c71ca2b" class="commentable">
+	A blog post is therefore just a row added to the posts table, since each row has space to store
+	all of these values. Once the table is created, we also create some dummy article data, using
+	<code class="inline">INSERT</code>. The format of this command, as used in the SQL script, is simply thus:
+</p>
+
+<p id="hash-9267b3039d" class="commentable">
+	<code class="inline">
+		INSERT INTO table_name (column_1, column_2, ...) VALUES (value_1, value_2, ...);
+	</code>
+</p>
+
+<p id="hash-bdb765e18d" class="commentable">
+	Now, the SQL file won't do anything on its own: we need a program to send the commands to
+	the database. This is where the <span class="filename">install.php</span> file comes in; we'll
+	run that whenever we want to set up the blog (or to wipe it and start again). I'll describe
+	its broad features here, but do also read the comments in the code.
+</p>
+
+
+<p id="hash-6130bfd3fd" class="commentable">
+	The first half of the code is written in PHP. Here, we use a series of <code class="inline">if()</code>
+	statements to ensure everything goes smoothly. The variable <code class="inline">$error</code> is set to an
+	error message if something goes wrong. Here are the steps we take:
+</p>
+
+<ul id="hash-ce35bfadd1" class="commentable">
+	<li>Ensure the database has not been created in the <span class="filename">data.sqlite</span>
+		file. If it has, we require the file to be deleted manually, so that it is harder to
+		accidentally overwrite data.
+	</li>
+	<li>
+		SQLite will work fine with just an empty file, so we create one with <code class="inline">touch()</code>
+		and report if there was any problems doing that (such as being disallowed by file system
+		permissions).
+	</li>
+	<li>
+		We then read the SQL script in using <code class="inline">file_get_contents()</code> and report an error
+		if the file cannot be found (this is unlikely, but it is good practice to check
+		everything that can go wrong!).
+	</li>
+	<li>
+		We then try running the SQL commands using <code class="inline">$pdo-&gt;exec()</code> and report any issues
+		with that.
+	</li>
+	<li>
+		Finally, we count the number of post rows we have created.
+	</li>
+</ul>
+
+<p id="hash-d5ea996e0a" class="commentable">
+	The second half of the file (from <code class="inline">&lt;!DOCTYPE html&gt;</code>) presents the results of
+	the script, in HTML.
+</p>
+<p id="hash-7cf33d9f86" class="commentable">So, if you have not already tried it, visit <code class="inline">http://localhost/install.php</code> in your
+	browser, and make sure some posts are created. If you want to re-run it, delete the data.sqlite
+	file manually and refresh your browser page.
+</p>
+
+							</div>
+							
+		<div id="footer">
+			<a href="https://www.reddit.com/r/ilovephp">Support channel</a>
+|
+<a href="https://github.com/halfer/php-tutorial-text/issues">Bug reports</a>
+|
+<a href="https://blog.jondh.me.uk/2014/08/online-php-beginners-tutorial/">Related blog post</a>
+|
+<a href="https://www.reddit.com/r/webdev/comments/2iqps3/ive_written_a_phpsql_app_dev_tutorial_for/">Original announcement</a>
+|
+<a href="http://validator.w3.org/check/referer">Valid HTML5</a>
+		</div>
+			<script>
+	  var _paq = _paq || [];
+	  _paq.push(['trackPageView']);
+	  _paq.push(['enableLinkTracking']);
+	  (function() {
+		var u="//analytics.jondh.me.uk/";
+		_paq.push(['setTrackerUrl', u+'piwik.php']);
+		_paq.push(['setSiteId', 1]);
+		var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+		g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+	  })();
+	</script>
+	<noscript><p><img src="//analytics.jondh.me.uk/piwik.php?idsite=1" style="border:0;" alt="" /></p></noscript>
+		
+        <!-- env: live -->
+	
+
+</body></html>

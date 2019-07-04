@@ -1,0 +1,3193 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+		<title>
+						Make your own blog
+			&gt; Commenting form		</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+				            <link type="text/css" rel="stylesheet" href="Make%20your%20own%20blog%20%3E%20Commenting%20form_files/local-file.css">
+		
+				<style id="dynamic-styles">
+			#content		{
+							font-family: 'Open Sans', sans-serif;
+			
+							font-weight: 300;
+					}
+			#contents-menu		{
+							font-family: 'Open Sans', sans-serif;
+			
+							font-weight: 300;
+					}
+			#contents-menu h2		{
+			
+							font-weight: 400;
+					}
+			#content h1		{
+			
+							font-weight: 300;
+					}
+			#content h2		{
+			
+							font-weight: 400;
+					}
+			.sidebar .heading p		{
+			
+							font-weight: 400;
+					}
+	</style>
+
+				<script src="Make%20your%20own%20blog%20%3E%20Commenting%20form_files/compiled.js"></script>
+
+				<link type="text/css" rel="stylesheet" href="Make%20your%20own%20blog%20%3E%20Commenting%20form_files/compiled.css">
+
+	</head>
+	<body>
+		<div id="fixed-panel">
+			<div id="version-chooser">
+				<div class="inner">
+					<p>
+	Choose a version here. If you've not already started the tutorial, just go
+	with the latest one.
+</p>
+
+<table>
+	<tbody>
+					<tr>
+				<td>30 Aug 2014</td>
+				<td>Preview version</td>
+				<td>
+					<a href="https://ilovephp.jondh.me.uk/en/tutorial/make-your-own-blog/commenting-form?version=v1">Choose</a>
+									</td>
+			</tr>
+					<tr>
+				<td>5 Oct 2014</td>
+				<td>Explicitly adds a specific charset for htmlspecialchars(), and wraps it with a custom function</td>
+				<td>
+					<a href="https://ilovephp.jondh.me.uk/en/tutorial/make-your-own-blog/commenting-form?version=v2">Choose</a>
+									</td>
+			</tr>
+					<tr>
+				<td>16 Oct 2014</td>
+				<td>Updated redirect function to work with vhost subfolders</td>
+				<td>
+					<a href="https://ilovephp.jondh.me.uk/en/tutorial/make-your-own-blog/commenting-form?version=v3">Choose</a>
+									</td>
+			</tr>
+					<tr>
+				<td>4 Nov 2014</td>
+				<td>Minor improvements: added missing docblock, fixed security 
+issue, CSS tweak. Switched hashing method to DEFAULT instead of BCRYPT, 
+this is best practice.</td>
+				<td>
+					<a href="https://ilovephp.jondh.me.uk/en/tutorial/make-your-own-blog/commenting-form?version=v4">Choose</a>
+									</td>
+			</tr>
+					<tr>
+				<td>25 Nov 2014</td>
+				<td>Improve the notes on getting started, in particular choosing a programmer's editor. Added introduction to mod_rewrite rules.</td>
+				<td>
+					<a href="https://ilovephp.jondh.me.uk/en/tutorial/make-your-own-blog/commenting-form?version=v5">Choose</a>
+									</td>
+			</tr>
+					<tr>
+				<td>16 Aug 2018</td>
+				<td>Some bug fixes, remove compatibility library for earlier version of PHP</td>
+				<td>
+					<a href="https://ilovephp.jondh.me.uk/en/tutorial/make-your-own-blog/commenting-form?version=v6">Choose</a>
+											♥
+									</td>
+			</tr>
+			</tbody>
+</table>				</div>
+			</div>
+			<div id="header">
+				<div id="header-inner">
+					<a href="https://ilovephp.jondh.me.uk/" title="Home">I ♥ PHP</a>
+
+
+
+
+<a id="version-chooser-toggle" class="section" title="See the different available versions">
+	Versions
+</a>
+				</div>
+			</div>
+		</div>
+
+				<div id="hidden-padding"></div>
+
+					<div id="versions-note">
+		<span id="versions-note-close">
+			OK
+		</span>
+		<div id="versions-note-inner">
+			NB:
+			There are several versions of this tutorial, each successive one
+			containing additional improvements. If you're in the middle of
+			working through it, please check the versions panel above, to
+			ensure you're not mixing code from different versions.
+		</div>
+	</div>
+
+							<div id="popup-sections">
+				
+<div id="contents-menu">
+	<h2>Contents</h2>
+
+			<div class="menu-entry unselected">
+			<div class="title">
+				1.
+
+									<a href="https://ilovephp.jondh.me.uk/en/tutorial/make-your-own-blog/introduction">Introduction</a>
+							</div>
+					</div>
+			<div class="menu-entry unselected">
+			<div class="title">
+				2.
+
+									<a href="https://ilovephp.jondh.me.uk/en/tutorial/make-your-own-blog/using-real-data">Using real data</a>
+							</div>
+					</div>
+			<div class="menu-entry unselected">
+			<div class="title">
+				3.
+
+									<a href="https://ilovephp.jondh.me.uk/en/tutorial/make-your-own-blog/adding-more-features">Adding more features</a>
+							</div>
+					</div>
+			<div class="menu-entry unselected">
+			<div class="title">
+				4.
+
+									<a href="https://ilovephp.jondh.me.uk/en/tutorial/make-your-own-blog/improving-the-installer">Improving the installer</a>
+							</div>
+					</div>
+			<div class="menu-entry selected">
+			<div class="title">
+				5.
+
+														Commenting form							</div>
+					</div>
+			<div class="menu-entry unselected">
+			<div class="title">
+				6.
+
+									<a href="https://ilovephp.jondh.me.uk/en/tutorial/make-your-own-blog/adding-a-login-system">Adding a login system</a>
+							</div>
+					</div>
+			<div class="menu-entry unselected">
+			<div class="title">
+				7.
+
+									<a href="https://ilovephp.jondh.me.uk/en/tutorial/make-your-own-blog/tidy-up">Tidy up</a>
+							</div>
+					</div>
+			<div class="menu-entry unselected">
+			<div class="title">
+				8.
+
+									<a href="https://ilovephp.jondh.me.uk/en/tutorial/make-your-own-blog/new-post-creation">New post creation</a>
+							</div>
+					</div>
+			<div class="menu-entry unselected">
+			<div class="title">
+				9.
+
+									<a href="https://ilovephp.jondh.me.uk/en/tutorial/make-your-own-blog/post-editing">Post editing</a>
+							</div>
+					</div>
+			<div class="menu-entry unselected">
+			<div class="title">
+				10.
+
+									<a href="https://ilovephp.jondh.me.uk/en/tutorial/make-your-own-blog/all-posts-page">All posts page</a>
+							</div>
+					</div>
+			<div class="menu-entry unselected">
+			<div class="title">
+				11.
+
+									<a href="https://ilovephp.jondh.me.uk/en/tutorial/make-your-own-blog/comment-admin">Comment admin</a>
+							</div>
+					</div>
+			<div class="menu-entry unselected">
+			<div class="title">
+				12.
+
+									<a href="https://ilovephp.jondh.me.uk/en/tutorial/make-your-own-blog/adding-some-polish">Adding some polish</a>
+							</div>
+					</div>
+	</div>
+							</div>
+
+			<div id="content">
+				<h1>Make your own blog</h1>
+
+									
+
+<h2>Commenting form</h2>
+
+<p id="hash-5c5d984470" class="commentable">
+	Righto, let's get onto a new solid block of functionality: allowing users to add comments.
+	This adds a new block of HTML in <span class="filename">comment-form.php</span>, which
+	reports any errors when the comment is made, a form to capture the usual comment information,
+	and some business logic in <span class="filename">lib/view-post.php</span> and
+	<span class="filename">view-post.php</span> to glue it all together.
+</p>
+
+
+<div class="tab-container" id="tab-container-c7155e6a41aec7004d59b4cfe086282975127e61">
+	
+			<img class="expand-toggle icon" src="Make%20your%20own%20blog%20%3E%20Commenting%20form_files/code-expand.png" alt="Expand/contract code area">
+
+		<img class="tabs-move-left tabs-move icon" src="Make%20your%20own%20blog%20%3E%20Commenting%20form_files/tab-left.png" alt="Select previous tab">
+
+	<div class="tabs-chopper">
+
+				<ul class="tabs">
+							<li class="tab">
+										<a href="#tabs-8316bf9dcc8cc0aa325e-0">lib/view-post.php</a>
+
+										<span>lib/view-post.php</span>
+				</li>
+							<li class="tab">
+										<a href="#tabs-8316bf9dcc8cc0aa325e-1">templates/comment-form.php</a>
+
+										<span>templates/comment-form.php</span>
+				</li>
+							<li class="tab">
+										<a href="#tabs-8316bf9dcc8cc0aa325e-2">view-post.php</a>
+
+										<span>view-post.php</span>
+				</li>
+					</ul>
+
+	</div>
+
+	<img class="tabs-move-right tabs-move icon" src="Make%20your%20own%20blog%20%3E%20Commenting%20form_files/tab-right.png" alt="Select next tab">
+
+				<div id="tabs-8316bf9dcc8cc0aa325e-0" class="insert-diff">
+			<div class="top-bar">
+
+				
+				<div class="download-block">
+					<span class="download">
+						<a href="https://ilovephp.jondh.me.uk/checkouts/rebase5/8316bf9dcc8cc0aa325e/lib/view-post.php" target="_blank"><img src="Make%20your%20own%20blog%20%3E%20Commenting%20form_files/disk.png" alt="">
+						Download</a>
+					</span>
+				</div>
+
+			</div>
+			<div class="diff-scroll">
+				<div class="diff-body">
+					<div class="file ">
+			<div class="left side">
+			<div class="inner-side">
+				
+<div class="line-numbers">
+			<div class="line-numbers-section top-missing">
+												<div class="line line-number-line">
+						<code>33</code>
+					</div>
+																<div class="line line-number-line">
+						<code>34</code>
+					</div>
+																<div class="line line-number-line">
+						<code>35</code>
+					</div>
+																<div class="line line-number-empty">
+						<code>&nbsp;</code>
+					</div>
+																<div class="line line-number-empty">
+						<code>&nbsp;</code>
+					</div>
+																<div class="line line-number-empty">
+						<code>&nbsp;</code>
+					</div>
+																<div class="line line-number-empty">
+						<code>&nbsp;</code>
+					</div>
+																<div class="line line-number-empty">
+						<code>&nbsp;</code>
+					</div>
+																<div class="line line-number-empty">
+						<code>&nbsp;</code>
+					</div>
+																<div class="line line-number-empty">
+						<code>&nbsp;</code>
+					</div>
+																<div class="line line-number-empty">
+						<code>&nbsp;</code>
+					</div>
+																<div class="line line-number-empty">
+						<code>&nbsp;</code>
+					</div>
+																<div class="line line-number-empty">
+						<code>&nbsp;</code>
+					</div>
+																<div class="line line-number-empty">
+						<code>&nbsp;</code>
+					</div>
+																<div class="line line-number-empty">
+						<code>&nbsp;</code>
+					</div>
+																<div class="line line-number-empty">
+						<code>&nbsp;</code>
+					</div>
+																<div class="line line-number-empty">
+						<code>&nbsp;</code>
+					</div>
+																<div class="line line-number-empty">
+						<code>&nbsp;</code>
+					</div>
+																<div class="line line-number-empty">
+						<code>&nbsp;</code>
+					</div>
+																<div class="line line-number-empty">
+						<code>&nbsp;</code>
+					</div>
+																<div class="line line-number-empty">
+						<code>&nbsp;</code>
+					</div>
+																<div class="line line-number-empty">
+						<code>&nbsp;</code>
+					</div>
+																<div class="line line-number-empty">
+						<code>&nbsp;</code>
+					</div>
+																<div class="line line-number-empty">
+						<code>&nbsp;</code>
+					</div>
+																<div class="line line-number-empty">
+						<code>&nbsp;</code>
+					</div>
+																<div class="line line-number-empty">
+						<code>&nbsp;</code>
+					</div>
+																<div class="line line-number-empty">
+						<code>&nbsp;</code>
+					</div>
+																<div class="line line-number-empty">
+						<code>&nbsp;</code>
+					</div>
+																<div class="line line-number-empty">
+						<code>&nbsp;</code>
+					</div>
+																<div class="line line-number-empty">
+						<code>&nbsp;</code>
+					</div>
+																<div class="line line-number-empty">
+						<code>&nbsp;</code>
+					</div>
+																<div class="line line-number-empty">
+						<code>&nbsp;</code>
+					</div>
+																<div class="line line-number-empty">
+						<code>&nbsp;</code>
+					</div>
+																<div class="line line-number-empty">
+						<code>&nbsp;</code>
+					</div>
+																<div class="line line-number-empty">
+						<code>&nbsp;</code>
+					</div>
+																<div class="line line-number-empty">
+						<code>&nbsp;</code>
+					</div>
+																<div class="line line-number-empty">
+						<code>&nbsp;</code>
+					</div>
+																<div class="line line-number-empty">
+						<code>&nbsp;</code>
+					</div>
+																<div class="line line-number-empty">
+						<code>&nbsp;</code>
+					</div>
+																<div class="line line-number-empty">
+						<code>&nbsp;</code>
+					</div>
+																<div class="line line-number-empty">
+						<code>&nbsp;</code>
+					</div>
+																<div class="line line-number-empty">
+						<code>&nbsp;</code>
+					</div>
+																<div class="line line-number-empty">
+						<code>&nbsp;</code>
+					</div>
+																<div class="line line-number-empty">
+						<code>&nbsp;</code>
+					</div>
+																<div class="line line-number-empty">
+						<code>&nbsp;</code>
+					</div>
+																<div class="line line-number-empty">
+						<code>&nbsp;</code>
+					</div>
+																<div class="line line-number-empty">
+						<code>&nbsp;</code>
+					</div>
+																<div class="line line-number-empty">
+						<code>&nbsp;</code>
+					</div>
+																<div class="line line-number-empty">
+						<code>&nbsp;</code>
+					</div>
+																<div class="line line-number-empty">
+						<code>&nbsp;</code>
+					</div>
+																<div class="line line-number-empty">
+						<code>&nbsp;</code>
+					</div>
+																<div class="line line-number-empty">
+						<code>&nbsp;</code>
+					</div>
+																<div class="line line-number-empty">
+						<code>&nbsp;</code>
+					</div>
+																<div class="line line-number-empty">
+						<code>&nbsp;</code>
+					</div>
+																<div class="line line-number-empty">
+						<code>&nbsp;</code>
+					</div>
+																<div class="line line-number-empty">
+						<code>&nbsp;</code>
+					</div>
+																<div class="line line-number-empty">
+						<code>&nbsp;</code>
+					</div>
+																<div class="line line-number-line">
+						<code>36</code>
+					</div>
+									</div>
+	</div>
+<div class="diff-content">
+			<div class="section top-missing">
+												<div class="line diff-line ">
+						<code>	$row = $stmt-&gt;fetch(PDO::FETCH_ASSOC);</code>
+					</div>
+																<div class="line diff-line ">
+						<code></code>
+					</div>
+																<div class="line diff-line ">
+						<code>	return $row;</code>
+					</div>
+																<div class="line diff-line-empty">
+						<code></code>
+					</div>
+																<div class="line diff-line-empty">
+						<code></code>
+					</div>
+																<div class="line diff-line-empty">
+						<code></code>
+					</div>
+																<div class="line diff-line-empty">
+						<code></code>
+					</div>
+																<div class="line diff-line-empty">
+						<code></code>
+					</div>
+																<div class="line diff-line-empty">
+						<code></code>
+					</div>
+																<div class="line diff-line-empty">
+						<code></code>
+					</div>
+																<div class="line diff-line-empty">
+						<code></code>
+					</div>
+																<div class="line diff-line-empty">
+						<code></code>
+					</div>
+																<div class="line diff-line-empty">
+						<code></code>
+					</div>
+																<div class="line diff-line-empty">
+						<code></code>
+					</div>
+																<div class="line diff-line-empty">
+						<code></code>
+					</div>
+																<div class="line diff-line-empty">
+						<code></code>
+					</div>
+																<div class="line diff-line-empty">
+						<code></code>
+					</div>
+																<div class="line diff-line-empty">
+						<code></code>
+					</div>
+																<div class="line diff-line-empty">
+						<code></code>
+					</div>
+																<div class="line diff-line-empty">
+						<code></code>
+					</div>
+																<div class="line diff-line-empty">
+						<code></code>
+					</div>
+																<div class="line diff-line-empty">
+						<code></code>
+					</div>
+																<div class="line diff-line-empty">
+						<code></code>
+					</div>
+																<div class="line diff-line-empty">
+						<code></code>
+					</div>
+																<div class="line diff-line-empty">
+						<code></code>
+					</div>
+																<div class="line diff-line-empty">
+						<code></code>
+					</div>
+																<div class="line diff-line-empty">
+						<code></code>
+					</div>
+																<div class="line diff-line-empty">
+						<code></code>
+					</div>
+																<div class="line diff-line-empty">
+						<code></code>
+					</div>
+																<div class="line diff-line-empty">
+						<code></code>
+					</div>
+																<div class="line diff-line-empty">
+						<code></code>
+					</div>
+																<div class="line diff-line-empty">
+						<code></code>
+					</div>
+																<div class="line diff-line-empty">
+						<code></code>
+					</div>
+																<div class="line diff-line-empty">
+						<code></code>
+					</div>
+																<div class="line diff-line-empty">
+						<code></code>
+					</div>
+																<div class="line diff-line-empty">
+						<code></code>
+					</div>
+																<div class="line diff-line-empty">
+						<code></code>
+					</div>
+																<div class="line diff-line-empty">
+						<code></code>
+					</div>
+																<div class="line diff-line-empty">
+						<code></code>
+					</div>
+																<div class="line diff-line-empty">
+						<code></code>
+					</div>
+																<div class="line diff-line-empty">
+						<code></code>
+					</div>
+																<div class="line diff-line-empty">
+						<code></code>
+					</div>
+																<div class="line diff-line-empty">
+						<code></code>
+					</div>
+																<div class="line diff-line-empty">
+						<code></code>
+					</div>
+																<div class="line diff-line-empty">
+						<code></code>
+					</div>
+																<div class="line diff-line-empty">
+						<code></code>
+					</div>
+																<div class="line diff-line-empty">
+						<code></code>
+					</div>
+																<div class="line diff-line-empty">
+						<code></code>
+					</div>
+																<div class="line diff-line-empty">
+						<code></code>
+					</div>
+																<div class="line diff-line-empty">
+						<code></code>
+					</div>
+																<div class="line diff-line-empty">
+						<code></code>
+					</div>
+																<div class="line diff-line-empty">
+						<code></code>
+					</div>
+																<div class="line diff-line-empty">
+						<code></code>
+					</div>
+																<div class="line diff-line-empty">
+						<code></code>
+					</div>
+																<div class="line diff-line-empty">
+						<code></code>
+					</div>
+																<div class="line diff-line-empty">
+						<code></code>
+					</div>
+																<div class="line diff-line-empty">
+						<code></code>
+					</div>
+																<div class="line diff-line ">
+						<code>}</code>
+					</div>
+									</div>
+	</div>
+			</div>
+		</div>	
+				<div class="right side">
+			<div class="inner-side">
+				
+<div class="line-numbers">
+			<div class="line-numbers-section top-missing">
+												<div class="line line-number-line">
+						<code>33</code>
+					</div>
+																<div class="line line-number-line">
+						<code>34</code>
+					</div>
+																<div class="line line-number-line">
+						<code>35</code>
+					</div>
+																<div class="line line-number-line">
+						<code>36</code>
+					</div>
+																<div class="line line-number-line">
+						<code>37</code>
+					</div>
+																<div class="line line-number-line">
+						<code>38</code>
+					</div>
+																<div class="line line-number-line">
+						<code>39</code>
+					</div>
+																<div class="line line-number-line">
+						<code>40</code>
+					</div>
+																<div class="line line-number-line">
+						<code>41</code>
+					</div>
+																<div class="line line-number-line">
+						<code>42</code>
+					</div>
+																<div class="line line-number-line">
+						<code>43</code>
+					</div>
+																<div class="line line-number-line">
+						<code>44</code>
+					</div>
+																<div class="line line-number-line">
+						<code>45</code>
+					</div>
+																<div class="line line-number-line">
+						<code>46</code>
+					</div>
+																<div class="line line-number-line">
+						<code>47</code>
+					</div>
+																<div class="line line-number-line">
+						<code>48</code>
+					</div>
+																<div class="line line-number-line">
+						<code>49</code>
+					</div>
+																<div class="line line-number-line">
+						<code>50</code>
+					</div>
+																<div class="line line-number-line">
+						<code>51</code>
+					</div>
+																<div class="line line-number-line">
+						<code>52</code>
+					</div>
+																<div class="line line-number-line">
+						<code>53</code>
+					</div>
+																<div class="line line-number-line">
+						<code>54</code>
+					</div>
+																<div class="line line-number-line">
+						<code>55</code>
+					</div>
+																<div class="line line-number-line">
+						<code>56</code>
+					</div>
+																<div class="line line-number-line">
+						<code>57</code>
+					</div>
+																<div class="line line-number-line">
+						<code>58</code>
+					</div>
+																<div class="line line-number-line">
+						<code>59</code>
+					</div>
+																<div class="line line-number-line">
+						<code>60</code>
+					</div>
+																<div class="line line-number-line">
+						<code>61</code>
+					</div>
+																<div class="line line-number-line">
+						<code>62</code>
+					</div>
+																<div class="line line-number-line">
+						<code>63</code>
+					</div>
+																<div class="line line-number-line">
+						<code>64</code>
+					</div>
+																<div class="line line-number-line">
+						<code>65</code>
+					</div>
+																<div class="line line-number-line">
+						<code>66</code>
+					</div>
+																<div class="line line-number-line">
+						<code>67</code>
+					</div>
+																<div class="line line-number-line">
+						<code>68</code>
+					</div>
+																<div class="line line-number-line">
+						<code>69</code>
+					</div>
+																<div class="line line-number-line">
+						<code>70</code>
+					</div>
+																<div class="line line-number-line">
+						<code>71</code>
+					</div>
+																<div class="line line-number-line">
+						<code>72</code>
+					</div>
+																<div class="line line-number-line">
+						<code>73</code>
+					</div>
+																<div class="line line-number-line">
+						<code>74</code>
+					</div>
+																<div class="line line-number-line">
+						<code>75</code>
+					</div>
+																<div class="line line-number-line">
+						<code>76</code>
+					</div>
+																<div class="line line-number-line">
+						<code>77</code>
+					</div>
+																<div class="line line-number-line">
+						<code>78</code>
+					</div>
+																<div class="line line-number-line">
+						<code>79</code>
+					</div>
+																<div class="line line-number-line">
+						<code>80</code>
+					</div>
+																<div class="line line-number-line">
+						<code>81</code>
+					</div>
+																<div class="line line-number-line">
+						<code>82</code>
+					</div>
+																<div class="line line-number-line">
+						<code>83</code>
+					</div>
+																<div class="line line-number-line">
+						<code>84</code>
+					</div>
+																<div class="line line-number-line">
+						<code>85</code>
+					</div>
+																<div class="line line-number-line">
+						<code>86</code>
+					</div>
+																<div class="line line-number-line">
+						<code>87</code>
+					</div>
+																<div class="line line-number-line">
+						<code>88</code>
+					</div>
+																<div class="line line-number-line">
+						<code>89</code>
+					</div>
+																<div class="line line-number-line">
+						<code>90</code>
+					</div>
+									</div>
+	</div>
+<div class="diff-content">
+			<div class="section top-missing">
+												<div class="line diff-line ">
+						<code>	$row = $stmt-&gt;fetch(PDO::FETCH_ASSOC);</code>
+					</div>
+																<div class="line diff-line ">
+						<code></code>
+					</div>
+																<div class="line diff-line ">
+						<code>	return $row;</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>}</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code></code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>/**</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code> * Writes a comment to a particular post</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code> *</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code> * @param PDO $pdo</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code> * @param integer $postId</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code> * @param array $commentData</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code> * @return array</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code> */</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>function addCommentToPost(PDO $pdo, $postId, array $commentData)</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>{</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>	$errors = array();</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code></code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>	// Do some validation</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>	if (empty($commentData['name']))</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>	{</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>		$errors['name'] = 'A name is required';</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>	}</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>	if (empty($commentData['text']))</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>	{</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>		$errors['text'] = 'A comment is required';</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>	}</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code></code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>	// If we are error free, try writing the comment</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>	if (!$errors)</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>	{</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>		$sql = "</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>			INSERT INTO</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>				comment</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>			(name, website, text, post_id)</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>			VALUES(:name, :website, :text, :post_id)</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>		";</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>		$stmt = $pdo-&gt;prepare($sql);</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>		if ($stmt === false)</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>		{</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>			throw new Exception('Cannot prepare statement to insert comment');</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>		}</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>		$result = $stmt-&gt;execute(</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>			array_merge($commentData, array('post_id' =&gt; $postId, ))</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>		);</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code></code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>		if ($result === false)</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>		{</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>			// @todo This renders a database-level message to the user, fix this</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>			$errorInfo = $stmt-&gt;errorInfo();</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>			if ($errorInfo)</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>			{</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>				$errors[] = $errorInfo[2];</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>			}</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>		}</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>	}</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code></code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>	return $errors;</code>
+					</div>
+																<div class="line diff-line ">
+						<code>}</code>
+					</div>
+									</div>
+	</div>
+			</div>
+		</div>
+	</div>
+				</div>
+			</div>
+		</div>
+			<div id="tabs-8316bf9dcc8cc0aa325e-1" class="insert-diff">
+			<div class="top-bar">
+
+				
+				<div class="download-block">
+					<span class="download">
+						<a href="https://ilovephp.jondh.me.uk/checkouts/rebase5/8316bf9dcc8cc0aa325e/templates/comment-form.php" target="_blank"><img src="Make%20your%20own%20blog%20%3E%20Commenting%20form_files/disk.png" alt="">
+						Download</a>
+					</span>
+				</div>
+
+			</div>
+			<div class="diff-scroll">
+				<div class="diff-body">
+					<div class="file full-width">
+				<div class="right side">
+			<div class="inner-side">
+				
+<div class="line-numbers">
+			<div class="line-numbers-section ">
+												<div class="line line-number-line">
+						<code>1</code>
+					</div>
+																<div class="line line-number-line">
+						<code>2</code>
+					</div>
+																<div class="line line-number-line">
+						<code>3</code>
+					</div>
+																<div class="line line-number-line">
+						<code>4</code>
+					</div>
+																<div class="line line-number-line">
+						<code>5</code>
+					</div>
+																<div class="line line-number-line">
+						<code>6</code>
+					</div>
+																<div class="line line-number-line">
+						<code>7</code>
+					</div>
+																<div class="line line-number-line">
+						<code>8</code>
+					</div>
+																<div class="line line-number-line">
+						<code>9</code>
+					</div>
+																<div class="line line-number-line">
+						<code>10</code>
+					</div>
+																<div class="line line-number-line">
+						<code>11</code>
+					</div>
+																<div class="line line-number-line">
+						<code>12</code>
+					</div>
+																<div class="line line-number-line">
+						<code>13</code>
+					</div>
+																<div class="line line-number-line">
+						<code>14</code>
+					</div>
+																<div class="line line-number-line">
+						<code>15</code>
+					</div>
+																<div class="line line-number-line">
+						<code>16</code>
+					</div>
+																<div class="line line-number-line">
+						<code>17</code>
+					</div>
+																<div class="line line-number-line">
+						<code>18</code>
+					</div>
+																<div class="line line-number-line">
+						<code>19</code>
+					</div>
+																<div class="line line-number-line">
+						<code>20</code>
+					</div>
+																<div class="line line-number-line">
+						<code>21</code>
+					</div>
+																<div class="line line-number-line">
+						<code>22</code>
+					</div>
+																<div class="line line-number-line">
+						<code>23</code>
+					</div>
+																<div class="line line-number-line">
+						<code>24</code>
+					</div>
+																<div class="line line-number-line">
+						<code>25</code>
+					</div>
+																<div class="line line-number-line">
+						<code>26</code>
+					</div>
+																<div class="line line-number-line">
+						<code>27</code>
+					</div>
+																<div class="line line-number-line">
+						<code>28</code>
+					</div>
+																<div class="line line-number-line">
+						<code>29</code>
+					</div>
+																<div class="line line-number-line">
+						<code>30</code>
+					</div>
+																<div class="line line-number-line">
+						<code>31</code>
+					</div>
+																<div class="line line-number-line">
+						<code>32</code>
+					</div>
+																<div class="line line-number-line">
+						<code>33</code>
+					</div>
+																<div class="line line-number-line">
+						<code>34</code>
+					</div>
+																<div class="line line-number-line">
+						<code>35</code>
+					</div>
+																<div class="line line-number-line">
+						<code>36</code>
+					</div>
+																<div class="line line-number-line">
+						<code>37</code>
+					</div>
+																<div class="line line-number-line">
+						<code>38</code>
+					</div>
+																<div class="line line-number-line">
+						<code>39</code>
+					</div>
+																<div class="line line-number-line">
+						<code>40</code>
+					</div>
+																<div class="line line-number-line">
+						<code>41</code>
+					</div>
+																<div class="line line-number-line">
+						<code>42</code>
+					</div>
+																<div class="line line-number-line">
+						<code>43</code>
+					</div>
+																<div class="line line-number-line">
+						<code>44</code>
+					</div>
+																<div class="line line-number-line">
+						<code>45</code>
+					</div>
+																<div class="line line-number-line">
+						<code>46</code>
+					</div>
+																<div class="line line-number-line">
+						<code>47</code>
+					</div>
+																<div class="line line-number-line">
+						<code>48</code>
+					</div>
+																<div class="line line-number-line">
+						<code>49</code>
+					</div>
+																<div class="line line-number-line">
+						<code>50</code>
+					</div>
+																<div class="line line-number-line">
+						<code>51</code>
+					</div>
+									</div>
+	</div>
+<div class="diff-content">
+			<div class="section ">
+												<div class="line diff-line diff-line-added">
+						<code>&lt;?php // We'll use a rule-off for now, to separate page sections ?&gt;</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>&lt;hr /&gt;</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code></code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>&lt;?php // Report any errors in a bullet-point list ?&gt;</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>&lt;?php if ($errors): ?&gt;</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>	&lt;div style="border: 1px solid #ff6666; padding: 6px;"&gt;</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>		&lt;ul&gt;</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>			&lt;?php foreach ($errors as $error): ?&gt;</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>				&lt;li&gt;&lt;?php echo $error ?&gt;&lt;/li&gt;</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>			&lt;?php endforeach ?&gt;</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>		&lt;/ul&gt;</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>	&lt;/div&gt;</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>&lt;?php endif ?&gt;</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code></code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>&lt;h3&gt;Add your comment&lt;/h3&gt;</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code></code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>&lt;form method="post"&gt;</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>	&lt;p&gt;</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>		&lt;label for="comment-name"&gt;</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>			Name:</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>		&lt;/label&gt;</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>		&lt;input</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>			type="text"</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>			id="comment-name"</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>			name="comment-name"</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>		/&gt;</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>	&lt;/p&gt;</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>	&lt;p&gt;</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>		&lt;label for="comment-website"&gt;</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>			Website:</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>		&lt;/label&gt;</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>		&lt;input</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>			type="text"</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>			id="comment-website"</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>			name="comment-website"</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>		/&gt;</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>	&lt;/p&gt;</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>	&lt;p&gt;</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>		&lt;label for="comment-text"&gt;</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>			Comment:</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>		&lt;/label&gt;</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>		&lt;textarea</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>			id="comment-text"</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>			name="comment-text"</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>			rows="8"</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>			cols="70"</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>		&gt;&lt;/textarea&gt;</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>	&lt;/p&gt;</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code></code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>	&lt;input type="submit" value="Submit comment" /&gt;</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>&lt;/form&gt;</code>
+					</div>
+									</div>
+	</div>
+			</div>
+		</div>
+	</div>
+				</div>
+			</div>
+		</div>
+			<div id="tabs-8316bf9dcc8cc0aa325e-2" class="insert-diff">
+			<div class="top-bar">
+
+				
+				<div class="download-block">
+					<span class="download">
+						<a href="https://ilovephp.jondh.me.uk/checkouts/rebase5/8316bf9dcc8cc0aa325e/view-post.php" target="_blank"><img src="Make%20your%20own%20blog%20%3E%20Commenting%20form_files/disk.png" alt="">
+						Download</a>
+					</span>
+				</div>
+
+			</div>
+			<div class="diff-scroll">
+				<div class="diff-body">
+					<div class="file ">
+			<div class="left side">
+			<div class="inner-side">
+				
+<div class="line-numbers">
+			<div class="line-numbers-section top-missing">
+												<div class="line line-number-line">
+						<code>23</code>
+					</div>
+																<div class="line line-number-line">
+						<code>24</code>
+					</div>
+																<div class="line line-number-line">
+						<code>25</code>
+					</div>
+																<div class="line line-number-empty">
+						<code>&nbsp;</code>
+					</div>
+																<div class="line line-number-empty">
+						<code>&nbsp;</code>
+					</div>
+																<div class="line line-number-empty">
+						<code>&nbsp;</code>
+					</div>
+																<div class="line line-number-empty">
+						<code>&nbsp;</code>
+					</div>
+																<div class="line line-number-empty">
+						<code>&nbsp;</code>
+					</div>
+																<div class="line line-number-empty">
+						<code>&nbsp;</code>
+					</div>
+																<div class="line line-number-empty">
+						<code>&nbsp;</code>
+					</div>
+																<div class="line line-number-empty">
+						<code>&nbsp;</code>
+					</div>
+																<div class="line line-number-empty">
+						<code>&nbsp;</code>
+					</div>
+																<div class="line line-number-empty">
+						<code>&nbsp;</code>
+					</div>
+																<div class="line line-number-empty">
+						<code>&nbsp;</code>
+					</div>
+																<div class="line line-number-empty">
+						<code>&nbsp;</code>
+					</div>
+																<div class="line line-number-empty">
+						<code>&nbsp;</code>
+					</div>
+																<div class="line line-number-empty">
+						<code>&nbsp;</code>
+					</div>
+																<div class="line line-number-empty">
+						<code>&nbsp;</code>
+					</div>
+																<div class="line line-number-empty">
+						<code>&nbsp;</code>
+					</div>
+																<div class="line line-number-empty">
+						<code>&nbsp;</code>
+					</div>
+																<div class="line line-number-empty">
+						<code>&nbsp;</code>
+					</div>
+																<div class="line line-number-empty">
+						<code>&nbsp;</code>
+					</div>
+																<div class="line line-number-empty">
+						<code>&nbsp;</code>
+					</div>
+																<div class="line line-number-empty">
+						<code>&nbsp;</code>
+					</div>
+																<div class="line line-number-line">
+						<code>26</code>
+					</div>
+																<div class="line line-number-line">
+						<code>27</code>
+					</div>
+																<div class="line line-number-line">
+						<code>28</code>
+					</div>
+									</div>
+			<div class="line-numbers-section ">
+												<div class="line line-number-line">
+						<code>88</code>
+					</div>
+																<div class="line line-number-line">
+						<code>89</code>
+					</div>
+																<div class="line line-number-line">
+						<code>90</code>
+					</div>
+																<div class="line line-number-empty">
+						<code>&nbsp;</code>
+					</div>
+																<div class="line line-number-empty">
+						<code>&nbsp;</code>
+					</div>
+																<div class="line line-number-line">
+						<code>91</code>
+					</div>
+																<div class="line line-number-line">
+						<code>92</code>
+					</div>
+									</div>
+	</div>
+<div class="diff-content">
+			<div class="section top-missing">
+												<div class="line diff-line ">
+						<code>	redirectAndExit('index.php?not-found=1');</code>
+					</div>
+																<div class="line diff-line ">
+						<code>}</code>
+					</div>
+																<div class="line diff-line ">
+						<code></code>
+					</div>
+																<div class="line diff-line-empty">
+						<code></code>
+					</div>
+																<div class="line diff-line-empty">
+						<code></code>
+					</div>
+																<div class="line diff-line-empty">
+						<code></code>
+					</div>
+																<div class="line diff-line-empty">
+						<code></code>
+					</div>
+																<div class="line diff-line-empty">
+						<code></code>
+					</div>
+																<div class="line diff-line-empty">
+						<code></code>
+					</div>
+																<div class="line diff-line-empty">
+						<code></code>
+					</div>
+																<div class="line diff-line-empty">
+						<code></code>
+					</div>
+																<div class="line diff-line-empty">
+						<code></code>
+					</div>
+																<div class="line diff-line-empty">
+						<code></code>
+					</div>
+																<div class="line diff-line-empty">
+						<code></code>
+					</div>
+																<div class="line diff-line-empty">
+						<code></code>
+					</div>
+																<div class="line diff-line-empty">
+						<code></code>
+					</div>
+																<div class="line diff-line-empty">
+						<code></code>
+					</div>
+																<div class="line diff-line-empty">
+						<code></code>
+					</div>
+																<div class="line diff-line-empty">
+						<code></code>
+					</div>
+																<div class="line diff-line-empty">
+						<code></code>
+					</div>
+																<div class="line diff-line-empty">
+						<code></code>
+					</div>
+																<div class="line diff-line-empty">
+						<code></code>
+					</div>
+																<div class="line diff-line-empty">
+						<code></code>
+					</div>
+																<div class="line diff-line-empty">
+						<code></code>
+					</div>
+																<div class="line diff-line ">
+						<code>// Swap carriage returns for paragraph breaks</code>
+					</div>
+																<div class="line diff-line ">
+						<code>$bodyText = htmlEscape($row['body']);</code>
+					</div>
+																<div class="line diff-line ">
+						<code>$paraText = str_replace("\n", "&lt;/p&gt;&lt;p&gt;", $bodyText);</code>
+					</div>
+									</div>
+			<div class="section ">
+												<div class="line diff-line ">
+						<code>				&lt;/div&gt;</code>
+					</div>
+																<div class="line diff-line ">
+						<code>			&lt;/div&gt;</code>
+					</div>
+																<div class="line diff-line ">
+						<code>		&lt;?php endforeach ?&gt;</code>
+					</div>
+																<div class="line diff-line-empty">
+						<code></code>
+					</div>
+																<div class="line diff-line-empty">
+						<code></code>
+					</div>
+																<div class="line diff-line ">
+						<code>	&lt;/body&gt;</code>
+					</div>
+																<div class="line diff-line ">
+						<code>&lt;/html&gt;</code>
+					</div>
+									</div>
+	</div>
+			</div>
+		</div>	
+				<div class="right side">
+			<div class="inner-side">
+				
+<div class="line-numbers">
+			<div class="line-numbers-section top-missing">
+												<div class="line line-number-line">
+						<code>23</code>
+					</div>
+																<div class="line line-number-line">
+						<code>24</code>
+					</div>
+																<div class="line line-number-line">
+						<code>25</code>
+					</div>
+																<div class="line line-number-line">
+						<code>26</code>
+					</div>
+																<div class="line line-number-line">
+						<code>27</code>
+					</div>
+																<div class="line line-number-line">
+						<code>28</code>
+					</div>
+																<div class="line line-number-line">
+						<code>29</code>
+					</div>
+																<div class="line line-number-line">
+						<code>30</code>
+					</div>
+																<div class="line line-number-line">
+						<code>31</code>
+					</div>
+																<div class="line line-number-line">
+						<code>32</code>
+					</div>
+																<div class="line line-number-line">
+						<code>33</code>
+					</div>
+																<div class="line line-number-line">
+						<code>34</code>
+					</div>
+																<div class="line line-number-line">
+						<code>35</code>
+					</div>
+																<div class="line line-number-line">
+						<code>36</code>
+					</div>
+																<div class="line line-number-line">
+						<code>37</code>
+					</div>
+																<div class="line line-number-line">
+						<code>38</code>
+					</div>
+																<div class="line line-number-line">
+						<code>39</code>
+					</div>
+																<div class="line line-number-line">
+						<code>40</code>
+					</div>
+																<div class="line line-number-line">
+						<code>41</code>
+					</div>
+																<div class="line line-number-line">
+						<code>42</code>
+					</div>
+																<div class="line line-number-line">
+						<code>43</code>
+					</div>
+																<div class="line line-number-line">
+						<code>44</code>
+					</div>
+																<div class="line line-number-line">
+						<code>45</code>
+					</div>
+																<div class="line line-number-line">
+						<code>46</code>
+					</div>
+																<div class="line line-number-line">
+						<code>47</code>
+					</div>
+																<div class="line line-number-line">
+						<code>48</code>
+					</div>
+																<div class="line line-number-line">
+						<code>49</code>
+					</div>
+									</div>
+			<div class="line-numbers-section ">
+												<div class="line line-number-line">
+						<code>88</code>
+					</div>
+																<div class="line line-number-line">
+						<code>89</code>
+					</div>
+																<div class="line line-number-line">
+						<code>90</code>
+					</div>
+																<div class="line line-number-line">
+						<code>91</code>
+					</div>
+																<div class="line line-number-line">
+						<code>92</code>
+					</div>
+																<div class="line line-number-line">
+						<code>93</code>
+					</div>
+																<div class="line line-number-line">
+						<code>94</code>
+					</div>
+									</div>
+	</div>
+<div class="diff-content">
+			<div class="section top-missing">
+												<div class="line diff-line ">
+						<code>	redirectAndExit('index.php?not-found=1');</code>
+					</div>
+																<div class="line diff-line ">
+						<code>}</code>
+					</div>
+																<div class="line diff-line ">
+						<code></code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>$errors = null;</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>if ($_POST)</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>{</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>	$commentData = array(</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>		'name' =&gt; $_POST['comment-name'],</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>		'website' =&gt; $_POST['comment-website'],</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>		'text' =&gt; $_POST['comment-text'],</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>	);</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>	$errors = addCommentToPost(</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>		$pdo,</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>		$postId,</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>		$commentData</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>	);</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code></code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>	// If there are no errors, redirect back to self and redisplay</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>	if (!$errors)</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>	{</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>		redirectAndExit('view-post.php?post_id=' . $postId);</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>	}</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>}</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code></code>
+					</div>
+																<div class="line diff-line ">
+						<code>// Swap carriage returns for paragraph breaks</code>
+					</div>
+																<div class="line diff-line ">
+						<code>$bodyText = htmlEscape($row['body']);</code>
+					</div>
+																<div class="line diff-line ">
+						<code>$paraText = str_replace("\n", "&lt;/p&gt;&lt;p&gt;", $bodyText);</code>
+					</div>
+									</div>
+			<div class="section ">
+												<div class="line diff-line ">
+						<code>				&lt;/div&gt;</code>
+					</div>
+																<div class="line diff-line ">
+						<code>			&lt;/div&gt;</code>
+					</div>
+																<div class="line diff-line ">
+						<code>		&lt;?php endforeach ?&gt;</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code></code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>		&lt;?php require 'templates/comment-form.php' ?&gt;</code>
+					</div>
+																<div class="line diff-line ">
+						<code>	&lt;/body&gt;</code>
+					</div>
+																<div class="line diff-line ">
+						<code>&lt;/html&gt;</code>
+					</div>
+									</div>
+	</div>
+			</div>
+		</div>
+	</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+<p id="hash-442586a2e5" class="commentable">
+	Let us have a look in detail at <span class="filename">view-post.php</span>, which is the page
+	called by the web server when a single post is rendered. In the newly inserted code, we take
+	these actions:
+</p>
+
+<ol>
+	<li>Reset the errors variable to null i.e. we do not yet know if they are any errors.</li>
+	<li>Detect if we are in a POST operation. If we are not (i.e. the page is just being rendered
+		normally, rather than submitting a form) then don't do any more of this new stuff.</li>
+	<li>Get the author name, website URL and comment message, and pass them to new
+		function <code class="inline">addCommentToPost()</code> for validation and saving.</li>
+	<li>This will return any resulting errors into the <code class="inline">$errors</code> array.</li>
+	<li>If the comment-adding function successfully saves a comment to the database,
+		redirect to self and exit. This will request the page again in GET mode.</li>
+	<li>If the comment save failed (perhaps because a mandatory field was not supplied) then
+		the errors array will contain the error message(s). Since this skips the
+		redirection phase, the form is rendered within the same call, which allows the errors
+		to be marked on the form.</li>
+</ol>
+
+
+<div class="sidebar">
+	<h3>
+		What are GET and POST?
+	</h3>
+
+	<p id="hash-b2fafa73d0" class="commentable">
+		I've used these phrases a few times without explaining them, so let me do that now. GET and
+		POST are two kinds of <strong>HTTP operation</strong>, and can be thought of rather like a
+		mode that a web-connected device (like a browser or a server) operates in. Any web address
+		can be visited in either mode, and the web application can take a different course of
+		action depending on the mode used.
+	</p>
+	<p id="hash-0fdeadea84" class="commentable">
+		When we visit a web site normally — such as the home page of our blog, say —
+		we are in GET mode. This is the state that is suitable for <em>reading</em> things from
+		a web server. Some pages containing a <code class="inline">&lt;form&gt;</code> also operate in GET mode,
+		such as search forms, since these too are used to read information.
+	</p>
+	<p id="hash-86fb207c7e" class="commentable">
+		Forms that may result in data being saved, on the other hand, should use POST. You can
+		see this with the comment form we just installed; have a look for the
+		<code class="inline">method="post"</code> declaration in the form tag.
+	</p>
+	<p id="hash-9ff5a43e51" class="commentable">
+		This was one of the reasons behind the earlier change to the installer: before the
+		modification, visiting the URL would reset the database, which breaks the rule that GET
+		operations are only for reading data. Swapping this to a POST form solved the issue.
+	</p>
+</div>
+
+
+<p id="hash-d5cb7b221e" class="commentable">
+	Adding a comment doesn't work yet, as the <code class="inline">INSERT</code> command is missing a value for
+	the date of comment creation. Let's fix that now:
+</p>
+	
+
+<div class="tab-container" id="tab-container-5d870a91fd088bd3e69769efcf65a78a0e556be9">
+	
+			<img class="expand-toggle icon" src="Make%20your%20own%20blog%20%3E%20Commenting%20form_files/code-expand.png" alt="Expand/contract code area">
+
+		<img class="tabs-move-left tabs-move icon" src="Make%20your%20own%20blog%20%3E%20Commenting%20form_files/tab-left.png" alt="Select previous tab">
+
+	<div class="tabs-chopper">
+
+				<ul class="tabs">
+							<li class="tab">
+										<a href="#tabs-d06093417aa05619052b-0">lib/view-post.php</a>
+
+										<span>lib/view-post.php</span>
+				</li>
+					</ul>
+
+	</div>
+
+	<img class="tabs-move-right tabs-move icon" src="Make%20your%20own%20blog%20%3E%20Commenting%20form_files/tab-right.png" alt="Select next tab">
+
+				<div id="tabs-d06093417aa05619052b-0" class="insert-diff">
+			<div class="top-bar">
+
+				
+				<div class="download-block">
+					<span class="download">
+						<a href="https://ilovephp.jondh.me.uk/checkouts/rebase5/d06093417aa05619052b/lib/view-post.php" target="_blank"><img src="Make%20your%20own%20blog%20%3E%20Commenting%20form_files/disk.png" alt="">
+						Download</a>
+					</span>
+				</div>
+
+			</div>
+			<div class="diff-scroll">
+				<div class="diff-body">
+					<div class="file ">
+			<div class="left side">
+			<div class="inner-side">
+				
+<div class="line-numbers">
+			<div class="line-numbers-section top-missing">
+												<div class="line line-number-line">
+						<code>63</code>
+					</div>
+																<div class="line line-number-line">
+						<code>64</code>
+					</div>
+																<div class="line line-number-line">
+						<code>65</code>
+					</div>
+																<div class="line line-number-line">
+						<code>66</code>
+					</div>
+																<div class="line line-number-line">
+						<code>67</code>
+					</div>
+																<div class="line line-number-line">
+						<code>68</code>
+					</div>
+																<div class="line line-number-line">
+						<code>69</code>
+					</div>
+																<div class="line line-number-line">
+						<code>70</code>
+					</div>
+																<div class="line line-number-line">
+						<code>71</code>
+					</div>
+																<div class="line line-number-line">
+						<code>72</code>
+					</div>
+																<div class="line line-number-line">
+						<code>73</code>
+					</div>
+																<div class="line line-number-empty">
+						<code>&nbsp;</code>
+					</div>
+																<div class="line line-number-empty">
+						<code>&nbsp;</code>
+					</div>
+																<div class="line line-number-empty">
+						<code>&nbsp;</code>
+					</div>
+																<div class="line line-number-line">
+						<code>74</code>
+					</div>
+																<div class="line line-number-line">
+						<code>75</code>
+					</div>
+																<div class="line line-number-empty">
+						<code>&nbsp;</code>
+					</div>
+																<div class="line line-number-empty">
+						<code>&nbsp;</code>
+					</div>
+																<div class="line line-number-empty">
+						<code>&nbsp;</code>
+					</div>
+																<div class="line line-number-line">
+						<code>76</code>
+					</div>
+																<div class="line line-number-line">
+						<code>77</code>
+					</div>
+																<div class="line line-number-line">
+						<code>78</code>
+					</div>
+									</div>
+	</div>
+<div class="diff-content">
+			<div class="section top-missing">
+												<div class="line diff-line ">
+						<code>		$sql = "</code>
+					</div>
+																<div class="line diff-line ">
+						<code>			INSERT INTO</code>
+					</div>
+																<div class="line diff-line ">
+						<code>				comment</code>
+					</div>
+																<div class="line diff-line diff-line-deleted">
+						<code>			(name, website, text, post_id)</code>
+					</div>
+																<div class="line diff-line diff-line-deleted">
+						<code>			VALUES(:name, :website, :text, :post_id)</code>
+					</div>
+																<div class="line diff-line ">
+						<code>		";</code>
+					</div>
+																<div class="line diff-line ">
+						<code>		$stmt = $pdo-&gt;prepare($sql);</code>
+					</div>
+																<div class="line diff-line ">
+						<code>		if ($stmt === false)</code>
+					</div>
+																<div class="line diff-line ">
+						<code>		{</code>
+					</div>
+																<div class="line diff-line ">
+						<code>			throw new Exception('Cannot prepare statement to insert comment');</code>
+					</div>
+																<div class="line diff-line ">
+						<code>		}</code>
+					</div>
+																<div class="line diff-line-empty">
+						<code></code>
+					</div>
+																<div class="line diff-line-empty">
+						<code></code>
+					</div>
+																<div class="line diff-line-empty">
+						<code></code>
+					</div>
+																<div class="line diff-line ">
+						<code>		$result = $stmt-&gt;execute(</code>
+					</div>
+																<div class="line diff-line diff-line-deleted">
+						<code>			array_merge($commentData, array('post_id' =&gt; $postId, ))</code>
+					</div>
+																<div class="line diff-line-empty">
+						<code></code>
+					</div>
+																<div class="line diff-line-empty">
+						<code></code>
+					</div>
+																<div class="line diff-line-empty">
+						<code></code>
+					</div>
+																<div class="line diff-line ">
+						<code>		);</code>
+					</div>
+																<div class="line diff-line ">
+						<code></code>
+					</div>
+																<div class="line diff-line ">
+						<code>		if ($result === false)</code>
+					</div>
+									</div>
+	</div>
+			</div>
+		</div>	
+				<div class="right side">
+			<div class="inner-side">
+				
+<div class="line-numbers">
+			<div class="line-numbers-section top-missing">
+												<div class="line line-number-line">
+						<code>63</code>
+					</div>
+																<div class="line line-number-line">
+						<code>64</code>
+					</div>
+																<div class="line line-number-line">
+						<code>65</code>
+					</div>
+																<div class="line line-number-line">
+						<code>66</code>
+					</div>
+																<div class="line line-number-line">
+						<code>67</code>
+					</div>
+																<div class="line line-number-line">
+						<code>68</code>
+					</div>
+																<div class="line line-number-line">
+						<code>69</code>
+					</div>
+																<div class="line line-number-line">
+						<code>70</code>
+					</div>
+																<div class="line line-number-line">
+						<code>71</code>
+					</div>
+																<div class="line line-number-line">
+						<code>72</code>
+					</div>
+																<div class="line line-number-line">
+						<code>73</code>
+					</div>
+																<div class="line line-number-line">
+						<code>74</code>
+					</div>
+																<div class="line line-number-line">
+						<code>75</code>
+					</div>
+																<div class="line line-number-line">
+						<code>76</code>
+					</div>
+																<div class="line line-number-line">
+						<code>77</code>
+					</div>
+																<div class="line line-number-line">
+						<code>78</code>
+					</div>
+																<div class="line line-number-line">
+						<code>79</code>
+					</div>
+																<div class="line line-number-line">
+						<code>80</code>
+					</div>
+																<div class="line line-number-line">
+						<code>81</code>
+					</div>
+																<div class="line line-number-line">
+						<code>82</code>
+					</div>
+																<div class="line line-number-line">
+						<code>83</code>
+					</div>
+																<div class="line line-number-line">
+						<code>84</code>
+					</div>
+									</div>
+	</div>
+<div class="diff-content">
+			<div class="section top-missing">
+												<div class="line diff-line ">
+						<code>		$sql = "</code>
+					</div>
+																<div class="line diff-line ">
+						<code>			INSERT INTO</code>
+					</div>
+																<div class="line diff-line ">
+						<code>				comment</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>			(name, website, text, created_at, post_id)</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>			VALUES(:name, :website, :text, :created_at, :post_id)</code>
+					</div>
+																<div class="line diff-line ">
+						<code>		";</code>
+					</div>
+																<div class="line diff-line ">
+						<code>		$stmt = $pdo-&gt;prepare($sql);</code>
+					</div>
+																<div class="line diff-line ">
+						<code>		if ($stmt === false)</code>
+					</div>
+																<div class="line diff-line ">
+						<code>		{</code>
+					</div>
+																<div class="line diff-line ">
+						<code>			throw new Exception('Cannot prepare statement to insert comment');</code>
+					</div>
+																<div class="line diff-line ">
+						<code>		}</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code></code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>		$createdTimestamp = date('Y-m-d H:m:s');</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code></code>
+					</div>
+																<div class="line diff-line ">
+						<code>		$result = $stmt-&gt;execute(</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>			array_merge(</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>				$commentData,</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>				array('post_id' =&gt; $postId, 'created_at' =&gt; $createdTimestamp, )</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>			)</code>
+					</div>
+																<div class="line diff-line ">
+						<code>		);</code>
+					</div>
+																<div class="line diff-line ">
+						<code></code>
+					</div>
+																<div class="line diff-line ">
+						<code>		if ($result === false)</code>
+					</div>
+									</div>
+	</div>
+			</div>
+		</div>
+	</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+<p id="hash-ac47bac58f" class="commentable">
+	So, that gets the success case working. However, if you test a failure condition (empty name
+	field or an empty comment, the fields that <em>were</em> filled in now disappear. This is because
+	a form does not by default contain values, so we have to add them manually.	
+</p>
+
+<p id="hash-a3cdbdfe98" class="commentable">
+	Thus, we now set empty values for the GET case (no form submission) in
+	<span class="filename">view-post.php</span> as well as
+	the already existing POST case. Where we output the user-supplied data, we pass it through
+	the PHP function <code class="inline">htmlspecialchars()</code> via our custom function <code class="inline">htmlEscape()</code>,
+	which prevents any rendering problems if the user has used any HTML characters such as angle
+	brackets.
+</p>
+
+
+
+<div class="tab-container" id="tab-container-47b1952dff85feb9d840bb67bca98b0b18469420">
+	
+			<img class="expand-toggle icon" src="Make%20your%20own%20blog%20%3E%20Commenting%20form_files/code-expand.png" alt="Expand/contract code area">
+
+		<img class="tabs-move-left tabs-move icon" src="Make%20your%20own%20blog%20%3E%20Commenting%20form_files/tab-left.png" alt="Select previous tab">
+
+	<div class="tabs-chopper">
+
+				<ul class="tabs">
+							<li class="tab">
+										<a href="#tabs-a46b275cbbdf73d690dd-0">templates/comment-form.php</a>
+
+										<span>templates/comment-form.php</span>
+				</li>
+							<li class="tab">
+										<a href="#tabs-a46b275cbbdf73d690dd-1">view-post.php</a>
+
+										<span>view-post.php</span>
+				</li>
+					</ul>
+
+	</div>
+
+	<img class="tabs-move-right tabs-move icon" src="Make%20your%20own%20blog%20%3E%20Commenting%20form_files/tab-right.png" alt="Select next tab">
+
+				<div id="tabs-a46b275cbbdf73d690dd-0" class="insert-diff">
+			<div class="top-bar">
+
+				
+				<div class="download-block">
+					<span class="download">
+						<a href="https://ilovephp.jondh.me.uk/checkouts/rebase5/a46b275cbbdf73d690dd/templates/comment-form.php" target="_blank"><img src="Make%20your%20own%20blog%20%3E%20Commenting%20form_files/disk.png" alt="">
+						Download</a>
+					</span>
+				</div>
+
+			</div>
+			<div class="diff-scroll">
+				<div class="diff-body">
+					<div class="file ">
+			<div class="left side">
+			<div class="inner-side">
+				
+<div class="line-numbers">
+			<div class="line-numbers-section ">
+												<div class="line line-number-empty">
+						<code>&nbsp;</code>
+					</div>
+																<div class="line line-number-empty">
+						<code>&nbsp;</code>
+					</div>
+																<div class="line line-number-empty">
+						<code>&nbsp;</code>
+					</div>
+																<div class="line line-number-empty">
+						<code>&nbsp;</code>
+					</div>
+																<div class="line line-number-empty">
+						<code>&nbsp;</code>
+					</div>
+																<div class="line line-number-empty">
+						<code>&nbsp;</code>
+					</div>
+																<div class="line line-number-empty">
+						<code>&nbsp;</code>
+					</div>
+																<div class="line line-number-line">
+						<code>1</code>
+					</div>
+																<div class="line line-number-line">
+						<code>2</code>
+					</div>
+																<div class="line line-number-line">
+						<code>3</code>
+					</div>
+									</div>
+			<div class="line-numbers-section ">
+												<div class="line line-number-line">
+						<code>30</code>
+					</div>
+																<div class="line line-number-line">
+						<code>31</code>
+					</div>
+																<div class="line line-number-line">
+						<code>32</code>
+					</div>
+																<div class="line line-number-empty">
+						<code>&nbsp;</code>
+					</div>
+																<div class="line line-number-line">
+						<code>33</code>
+					</div>
+																<div class="line line-number-line">
+						<code>34</code>
+					</div>
+																<div class="line line-number-line">
+						<code>35</code>
+					</div>
+									</div>
+			<div class="line-numbers-section ">
+												<div class="line line-number-line">
+						<code>41</code>
+					</div>
+																<div class="line line-number-line">
+						<code>42</code>
+					</div>
+																<div class="line line-number-line">
+						<code>43</code>
+					</div>
+																<div class="line line-number-empty">
+						<code>&nbsp;</code>
+					</div>
+																<div class="line line-number-line">
+						<code>44</code>
+					</div>
+																<div class="line line-number-line">
+						<code>45</code>
+					</div>
+																<div class="line line-number-line">
+						<code>46</code>
+					</div>
+									</div>
+			<div class="line-numbers-section ">
+												<div class="line line-number-line">
+						<code>53</code>
+					</div>
+																<div class="line line-number-line">
+						<code>54</code>
+					</div>
+																<div class="line line-number-line">
+						<code>55</code>
+					</div>
+																<div class="line line-number-line">
+						<code>56</code>
+					</div>
+																<div class="line line-number-line">
+						<code>57</code>
+					</div>
+																<div class="line line-number-line">
+						<code>58</code>
+					</div>
+																<div class="line line-number-line">
+						<code>59</code>
+					</div>
+									</div>
+	</div>
+<div class="diff-content">
+			<div class="section ">
+												<div class="line diff-line-empty">
+						<code></code>
+					</div>
+																<div class="line diff-line-empty">
+						<code></code>
+					</div>
+																<div class="line diff-line-empty">
+						<code></code>
+					</div>
+																<div class="line diff-line-empty">
+						<code></code>
+					</div>
+																<div class="line diff-line-empty">
+						<code></code>
+					</div>
+																<div class="line diff-line-empty">
+						<code></code>
+					</div>
+																<div class="line diff-line-empty">
+						<code></code>
+					</div>
+																<div class="line diff-line ">
+						<code>&lt;?php // We'll use a rule-off for now, to separate page sections ?&gt;</code>
+					</div>
+																<div class="line diff-line ">
+						<code>&lt;hr /&gt;</code>
+					</div>
+																<div class="line diff-line ">
+						<code></code>
+					</div>
+									</div>
+			<div class="section ">
+												<div class="line diff-line ">
+						<code>			type="text"</code>
+					</div>
+																<div class="line diff-line ">
+						<code>			id="comment-name"</code>
+					</div>
+																<div class="line diff-line ">
+						<code>			name="comment-name"</code>
+					</div>
+																<div class="line diff-line-empty">
+						<code></code>
+					</div>
+																<div class="line diff-line ">
+						<code>		/&gt;</code>
+					</div>
+																<div class="line diff-line ">
+						<code>	&lt;/p&gt;</code>
+					</div>
+																<div class="line diff-line ">
+						<code>	&lt;p&gt;</code>
+					</div>
+									</div>
+			<div class="section ">
+												<div class="line diff-line ">
+						<code>			type="text"</code>
+					</div>
+																<div class="line diff-line ">
+						<code>			id="comment-website"</code>
+					</div>
+																<div class="line diff-line ">
+						<code>			name="comment-website"</code>
+					</div>
+																<div class="line diff-line-empty">
+						<code></code>
+					</div>
+																<div class="line diff-line ">
+						<code>		/&gt;</code>
+					</div>
+																<div class="line diff-line ">
+						<code>	&lt;/p&gt;</code>
+					</div>
+																<div class="line diff-line ">
+						<code>	&lt;p&gt;</code>
+					</div>
+									</div>
+			<div class="section ">
+												<div class="line diff-line ">
+						<code>			name="comment-text"</code>
+					</div>
+																<div class="line diff-line ">
+						<code>			rows="8"</code>
+					</div>
+																<div class="line diff-line ">
+						<code>			cols="70"</code>
+					</div>
+																<div class="line diff-line diff-line-deleted">
+						<code>		&gt;&lt;/textarea&gt;</code>
+					</div>
+																<div class="line diff-line ">
+						<code>	&lt;/p&gt;</code>
+					</div>
+																<div class="line diff-line ">
+						<code></code>
+					</div>
+																<div class="line diff-line ">
+						<code>	&lt;input type="submit" value="Submit comment" /&gt;</code>
+					</div>
+									</div>
+	</div>
+			</div>
+		</div>	
+				<div class="right side">
+			<div class="inner-side">
+				
+<div class="line-numbers">
+			<div class="line-numbers-section ">
+												<div class="line line-number-line">
+						<code>1</code>
+					</div>
+																<div class="line line-number-line">
+						<code>2</code>
+					</div>
+																<div class="line line-number-line">
+						<code>3</code>
+					</div>
+																<div class="line line-number-line">
+						<code>4</code>
+					</div>
+																<div class="line line-number-line">
+						<code>5</code>
+					</div>
+																<div class="line line-number-line">
+						<code>6</code>
+					</div>
+																<div class="line line-number-line">
+						<code>7</code>
+					</div>
+																<div class="line line-number-line">
+						<code>8</code>
+					</div>
+																<div class="line line-number-line">
+						<code>9</code>
+					</div>
+																<div class="line line-number-line">
+						<code>10</code>
+					</div>
+									</div>
+			<div class="line-numbers-section ">
+												<div class="line line-number-line">
+						<code>30</code>
+					</div>
+																<div class="line line-number-line">
+						<code>31</code>
+					</div>
+																<div class="line line-number-line">
+						<code>32</code>
+					</div>
+																<div class="line line-number-line">
+						<code>33</code>
+					</div>
+																<div class="line line-number-line">
+						<code>34</code>
+					</div>
+																<div class="line line-number-line">
+						<code>35</code>
+					</div>
+																<div class="line line-number-line">
+						<code>36</code>
+					</div>
+									</div>
+			<div class="line-numbers-section ">
+												<div class="line line-number-line">
+						<code>41</code>
+					</div>
+																<div class="line line-number-line">
+						<code>42</code>
+					</div>
+																<div class="line line-number-line">
+						<code>43</code>
+					</div>
+																<div class="line line-number-line">
+						<code>44</code>
+					</div>
+																<div class="line line-number-line">
+						<code>45</code>
+					</div>
+																<div class="line line-number-line">
+						<code>46</code>
+					</div>
+																<div class="line line-number-line">
+						<code>47</code>
+					</div>
+									</div>
+			<div class="line-numbers-section ">
+												<div class="line line-number-line">
+						<code>53</code>
+					</div>
+																<div class="line line-number-line">
+						<code>54</code>
+					</div>
+																<div class="line line-number-line">
+						<code>55</code>
+					</div>
+																<div class="line line-number-line">
+						<code>56</code>
+					</div>
+																<div class="line line-number-line">
+						<code>57</code>
+					</div>
+																<div class="line line-number-line">
+						<code>58</code>
+					</div>
+																<div class="line line-number-line">
+						<code>59</code>
+					</div>
+									</div>
+	</div>
+<div class="diff-content">
+			<div class="section ">
+												<div class="line diff-line diff-line-added">
+						<code>&lt;?php</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>/**</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code> * @var $errors string</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code> * @var $commentData array</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code> */</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>?&gt;</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code></code>
+					</div>
+																<div class="line diff-line ">
+						<code>&lt;?php // We'll use a rule-off for now, to separate page sections ?&gt;</code>
+					</div>
+																<div class="line diff-line ">
+						<code>&lt;hr /&gt;</code>
+					</div>
+																<div class="line diff-line ">
+						<code></code>
+					</div>
+									</div>
+			<div class="section ">
+												<div class="line diff-line ">
+						<code>			type="text"</code>
+					</div>
+																<div class="line diff-line ">
+						<code>			id="comment-name"</code>
+					</div>
+																<div class="line diff-line ">
+						<code>			name="comment-name"</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>			value="&lt;?php echo htmlEscape($commentData['name']) ?&gt;"</code>
+					</div>
+																<div class="line diff-line ">
+						<code>		/&gt;</code>
+					</div>
+																<div class="line diff-line ">
+						<code>	&lt;/p&gt;</code>
+					</div>
+																<div class="line diff-line ">
+						<code>	&lt;p&gt;</code>
+					</div>
+									</div>
+			<div class="section ">
+												<div class="line diff-line ">
+						<code>			type="text"</code>
+					</div>
+																<div class="line diff-line ">
+						<code>			id="comment-website"</code>
+					</div>
+																<div class="line diff-line ">
+						<code>			name="comment-website"</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>			value="&lt;?php echo htmlEscape($commentData['website']) ?&gt;"</code>
+					</div>
+																<div class="line diff-line ">
+						<code>		/&gt;</code>
+					</div>
+																<div class="line diff-line ">
+						<code>	&lt;/p&gt;</code>
+					</div>
+																<div class="line diff-line ">
+						<code>	&lt;p&gt;</code>
+					</div>
+									</div>
+			<div class="section ">
+												<div class="line diff-line ">
+						<code>			name="comment-text"</code>
+					</div>
+																<div class="line diff-line ">
+						<code>			rows="8"</code>
+					</div>
+																<div class="line diff-line ">
+						<code>			cols="70"</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>		&gt;&lt;?php echo htmlEscape($commentData['text']) ?&gt;&lt;/textarea&gt;</code>
+					</div>
+																<div class="line diff-line ">
+						<code>	&lt;/p&gt;</code>
+					</div>
+																<div class="line diff-line ">
+						<code></code>
+					</div>
+																<div class="line diff-line ">
+						<code>	&lt;input type="submit" value="Submit comment" /&gt;</code>
+					</div>
+									</div>
+	</div>
+			</div>
+		</div>
+	</div>
+				</div>
+			</div>
+		</div>
+			<div id="tabs-a46b275cbbdf73d690dd-1" class="insert-diff">
+			<div class="top-bar">
+
+				
+				<div class="download-block">
+					<span class="download">
+						<a href="https://ilovephp.jondh.me.uk/checkouts/rebase5/a46b275cbbdf73d690dd/view-post.php" target="_blank"><img src="Make%20your%20own%20blog%20%3E%20Commenting%20form_files/disk.png" alt="">
+						Download</a>
+					</span>
+				</div>
+
+			</div>
+			<div class="diff-scroll">
+				<div class="diff-body">
+					<div class="file ">
+			<div class="left side">
+			<div class="inner-side">
+				
+<div class="line-numbers">
+			<div class="line-numbers-section top-missing">
+												<div class="line line-number-line">
+						<code>43</code>
+					</div>
+																<div class="line line-number-line">
+						<code>44</code>
+					</div>
+																<div class="line line-number-line">
+						<code>45</code>
+					</div>
+																<div class="line line-number-empty">
+						<code>&nbsp;</code>
+					</div>
+																<div class="line line-number-empty">
+						<code>&nbsp;</code>
+					</div>
+																<div class="line line-number-empty">
+						<code>&nbsp;</code>
+					</div>
+																<div class="line line-number-empty">
+						<code>&nbsp;</code>
+					</div>
+																<div class="line line-number-empty">
+						<code>&nbsp;</code>
+					</div>
+																<div class="line line-number-empty">
+						<code>&nbsp;</code>
+					</div>
+																<div class="line line-number-empty">
+						<code>&nbsp;</code>
+					</div>
+																<div class="line line-number-empty">
+						<code>&nbsp;</code>
+					</div>
+																<div class="line line-number-line">
+						<code>46</code>
+					</div>
+																<div class="line line-number-line">
+						<code>47</code>
+					</div>
+																<div class="line line-number-line">
+						<code>48</code>
+					</div>
+									</div>
+	</div>
+<div class="diff-content">
+			<div class="section top-missing">
+												<div class="line diff-line ">
+						<code>		redirectAndExit('view-post.php?post_id=' . $postId);</code>
+					</div>
+																<div class="line diff-line ">
+						<code>	}</code>
+					</div>
+																<div class="line diff-line ">
+						<code>}</code>
+					</div>
+																<div class="line diff-line-empty">
+						<code></code>
+					</div>
+																<div class="line diff-line-empty">
+						<code></code>
+					</div>
+																<div class="line diff-line-empty">
+						<code></code>
+					</div>
+																<div class="line diff-line-empty">
+						<code></code>
+					</div>
+																<div class="line diff-line-empty">
+						<code></code>
+					</div>
+																<div class="line diff-line-empty">
+						<code></code>
+					</div>
+																<div class="line diff-line-empty">
+						<code></code>
+					</div>
+																<div class="line diff-line-empty">
+						<code></code>
+					</div>
+																<div class="line diff-line ">
+						<code></code>
+					</div>
+																<div class="line diff-line ">
+						<code>// Swap carriage returns for paragraph breaks</code>
+					</div>
+																<div class="line diff-line ">
+						<code>$bodyText = htmlEscape($row['body']);</code>
+					</div>
+									</div>
+	</div>
+			</div>
+		</div>	
+				<div class="right side">
+			<div class="inner-side">
+				
+<div class="line-numbers">
+			<div class="line-numbers-section top-missing">
+												<div class="line line-number-line">
+						<code>43</code>
+					</div>
+																<div class="line line-number-line">
+						<code>44</code>
+					</div>
+																<div class="line line-number-line">
+						<code>45</code>
+					</div>
+																<div class="line line-number-line">
+						<code>46</code>
+					</div>
+																<div class="line line-number-line">
+						<code>47</code>
+					</div>
+																<div class="line line-number-line">
+						<code>48</code>
+					</div>
+																<div class="line line-number-line">
+						<code>49</code>
+					</div>
+																<div class="line line-number-line">
+						<code>50</code>
+					</div>
+																<div class="line line-number-line">
+						<code>51</code>
+					</div>
+																<div class="line line-number-line">
+						<code>52</code>
+					</div>
+																<div class="line line-number-line">
+						<code>53</code>
+					</div>
+																<div class="line line-number-line">
+						<code>54</code>
+					</div>
+																<div class="line line-number-line">
+						<code>55</code>
+					</div>
+																<div class="line line-number-line">
+						<code>56</code>
+					</div>
+									</div>
+	</div>
+<div class="diff-content">
+			<div class="section top-missing">
+												<div class="line diff-line ">
+						<code>		redirectAndExit('view-post.php?post_id=' . $postId);</code>
+					</div>
+																<div class="line diff-line ">
+						<code>	}</code>
+					</div>
+																<div class="line diff-line ">
+						<code>}</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>else</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>{</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>	$commentData = array(</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>		'name' =&gt; '',</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>		'website' =&gt; '',</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>		'text' =&gt; '',</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>	);</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>}</code>
+					</div>
+																<div class="line diff-line ">
+						<code></code>
+					</div>
+																<div class="line diff-line ">
+						<code>// Swap carriage returns for paragraph breaks</code>
+					</div>
+																<div class="line diff-line ">
+						<code>$bodyText = htmlEscape($row['body']);</code>
+					</div>
+									</div>
+	</div>
+			</div>
+		</div>
+	</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+<p id="hash-518bd83d06" class="commentable">
+	And now for some more tidying. The first tweaking opportunity I noticed was that the code to
+	make a comment safe to render to the screen, and to swap newlines for paragraph tags, might be
+	useful elsewhere in the future. So I've generalised that snippet of code in a function, and
+	then made use of it:
+</p>
+
+
+<div class="tab-container" id="tab-container-e82a73d768bc4f550605fdd887390663522bbb06">
+	
+			<img class="expand-toggle icon" src="Make%20your%20own%20blog%20%3E%20Commenting%20form_files/code-expand.png" alt="Expand/contract code area">
+
+		<img class="tabs-move-left tabs-move icon" src="Make%20your%20own%20blog%20%3E%20Commenting%20form_files/tab-left.png" alt="Select previous tab">
+
+	<div class="tabs-chopper">
+
+				<ul class="tabs">
+							<li class="tab">
+										<a href="#tabs-5265b3d8f88e347046ae-0">lib/common.php</a>
+
+										<span>lib/common.php</span>
+				</li>
+							<li class="tab">
+										<a href="#tabs-5265b3d8f88e347046ae-1">view-post.php</a>
+
+										<span>view-post.php</span>
+				</li>
+					</ul>
+
+	</div>
+
+	<img class="tabs-move-right tabs-move icon" src="Make%20your%20own%20blog%20%3E%20Commenting%20form_files/tab-right.png" alt="Select next tab">
+
+				<div id="tabs-5265b3d8f88e347046ae-0" class="insert-diff">
+			<div class="top-bar">
+
+				
+				<div class="download-block">
+					<span class="download">
+						<a href="https://ilovephp.jondh.me.uk/checkouts/rebase5/5265b3d8f88e347046ae/lib/common.php" target="_blank"><img src="Make%20your%20own%20blog%20%3E%20Commenting%20form_files/disk.png" alt="">
+						Download</a>
+					</span>
+				</div>
+
+			</div>
+			<div class="diff-scroll">
+				<div class="diff-body">
+					<div class="file ">
+			<div class="left side">
+			<div class="inner-side">
+				
+<div class="line-numbers">
+			<div class="line-numbers-section top-missing">
+												<div class="line line-number-line">
+						<code>59</code>
+					</div>
+																<div class="line line-number-line">
+						<code>60</code>
+					</div>
+																<div class="line line-number-line">
+						<code>61</code>
+					</div>
+																<div class="line line-number-empty">
+						<code>&nbsp;</code>
+					</div>
+																<div class="line line-number-empty">
+						<code>&nbsp;</code>
+					</div>
+																<div class="line line-number-empty">
+						<code>&nbsp;</code>
+					</div>
+																<div class="line line-number-empty">
+						<code>&nbsp;</code>
+					</div>
+																<div class="line line-number-empty">
+						<code>&nbsp;</code>
+					</div>
+																<div class="line line-number-empty">
+						<code>&nbsp;</code>
+					</div>
+																<div class="line line-number-empty">
+						<code>&nbsp;</code>
+					</div>
+																<div class="line line-number-empty">
+						<code>&nbsp;</code>
+					</div>
+																<div class="line line-number-empty">
+						<code>&nbsp;</code>
+					</div>
+																<div class="line line-number-empty">
+						<code>&nbsp;</code>
+					</div>
+																<div class="line line-number-empty">
+						<code>&nbsp;</code>
+					</div>
+																<div class="line line-number-empty">
+						<code>&nbsp;</code>
+					</div>
+																<div class="line line-number-empty">
+						<code>&nbsp;</code>
+					</div>
+																<div class="line line-number-line">
+						<code>62</code>
+					</div>
+																<div class="line line-number-line">
+						<code>63</code>
+					</div>
+																<div class="line line-number-line">
+						<code>64</code>
+					</div>
+									</div>
+	</div>
+<div class="diff-content">
+			<div class="section top-missing">
+												<div class="line diff-line ">
+						<code>	return $date-&gt;format('d M Y, H:i');</code>
+					</div>
+																<div class="line diff-line ">
+						<code>}</code>
+					</div>
+																<div class="line diff-line ">
+						<code></code>
+					</div>
+																<div class="line diff-line-empty">
+						<code></code>
+					</div>
+																<div class="line diff-line-empty">
+						<code></code>
+					</div>
+																<div class="line diff-line-empty">
+						<code></code>
+					</div>
+																<div class="line diff-line-empty">
+						<code></code>
+					</div>
+																<div class="line diff-line-empty">
+						<code></code>
+					</div>
+																<div class="line diff-line-empty">
+						<code></code>
+					</div>
+																<div class="line diff-line-empty">
+						<code></code>
+					</div>
+																<div class="line diff-line-empty">
+						<code></code>
+					</div>
+																<div class="line diff-line-empty">
+						<code></code>
+					</div>
+																<div class="line diff-line-empty">
+						<code></code>
+					</div>
+																<div class="line diff-line-empty">
+						<code></code>
+					</div>
+																<div class="line diff-line-empty">
+						<code></code>
+					</div>
+																<div class="line diff-line-empty">
+						<code></code>
+					</div>
+																<div class="line diff-line ">
+						<code>function redirectAndExit($script)</code>
+					</div>
+																<div class="line diff-line ">
+						<code>{</code>
+					</div>
+																<div class="line diff-line ">
+						<code>	// Get the domain-relative URL (e.g. /blog/whatever.php or /whatever.php) and work</code>
+					</div>
+									</div>
+	</div>
+			</div>
+		</div>	
+				<div class="right side">
+			<div class="inner-side">
+				
+<div class="line-numbers">
+			<div class="line-numbers-section top-missing">
+												<div class="line line-number-line">
+						<code>59</code>
+					</div>
+																<div class="line line-number-line">
+						<code>60</code>
+					</div>
+																<div class="line line-number-line">
+						<code>61</code>
+					</div>
+																<div class="line line-number-line">
+						<code>62</code>
+					</div>
+																<div class="line line-number-line">
+						<code>63</code>
+					</div>
+																<div class="line line-number-line">
+						<code>64</code>
+					</div>
+																<div class="line line-number-line">
+						<code>65</code>
+					</div>
+																<div class="line line-number-line">
+						<code>66</code>
+					</div>
+																<div class="line line-number-line">
+						<code>67</code>
+					</div>
+																<div class="line line-number-line">
+						<code>68</code>
+					</div>
+																<div class="line line-number-line">
+						<code>69</code>
+					</div>
+																<div class="line line-number-line">
+						<code>70</code>
+					</div>
+																<div class="line line-number-line">
+						<code>71</code>
+					</div>
+																<div class="line line-number-line">
+						<code>72</code>
+					</div>
+																<div class="line line-number-line">
+						<code>73</code>
+					</div>
+																<div class="line line-number-line">
+						<code>74</code>
+					</div>
+																<div class="line line-number-line">
+						<code>75</code>
+					</div>
+																<div class="line line-number-line">
+						<code>76</code>
+					</div>
+																<div class="line line-number-line">
+						<code>77</code>
+					</div>
+									</div>
+	</div>
+<div class="diff-content">
+			<div class="section top-missing">
+												<div class="line diff-line ">
+						<code>	return $date-&gt;format('d M Y, H:i');</code>
+					</div>
+																<div class="line diff-line ">
+						<code>}</code>
+					</div>
+																<div class="line diff-line ">
+						<code></code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>/**</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code> * Converts unsafe text to safe, paragraphed, HTML</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code> *</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code> * @param string $text</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code> * @return string</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code> */</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>function convertNewlinesToParagraphs($text)</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>{</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>	$escaped = htmlEscape($text);</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code></code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>	return '&lt;p&gt;' . str_replace("\n", "&lt;/p&gt;&lt;p&gt;", $escaped) . '&lt;/p&gt;';</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>}</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code></code>
+					</div>
+																<div class="line diff-line ">
+						<code>function redirectAndExit($script)</code>
+					</div>
+																<div class="line diff-line ">
+</div></div></div></div></div></div></div></div></div></div></div></body></html>

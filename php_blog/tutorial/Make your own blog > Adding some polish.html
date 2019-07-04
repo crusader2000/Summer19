@@ -1,0 +1,3772 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+		<title>
+						Make your own blog
+			&gt; Adding some polish		</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+				            <link type="text/css" rel="stylesheet" href="Make%20your%20own%20blog%20%3E%20Adding%20some%20polish_files/local-file.css">
+		
+				<style id="dynamic-styles">
+			#content		{
+							font-family: 'Open Sans', sans-serif;
+			
+							font-weight: 300;
+					}
+			#contents-menu		{
+							font-family: 'Open Sans', sans-serif;
+			
+							font-weight: 300;
+					}
+			#contents-menu h2		{
+			
+							font-weight: 400;
+					}
+			#content h1		{
+			
+							font-weight: 300;
+					}
+			#content h2		{
+			
+							font-weight: 400;
+					}
+			.sidebar .heading p		{
+			
+							font-weight: 400;
+					}
+	</style>
+
+				<script type="text/javascript" async="" defer="defer" src="Make%20your%20own%20blog%20%3E%20Adding%20some%20polish_files/piwik.js"></script><script src="Make%20your%20own%20blog%20%3E%20Adding%20some%20polish_files/compiled.js"></script>
+
+				<link type="text/css" rel="stylesheet" href="Make%20your%20own%20blog%20%3E%20Adding%20some%20polish_files/compiled.css">
+
+	</head>
+	<body>
+		<div id="fixed-panel">
+			<div id="version-chooser">
+				<div class="inner">
+					<p>
+	Choose a version here. If you've not already started the tutorial, just go
+	with the latest one.
+</p>
+
+<table>
+	<tbody>
+					<tr>
+				<td>30 Aug 2014</td>
+				<td>Preview version</td>
+				<td>
+					<a href="https://ilovephp.jondh.me.uk/en/tutorial/make-your-own-blog/adding-some-polish?version=v1">Choose</a>
+									</td>
+			</tr>
+					<tr>
+				<td>5 Oct 2014</td>
+				<td>Explicitly adds a specific charset for htmlspecialchars(), and wraps it with a custom function</td>
+				<td>
+					<a href="https://ilovephp.jondh.me.uk/en/tutorial/make-your-own-blog/adding-some-polish?version=v2">Choose</a>
+									</td>
+			</tr>
+					<tr>
+				<td>16 Oct 2014</td>
+				<td>Updated redirect function to work with vhost subfolders</td>
+				<td>
+					<a href="https://ilovephp.jondh.me.uk/en/tutorial/make-your-own-blog/adding-some-polish?version=v3">Choose</a>
+									</td>
+			</tr>
+					<tr>
+				<td>4 Nov 2014</td>
+				<td>Minor improvements: added missing docblock, fixed security 
+issue, CSS tweak. Switched hashing method to DEFAULT instead of BCRYPT, 
+this is best practice.</td>
+				<td>
+					<a href="https://ilovephp.jondh.me.uk/en/tutorial/make-your-own-blog/adding-some-polish?version=v4">Choose</a>
+									</td>
+			</tr>
+					<tr>
+				<td>25 Nov 2014</td>
+				<td>Improve the notes on getting started, in particular choosing a programmer's editor. Added introduction to mod_rewrite rules.</td>
+				<td>
+					<a href="https://ilovephp.jondh.me.uk/en/tutorial/make-your-own-blog/adding-some-polish?version=v5">Choose</a>
+									</td>
+			</tr>
+					<tr>
+				<td>16 Aug 2018</td>
+				<td>Some bug fixes, remove compatibility library for earlier version of PHP</td>
+				<td>
+					<a href="https://ilovephp.jondh.me.uk/en/tutorial/make-your-own-blog/adding-some-polish?version=v6">Choose</a>
+											♥
+									</td>
+			</tr>
+			</tbody>
+</table>				</div>
+			</div>
+			<div id="header">
+				<div id="header-inner">
+					<a href="https://ilovephp.jondh.me.uk/" title="Home">I ♥ PHP</a>
+
+
+
+
+<a id="version-chooser-toggle" class="section" title="See the different available versions">
+	Versions
+</a>
+				</div>
+			</div>
+		</div>
+
+				<div id="hidden-padding"></div>
+
+					<div id="versions-note">
+		<span id="versions-note-close">
+			OK
+		</span>
+		<div id="versions-note-inner">
+			NB:
+			There are several versions of this tutorial, each successive one
+			containing additional improvements. If you're in the middle of
+			working through it, please check the versions panel above, to
+			ensure you're not mixing code from different versions.
+		</div>
+	</div>
+
+							<div id="popup-sections">
+				
+<div id="contents-menu">
+	<h2>Contents</h2>
+
+			<div class="menu-entry unselected">
+			<div class="title">
+				1.
+
+									<a href="https://ilovephp.jondh.me.uk/en/tutorial/make-your-own-blog/introduction">Introduction</a>
+							</div>
+					</div>
+			<div class="menu-entry unselected">
+			<div class="title">
+				2.
+
+									<a href="https://ilovephp.jondh.me.uk/en/tutorial/make-your-own-blog/using-real-data">Using real data</a>
+							</div>
+					</div>
+			<div class="menu-entry unselected">
+			<div class="title">
+				3.
+
+									<a href="https://ilovephp.jondh.me.uk/en/tutorial/make-your-own-blog/adding-more-features">Adding more features</a>
+							</div>
+					</div>
+			<div class="menu-entry unselected">
+			<div class="title">
+				4.
+
+									<a href="https://ilovephp.jondh.me.uk/en/tutorial/make-your-own-blog/improving-the-installer">Improving the installer</a>
+							</div>
+					</div>
+			<div class="menu-entry unselected">
+			<div class="title">
+				5.
+
+									<a href="https://ilovephp.jondh.me.uk/en/tutorial/make-your-own-blog/commenting-form">Commenting form</a>
+							</div>
+					</div>
+			<div class="menu-entry unselected">
+			<div class="title">
+				6.
+
+									<a href="https://ilovephp.jondh.me.uk/en/tutorial/make-your-own-blog/adding-a-login-system">Adding a login system</a>
+							</div>
+					</div>
+			<div class="menu-entry unselected">
+			<div class="title">
+				7.
+
+									<a href="https://ilovephp.jondh.me.uk/en/tutorial/make-your-own-blog/tidy-up">Tidy up</a>
+							</div>
+					</div>
+			<div class="menu-entry unselected">
+			<div class="title">
+				8.
+
+									<a href="https://ilovephp.jondh.me.uk/en/tutorial/make-your-own-blog/new-post-creation">New post creation</a>
+							</div>
+					</div>
+			<div class="menu-entry unselected">
+			<div class="title">
+				9.
+
+									<a href="https://ilovephp.jondh.me.uk/en/tutorial/make-your-own-blog/post-editing">Post editing</a>
+							</div>
+					</div>
+			<div class="menu-entry unselected">
+			<div class="title">
+				10.
+
+									<a href="https://ilovephp.jondh.me.uk/en/tutorial/make-your-own-blog/all-posts-page">All posts page</a>
+							</div>
+					</div>
+			<div class="menu-entry unselected">
+			<div class="title">
+				11.
+
+									<a href="https://ilovephp.jondh.me.uk/en/tutorial/make-your-own-blog/comment-admin">Comment admin</a>
+							</div>
+					</div>
+			<div class="menu-entry selected">
+			<div class="title">
+				12.
+
+														Adding some polish							</div>
+					</div>
+	</div>
+							</div>
+
+			<div id="content">
+				<h1>Make your own blog</h1>
+
+									
+
+<h2>Adding some polish</h2>
+
+<p id="hash-362eec1ba3" class="commentable">
+	Excellent, we're now on the home straight! Our functionality is finished, so we'll just
+	do a last round of sprucing up. To start, let's add in a home link for authorised users. This
+	is useful on the restricted pages, since they don't have a home link themselves:
+</p>
+
+
+<div class="tab-container" id="tab-container-64a547e2f3d6ff277291f4b8e39d5a12f70d9a79" data-easytabs="true">
+	
+			<img class="expand-toggle icon" src="Make%20your%20own%20blog%20%3E%20Adding%20some%20polish_files/code-expand.png" alt="Expand/contract code area" style="display: none;">
+
+		<img class="tabs-move-left tabs-move icon" src="Make%20your%20own%20blog%20%3E%20Adding%20some%20polish_files/tab-left.png" alt="Select previous tab" style="display: none;">
+
+	<div class="tabs-chopper">
+
+				<ul class="tabs">
+							<li class="tab active">
+										<a href="#tabs-126e2ae846d3852b541d-0" class="active">templates/top-menu.php</a>
+
+										<span class="active">templates/top-menu.php</span>
+				</li>
+					</ul>
+
+	</div>
+
+	<img class="tabs-move-right tabs-move icon" src="Make%20your%20own%20blog%20%3E%20Adding%20some%20polish_files/tab-right.png" alt="Select next tab" style="display: none;">
+
+				<div id="tabs-126e2ae846d3852b541d-0" class="insert-diff active" style="">
+			<div class="top-bar">
+
+				
+				<div class="download-block">
+					<span class="download">
+						<a href="https://ilovephp.jondh.me.uk/checkouts/rebase5/126e2ae846d3852b541d/templates/top-menu.php" target="_blank"><img src="Make%20your%20own%20blog%20%3E%20Adding%20some%20polish_files/disk.png" alt="">
+						Download</a>
+					</span>
+				</div>
+
+			</div>
+			<div class="diff-scroll contracted">
+				<div class="diff-body">
+					<div class="file ">
+			<div class="left side">
+			<div class="inner-side">
+				
+<div class="line-numbers">
+			<div class="line-numbers-section ">
+												<div class="line line-number-line">
+						<code>1</code>
+					</div>
+																<div class="line line-number-line">
+						<code>2</code>
+					</div>
+																<div class="line line-number-line">
+						<code>3</code>
+					</div>
+																<div class="line line-number-empty">
+						<code>&nbsp;</code>
+					</div>
+																<div class="line line-number-empty">
+						<code>&nbsp;</code>
+					</div>
+																<div class="line line-number-line">
+						<code>4</code>
+					</div>
+																<div class="line line-number-line">
+						<code>5</code>
+					</div>
+																<div class="line line-number-line">
+						<code>6</code>
+					</div>
+									</div>
+	</div>
+<div class="diff-content">
+			<div class="section ">
+												<div class="line diff-line ">
+						<code>&lt;div class="top-menu"&gt;</code>
+					</div>
+																<div class="line diff-line ">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&lt;div class="menu-options"&gt;</code>
+					</div>
+																<div class="line diff-line ">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;?php if (isLoggedIn()): ?&gt;</code>
+					</div>
+																<div class="line diff-line-empty">
+						<code></code>
+					</div>
+																<div class="line diff-line-empty">
+						<code></code>
+					</div>
+																<div class="line diff-line ">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;a href="list-posts.php"&gt;All posts&lt;/a&gt;</code>
+					</div>
+																<div class="line diff-line ">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|</code>
+					</div>
+																<div class="line diff-line ">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;a href="edit-post.php"&gt;New post&lt;/a&gt;</code>
+					</div>
+									</div>
+	</div>
+			</div>
+		</div>	
+				<div class="right side">
+			<div class="inner-side">
+				
+<div class="line-numbers">
+			<div class="line-numbers-section ">
+												<div class="line line-number-line">
+						<code>1</code>
+					</div>
+																<div class="line line-number-line">
+						<code>2</code>
+					</div>
+																<div class="line line-number-line">
+						<code>3</code>
+					</div>
+																<div class="line line-number-line">
+						<code>4</code>
+					</div>
+																<div class="line line-number-line">
+						<code>5</code>
+					</div>
+																<div class="line line-number-line">
+						<code>6</code>
+					</div>
+																<div class="line line-number-line">
+						<code>7</code>
+					</div>
+																<div class="line line-number-line">
+						<code>8</code>
+					</div>
+									</div>
+	</div>
+<div class="diff-content">
+			<div class="section ">
+												<div class="line diff-line ">
+						<code>&lt;div class="top-menu"&gt;</code>
+					</div>
+																<div class="line diff-line ">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&lt;div class="menu-options"&gt;</code>
+					</div>
+																<div class="line diff-line ">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;?php if (isLoggedIn()): ?&gt;</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;a href="index.php"&gt;Home&lt;/a&gt;</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|</code>
+					</div>
+																<div class="line diff-line ">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;a href="list-posts.php"&gt;All posts&lt;/a&gt;</code>
+					</div>
+																<div class="line diff-line ">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|</code>
+					</div>
+																<div class="line diff-line ">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;a href="edit-post.php"&gt;New post&lt;/a&gt;</code>
+					</div>
+									</div>
+	</div>
+			</div>
+		</div>
+	</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+<p id="hash-3c7b396241" class="commentable">
+	Next, I thought it would be nice to have a comment count for each article on the All Posts page.
+	Add the following changes:
+</p>
+
+
+<div class="tab-container" id="tab-container-10f1e786f5eeaf2c41b6259bab8376c05824dbf8" data-easytabs="true">
+	
+			<img class="expand-toggle icon" src="Make%20your%20own%20blog%20%3E%20Adding%20some%20polish_files/code-expand.png" alt="Expand/contract code area" style="display: none;">
+
+		<img class="tabs-move-left tabs-move icon" src="Make%20your%20own%20blog%20%3E%20Adding%20some%20polish_files/tab-left.png" alt="Select previous tab" style="display: none;">
+
+	<div class="tabs-chopper">
+
+				<ul class="tabs">
+							<li class="tab active">
+										<a href="#tabs-1b1fed8a9ddde933d685-0" class="active">lib/common.php</a>
+
+										<span class="active">lib/common.php</span>
+				</li>
+							<li class="tab">
+										<a href="#tabs-1b1fed8a9ddde933d685-1">list-posts.php</a>
+
+										<span>list-posts.php</span>
+				</li>
+					</ul>
+
+	</div>
+
+	<img class="tabs-move-right tabs-move icon" src="Make%20your%20own%20blog%20%3E%20Adding%20some%20polish_files/tab-right.png" alt="Select next tab" style="display: none;">
+
+				<div id="tabs-1b1fed8a9ddde933d685-0" class="insert-diff active" style="">
+			<div class="top-bar">
+
+				
+				<div class="download-block">
+					<span class="download">
+						<a href="https://ilovephp.jondh.me.uk/checkouts/rebase5/1b1fed8a9ddde933d685/lib/common.php" target="_blank"><img src="Make%20your%20own%20blog%20%3E%20Adding%20some%20polish_files/disk.png" alt="">
+						Download</a>
+					</span>
+				</div>
+
+			</div>
+			<div class="diff-scroll contracted">
+				<div class="diff-body">
+					<div class="file ">
+			<div class="left side">
+			<div class="inner-side">
+				
+<div class="line-numbers">
+			<div class="line-numbers-section top-missing">
+												<div class="line line-number-line">
+						<code>83</code>
+					</div>
+																<div class="line line-number-line">
+						<code>84</code>
+					</div>
+																<div class="line line-number-line">
+						<code>85</code>
+					</div>
+																<div class="line line-number-line">
+						<code>86</code>
+					</div>
+																<div class="line line-number-empty">
+						<code>&nbsp;</code>
+					</div>
+																<div class="line line-number-line">
+						<code>87</code>
+					</div>
+																<div class="line line-number-line">
+						<code>88</code>
+					</div>
+																<div class="line line-number-line">
+						<code>89</code>
+					</div>
+									</div>
+	</div>
+<div class="diff-content">
+			<div class="section top-missing">
+												<div class="line diff-line ">
+						<code>{</code>
+					</div>
+																<div class="line diff-line ">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;$stmt = $pdo-&gt;query(</code>
+					</div>
+																<div class="line diff-line ">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'SELECT</code>
+					</div>
+																<div class="line diff-line diff-line-deleted">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;id, title, created_at, body</code>
+					</div>
+																<div class="line diff-line-empty">
+						<code></code>
+					</div>
+																<div class="line diff-line ">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;FROM</code>
+					</div>
+																<div class="line diff-line ">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;post</code>
+					</div>
+																<div class="line diff-line ">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ORDER BY</code>
+					</div>
+									</div>
+	</div>
+			</div>
+		</div>	
+				<div class="right side">
+			<div class="inner-side">
+				
+<div class="line-numbers">
+			<div class="line-numbers-section top-missing">
+												<div class="line line-number-line">
+						<code>83</code>
+					</div>
+																<div class="line line-number-line">
+						<code>84</code>
+					</div>
+																<div class="line line-number-line">
+						<code>85</code>
+					</div>
+																<div class="line line-number-line">
+						<code>86</code>
+					</div>
+																<div class="line line-number-line">
+						<code>87</code>
+					</div>
+																<div class="line line-number-line">
+						<code>88</code>
+					</div>
+																<div class="line line-number-line">
+						<code>89</code>
+					</div>
+																<div class="line line-number-line">
+						<code>90</code>
+					</div>
+									</div>
+	</div>
+<div class="diff-content">
+			<div class="section top-missing">
+												<div class="line diff-line ">
+						<code>{</code>
+					</div>
+																<div class="line diff-line ">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;$stmt = $pdo-&gt;query(</code>
+					</div>
+																<div class="line diff-line ">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'SELECT</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;id, title, created_at, body,</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(SELECT COUNT(*) FROM comment WHERE comment.post_id = post.id) comment_count</code>
+					</div>
+																<div class="line diff-line ">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;FROM</code>
+					</div>
+																<div class="line diff-line ">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;post</code>
+					</div>
+																<div class="line diff-line ">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ORDER BY</code>
+					</div>
+									</div>
+	</div>
+			</div>
+		</div>
+	</div>
+				</div>
+			</div>
+		</div>
+			<div id="tabs-1b1fed8a9ddde933d685-1" class="insert-diff" style="display: none;">
+			<div class="top-bar">
+
+				
+				<div class="download-block">
+					<span class="download">
+						<a href="https://ilovephp.jondh.me.uk/checkouts/rebase5/1b1fed8a9ddde933d685/list-posts.php" target="_blank"><img src="Make%20your%20own%20blog%20%3E%20Adding%20some%20polish_files/disk.png" alt="">
+						Download</a>
+					</span>
+				</div>
+
+			</div>
+			<div class="diff-scroll contracted">
+				<div class="diff-body">
+					<div class="file ">
+			<div class="left side">
+			<div class="inner-side">
+				
+<div class="line-numbers">
+			<div class="line-numbers-section top-missing">
+												<div class="line line-number-line">
+						<code>54</code>
+					</div>
+																<div class="line line-number-line">
+						<code>55</code>
+					</div>
+																<div class="line line-number-line">
+						<code>56</code>
+					</div>
+																<div class="line line-number-empty">
+						<code>&nbsp;</code>
+					</div>
+																<div class="line line-number-empty">
+						<code>&nbsp;</code>
+					</div>
+																<div class="line line-number-empty">
+						<code>&nbsp;</code>
+					</div>
+																<div class="line line-number-line">
+						<code>57</code>
+					</div>
+																<div class="line line-number-line">
+						<code>58</code>
+					</div>
+																<div class="line line-number-line">
+						<code>59</code>
+					</div>
+									</div>
+	</div>
+<div class="diff-content">
+			<div class="section top-missing">
+												<div class="line diff-line ">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;td&gt;</code>
+					</div>
+																<div class="line diff-line ">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;?php echo convertSqlDate($post['created_at']) ?&gt;</code>
+					</div>
+																<div class="line diff-line ">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/td&gt;</code>
+					</div>
+																<div class="line diff-line-empty">
+						<code></code>
+					</div>
+																<div class="line diff-line-empty">
+						<code></code>
+					</div>
+																<div class="line diff-line-empty">
+						<code></code>
+					</div>
+																<div class="line diff-line ">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;td&gt;</code>
+					</div>
+																<div class="line diff-line ">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;a href="edit-post.php?post_id=&lt;?php echo $post['id']?&gt;"&gt;Edit&lt;/a&gt;</code>
+					</div>
+																<div class="line diff-line ">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/td&gt;</code>
+					</div>
+									</div>
+	</div>
+			</div>
+		</div>	
+				<div class="right side">
+			<div class="inner-side">
+				
+<div class="line-numbers">
+			<div class="line-numbers-section top-missing">
+												<div class="line line-number-line">
+						<code>54</code>
+					</div>
+																<div class="line line-number-line">
+						<code>55</code>
+					</div>
+																<div class="line line-number-line">
+						<code>56</code>
+					</div>
+																<div class="line line-number-line">
+						<code>57</code>
+					</div>
+																<div class="line line-number-line">
+						<code>58</code>
+					</div>
+																<div class="line line-number-line">
+						<code>59</code>
+					</div>
+																<div class="line line-number-line">
+						<code>60</code>
+					</div>
+																<div class="line line-number-line">
+						<code>61</code>
+					</div>
+																<div class="line line-number-line">
+						<code>62</code>
+					</div>
+									</div>
+	</div>
+<div class="diff-content">
+			<div class="section top-missing">
+												<div class="line diff-line ">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;td&gt;</code>
+					</div>
+																<div class="line diff-line ">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;?php echo convertSqlDate($post['created_at']) ?&gt;</code>
+					</div>
+																<div class="line diff-line ">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/td&gt;</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;td&gt;</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;?php echo $post['comment_count'] ?&gt;</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/td&gt;</code>
+					</div>
+																<div class="line diff-line ">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;td&gt;</code>
+					</div>
+																<div class="line diff-line ">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;a href="edit-post.php?post_id=&lt;?php echo $post['id']?&gt;"&gt;Edit&lt;/a&gt;</code>
+					</div>
+																<div class="line diff-line ">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/td&gt;</code>
+					</div>
+									</div>
+	</div>
+			</div>
+		</div>
+	</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+<p id="hash-1e1a4c6bed" class="commentable">
+	Let's take a closer look at how the new query works. The query now looks like this:
+</p>
+
+<blockquote class="code">
+<pre><code>SELECT
+	id, title, created_at, body,
+	(SELECT COUNT(*) FROM comment WHERE comment.post_id = post.id) comment_count
+FROM
+	post
+ORDER BY
+	created_at DESC</code></pre>
+</blockquote>
+
+<p id="hash-90e74d4b90" class="commentable">
+	The new part of this is the bracketed expression on the third line. This
+	sort of SQL is known as a <em>sub-query</em> since it is a query contained inside another
+	one. The result of it can be read like a real column, which we explicitly name by adding
+	<code class="inline">comment_count</code> at the end of it.
+</p>
+
+<p id="hash-77ed211b40" class="commentable">
+	This sub-query will count rows in the <code class="inline">comment</code> table, based on which post they
+	belong to. Since the job of the outer query is to list posts, we can filter the comment count
+	for each row by making a comparison to the outer table, <code class="inline">post</code>.
+</p>
+
+<p id="hash-a9b83070fd" class="commentable">
+	The next change is another easy one: we'll add a header row to the All Posts table:
+</p>
+
+
+<div class="tab-container" id="tab-container-6a6d5d15ddcb0fa4128ec5f6310d74ac744a40aa" data-easytabs="true">
+	
+			<img class="expand-toggle icon" src="Make%20your%20own%20blog%20%3E%20Adding%20some%20polish_files/code-expand.png" alt="Expand/contract code area" style="display: none;">
+
+		<img class="tabs-move-left tabs-move icon" src="Make%20your%20own%20blog%20%3E%20Adding%20some%20polish_files/tab-left.png" alt="Select previous tab" style="display: none;">
+
+	<div class="tabs-chopper">
+
+				<ul class="tabs">
+							<li class="tab active">
+										<a href="#tabs-1e146c8b650075107dbd-0" class="active">assets/main.css</a>
+
+										<span class="active">assets/main.css</span>
+				</li>
+							<li class="tab">
+										<a href="#tabs-1e146c8b650075107dbd-1">list-posts.php</a>
+
+										<span>list-posts.php</span>
+				</li>
+					</ul>
+
+	</div>
+
+	<img class="tabs-move-right tabs-move icon" src="Make%20your%20own%20blog%20%3E%20Adding%20some%20polish_files/tab-right.png" alt="Select next tab" style="display: none;">
+
+				<div id="tabs-1e146c8b650075107dbd-0" class="insert-diff active" style="">
+			<div class="top-bar">
+
+				
+				<div class="download-block">
+					<span class="download">
+						<a href="https://ilovephp.jondh.me.uk/checkouts/rebase5/1e146c8b650075107dbd/assets/main.css" target="_blank"><img src="Make%20your%20own%20blog%20%3E%20Adding%20some%20polish_files/disk.png" alt="">
+						Download</a>
+					</span>
+				</div>
+
+			</div>
+			<div class="diff-scroll contracted">
+				<div class="diff-body">
+					<div class="file ">
+			<div class="left side">
+			<div class="inner-side">
+				
+<div class="line-numbers">
+			<div class="line-numbers-section top-missing">
+												<div class="line line-number-line">
+						<code>110</code>
+					</div>
+																<div class="line line-number-line">
+						<code>111</code>
+					</div>
+																<div class="line line-number-line">
+						<code>112</code>
+					</div>
+																<div class="line line-number-line">
+						<code>113</code>
+					</div>
+																<div class="line line-number-line">
+						<code>114</code>
+					</div>
+																<div class="line line-number-empty">
+						<code>&nbsp;</code>
+					</div>
+																<div class="line line-number-line">
+						<code>115</code>
+					</div>
+																<div class="line line-number-line">
+						<code>116</code>
+					</div>
+																<div class="line line-number-line">
+						<code>117</code>
+					</div>
+									</div>
+	</div>
+<div class="diff-content">
+			<div class="section top-missing">
+												<div class="line diff-line ">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;border: 1px solid silver;</code>
+					</div>
+																<div class="line diff-line ">
+						<code>}</code>
+					</div>
+																<div class="line diff-line ">
+						<code></code>
+					</div>
+																<div class="line diff-line diff-line-deleted">
+						<code>#post-list td {</code>
+					</div>
+																<div class="line diff-line ">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;padding: 8px;</code>
+					</div>
+																<div class="line diff-line-empty">
+						<code></code>
+					</div>
+																<div class="line diff-line ">
+						<code>}</code>
+					</div>
+																<div class="line diff-line ">
+						<code></code>
+					</div>
+																<div class="line diff-line ">
+						<code>#post-list tbody tr:nth-child(odd) {</code>
+					</div>
+									</div>
+	</div>
+			</div>
+		</div>	
+				<div class="right side">
+			<div class="inner-side">
+				
+<div class="line-numbers">
+			<div class="line-numbers-section top-missing">
+												<div class="line line-number-line">
+						<code>110</code>
+					</div>
+																<div class="line line-number-line">
+						<code>111</code>
+					</div>
+																<div class="line line-number-line">
+						<code>112</code>
+					</div>
+																<div class="line line-number-line">
+						<code>113</code>
+					</div>
+																<div class="line line-number-line">
+						<code>114</code>
+					</div>
+																<div class="line line-number-line">
+						<code>115</code>
+					</div>
+																<div class="line line-number-line">
+						<code>116</code>
+					</div>
+																<div class="line line-number-line">
+						<code>117</code>
+					</div>
+																<div class="line line-number-line">
+						<code>118</code>
+					</div>
+									</div>
+	</div>
+<div class="diff-content">
+			<div class="section top-missing">
+												<div class="line diff-line ">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;border: 1px solid silver;</code>
+					</div>
+																<div class="line diff-line ">
+						<code>}</code>
+					</div>
+																<div class="line diff-line ">
+						<code></code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>#post-list td, #post-list th {</code>
+					</div>
+																<div class="line diff-line ">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;padding: 8px;</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;text-align: left;</code>
+					</div>
+																<div class="line diff-line ">
+						<code>}</code>
+					</div>
+																<div class="line diff-line ">
+						<code></code>
+					</div>
+																<div class="line diff-line ">
+						<code>#post-list tbody tr:nth-child(odd) {</code>
+					</div>
+									</div>
+	</div>
+			</div>
+		</div>
+	</div>
+				</div>
+			</div>
+		</div>
+			<div id="tabs-1e146c8b650075107dbd-1" class="insert-diff" style="display: none;">
+			<div class="top-bar">
+
+				
+				<div class="download-block">
+					<span class="download">
+						<a href="https://ilovephp.jondh.me.uk/checkouts/rebase5/1e146c8b650075107dbd/list-posts.php" target="_blank"><img src="Make%20your%20own%20blog%20%3E%20Adding%20some%20polish_files/disk.png" alt="">
+						Download</a>
+					</span>
+				</div>
+
+			</div>
+			<div class="diff-scroll contracted">
+				<div class="diff-body">
+					<div class="file ">
+			<div class="left side">
+			<div class="inner-side">
+				
+<div class="line-numbers">
+			<div class="line-numbers-section top-missing">
+												<div class="line line-number-line">
+						<code>45</code>
+					</div>
+																<div class="line line-number-line">
+						<code>46</code>
+					</div>
+																<div class="line line-number-line">
+						<code>47</code>
+					</div>
+																<div class="line line-number-empty">
+						<code>&nbsp;</code>
+					</div>
+																<div class="line line-number-empty">
+						<code>&nbsp;</code>
+					</div>
+																<div class="line line-number-empty">
+						<code>&nbsp;</code>
+					</div>
+																<div class="line line-number-empty">
+						<code>&nbsp;</code>
+					</div>
+																<div class="line line-number-empty">
+						<code>&nbsp;</code>
+					</div>
+																<div class="line line-number-empty">
+						<code>&nbsp;</code>
+					</div>
+																<div class="line line-number-empty">
+						<code>&nbsp;</code>
+					</div>
+																<div class="line line-number-empty">
+						<code>&nbsp;</code>
+					</div>
+																<div class="line line-number-empty">
+						<code>&nbsp;</code>
+					</div>
+																<div class="line line-number-line">
+						<code>48</code>
+					</div>
+																<div class="line line-number-line">
+						<code>49</code>
+					</div>
+																<div class="line line-number-line">
+						<code>50</code>
+					</div>
+									</div>
+	</div>
+<div class="diff-content">
+			<div class="section top-missing">
+												<div class="line diff-line ">
+						<code></code>
+					</div>
+																<div class="line diff-line ">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;form method="post"&gt;</code>
+					</div>
+																<div class="line diff-line ">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;table id="post-list"&gt;</code>
+					</div>
+																<div class="line diff-line-empty">
+						<code></code>
+					</div>
+																<div class="line diff-line-empty">
+						<code></code>
+					</div>
+																<div class="line diff-line-empty">
+						<code></code>
+					</div>
+																<div class="line diff-line-empty">
+						<code></code>
+					</div>
+																<div class="line diff-line-empty">
+						<code></code>
+					</div>
+																<div class="line diff-line-empty">
+						<code></code>
+					</div>
+																<div class="line diff-line-empty">
+						<code></code>
+					</div>
+																<div class="line diff-line-empty">
+						<code></code>
+					</div>
+																<div class="line diff-line-empty">
+						<code></code>
+					</div>
+																<div class="line diff-line ">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;tbody&gt;</code>
+					</div>
+																<div class="line diff-line ">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;?php foreach ($posts as $post): ?&gt;</code>
+					</div>
+																<div class="line diff-line ">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;tr&gt;</code>
+					</div>
+									</div>
+	</div>
+			</div>
+		</div>	
+				<div class="right side">
+			<div class="inner-side">
+				
+<div class="line-numbers">
+			<div class="line-numbers-section top-missing">
+												<div class="line line-number-line">
+						<code>45</code>
+					</div>
+																<div class="line line-number-line">
+						<code>46</code>
+					</div>
+																<div class="line line-number-line">
+						<code>47</code>
+					</div>
+																<div class="line line-number-line">
+						<code>48</code>
+					</div>
+																<div class="line line-number-line">
+						<code>49</code>
+					</div>
+																<div class="line line-number-line">
+						<code>50</code>
+					</div>
+																<div class="line line-number-line">
+						<code>51</code>
+					</div>
+																<div class="line line-number-line">
+						<code>52</code>
+					</div>
+																<div class="line line-number-line">
+						<code>53</code>
+					</div>
+																<div class="line line-number-line">
+						<code>54</code>
+					</div>
+																<div class="line line-number-line">
+						<code>55</code>
+					</div>
+																<div class="line line-number-line">
+						<code>56</code>
+					</div>
+																<div class="line line-number-line">
+						<code>57</code>
+					</div>
+																<div class="line line-number-line">
+						<code>58</code>
+					</div>
+																<div class="line line-number-line">
+						<code>59</code>
+					</div>
+									</div>
+	</div>
+<div class="diff-content">
+			<div class="section top-missing">
+												<div class="line diff-line ">
+						<code></code>
+					</div>
+																<div class="line diff-line ">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;form method="post"&gt;</code>
+					</div>
+																<div class="line diff-line ">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;table id="post-list"&gt;</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;thead&gt;</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;tr&gt;</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;th&gt;Title&lt;/th&gt;</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;th&gt;Creation date&lt;/th&gt;</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;th&gt;Comments&lt;/th&gt;</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;th /&gt;</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;th /&gt;</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/tr&gt;</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/thead&gt;</code>
+					</div>
+																<div class="line diff-line ">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;tbody&gt;</code>
+					</div>
+																<div class="line diff-line ">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;?php foreach ($posts as $post): ?&gt;</code>
+					</div>
+																<div class="line diff-line ">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;tr&gt;</code>
+					</div>
+									</div>
+	</div>
+			</div>
+		</div>
+	</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+<p id="hash-e0f3ab2825" class="commentable">
+	While we are on the All Posts page, it would make sense to add in a link to the view page
+	for each article. So let's do that now:
+</p>
+
+
+<div class="tab-container" id="tab-container-55e19001131f563f6422d3e638d4f6dde023fb17" data-easytabs="true">
+	
+			<img class="expand-toggle icon" src="Make%20your%20own%20blog%20%3E%20Adding%20some%20polish_files/code-expand.png" alt="Expand/contract code area" style="display: none;">
+
+		<img class="tabs-move-left tabs-move icon" src="Make%20your%20own%20blog%20%3E%20Adding%20some%20polish_files/tab-left.png" alt="Select previous tab" style="display: none;">
+
+	<div class="tabs-chopper">
+
+				<ul class="tabs">
+							<li class="tab active">
+										<a href="#tabs-8c726418e76e0e5c39d8-0" class="active">list-posts.php</a>
+
+										<span class="active">list-posts.php</span>
+				</li>
+					</ul>
+
+	</div>
+
+	<img class="tabs-move-right tabs-move icon" src="Make%20your%20own%20blog%20%3E%20Adding%20some%20polish_files/tab-right.png" alt="Select next tab" style="display: none;">
+
+				<div id="tabs-8c726418e76e0e5c39d8-0" class="insert-diff active" style="">
+			<div class="top-bar">
+
+				
+				<div class="download-block">
+					<span class="download">
+						<a href="https://ilovephp.jondh.me.uk/checkouts/rebase5/8c726418e76e0e5c39d8/list-posts.php" target="_blank"><img src="Make%20your%20own%20blog%20%3E%20Adding%20some%20polish_files/disk.png" alt="">
+						Download</a>
+					</span>
+				</div>
+
+			</div>
+			<div class="diff-scroll contracted">
+				<div class="diff-body">
+					<div class="file ">
+			<div class="left side">
+			<div class="inner-side">
+				
+<div class="line-numbers">
+			<div class="line-numbers-section top-missing">
+												<div class="line line-number-line">
+						<code>58</code>
+					</div>
+																<div class="line line-number-line">
+						<code>59</code>
+					</div>
+																<div class="line line-number-line">
+						<code>60</code>
+					</div>
+																<div class="line line-number-line">
+						<code>61</code>
+					</div>
+																<div class="line line-number-empty">
+						<code>&nbsp;</code>
+					</div>
+																<div class="line line-number-empty">
+						<code>&nbsp;</code>
+					</div>
+																<div class="line line-number-line">
+						<code>62</code>
+					</div>
+																<div class="line line-number-line">
+						<code>63</code>
+					</div>
+																<div class="line line-number-line">
+						<code>64</code>
+					</div>
+									</div>
+	</div>
+<div class="diff-content">
+			<div class="section top-missing">
+												<div class="line diff-line ">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;?php foreach ($posts as $post): ?&gt;</code>
+					</div>
+																<div class="line diff-line ">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;tr&gt;</code>
+					</div>
+																<div class="line diff-line ">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;td&gt;</code>
+					</div>
+																<div class="line diff-line diff-line-deleted">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;?php echo htmlEscape($post['title']) ?&gt;</code>
+					</div>
+																<div class="line diff-line-empty">
+						<code></code>
+					</div>
+																<div class="line diff-line-empty">
+						<code></code>
+					</div>
+																<div class="line diff-line ">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/td&gt;</code>
+					</div>
+																<div class="line diff-line ">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;td&gt;</code>
+					</div>
+																<div class="line diff-line ">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;?php echo convertSqlDate($post['created_at']) ?&gt;</code>
+					</div>
+									</div>
+	</div>
+			</div>
+		</div>	
+				<div class="right side">
+			<div class="inner-side">
+				
+<div class="line-numbers">
+			<div class="line-numbers-section top-missing">
+												<div class="line line-number-line">
+						<code>58</code>
+					</div>
+																<div class="line line-number-line">
+						<code>59</code>
+					</div>
+																<div class="line line-number-line">
+						<code>60</code>
+					</div>
+																<div class="line line-number-line">
+						<code>61</code>
+					</div>
+																<div class="line line-number-line">
+						<code>62</code>
+					</div>
+																<div class="line line-number-line">
+						<code>63</code>
+					</div>
+																<div class="line line-number-line">
+						<code>64</code>
+					</div>
+																<div class="line line-number-line">
+						<code>65</code>
+					</div>
+																<div class="line line-number-line">
+						<code>66</code>
+					</div>
+									</div>
+	</div>
+<div class="diff-content">
+			<div class="section top-missing">
+												<div class="line diff-line ">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;?php foreach ($posts as $post): ?&gt;</code>
+					</div>
+																<div class="line diff-line ">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;tr&gt;</code>
+					</div>
+																<div class="line diff-line ">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;td&gt;</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;a</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;href="view-post.php?post_id=&lt;?php echo $post['id']?&gt;"</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&gt;&lt;?php echo htmlEscape($post['title']) ?&gt;&lt;/a&gt;</code>
+					</div>
+																<div class="line diff-line ">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/td&gt;</code>
+					</div>
+																<div class="line diff-line ">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;td&gt;</code>
+					</div>
+																<div class="line diff-line ">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;?php echo convertSqlDate($post['created_at']) ?&gt;</code>
+					</div>
+									</div>
+	</div>
+			</div>
+		</div>
+	</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+<p id="hash-baeb33aa52" class="commentable">
+	Next up is a refactoring that simplifies the code (quite a bit is removed) and reduces the
+	number of calls made to the database. The essence of the modification is in
+	<span class="filename">lib/view-post.php</span> — we merge two SQL calls together via
+	another sub-query.
+</p>
+
+<p id="hash-76f28e878e" class="commentable">
+	There's quite a few files to modify here, so make sure you get them all.
+</p>
+
+
+<div class="tab-container" id="tab-container-b814f33f24ff389b7bb227971476421c7592cb49" data-easytabs="true">
+	
+			<img class="expand-toggle icon" src="Make%20your%20own%20blog%20%3E%20Adding%20some%20polish_files/code-expand.png" alt="Expand/contract code area" style="display: none;">
+
+		<img class="tabs-move-left tabs-move icon" src="Make%20your%20own%20blog%20%3E%20Adding%20some%20polish_files/tab-left.png" alt="Select previous tab" style="display: none;">
+
+	<div class="tabs-chopper">
+
+				<ul class="tabs">
+							<li class="tab active">
+										<a href="#tabs-df792be837d358f0ff6e-0" class="active">index.php</a>
+
+										<span class="active">index.php</span>
+				</li>
+							<li class="tab">
+										<a href="#tabs-df792be837d358f0ff6e-1">lib/common.php</a>
+
+										<span>lib/common.php</span>
+				</li>
+							<li class="tab">
+										<a href="#tabs-df792be837d358f0ff6e-2">lib/view-post.php</a>
+
+										<span>lib/view-post.php</span>
+				</li>
+							<li class="tab">
+										<a href="#tabs-df792be837d358f0ff6e-3">templates/list-comments.php</a>
+
+										<span>templates/list-comments.php</span>
+				</li>
+							<li class="tab">
+										<a href="#tabs-df792be837d358f0ff6e-4">view-post.php</a>
+
+										<span>view-post.php</span>
+				</li>
+					</ul>
+
+	</div>
+
+	<img class="tabs-move-right tabs-move icon" src="Make%20your%20own%20blog%20%3E%20Adding%20some%20polish_files/tab-right.png" alt="Select next tab" style="display: none;">
+
+				<div id="tabs-df792be837d358f0ff6e-0" class="insert-diff active" style="">
+			<div class="top-bar">
+
+				
+				<div class="download-block">
+					<span class="download">
+						<a href="https://ilovephp.jondh.me.uk/checkouts/rebase5/df792be837d358f0ff6e/index.php" target="_blank"><img src="Make%20your%20own%20blog%20%3E%20Adding%20some%20polish_files/disk.png" alt="">
+						Download</a>
+					</span>
+				</div>
+
+			</div>
+			<div class="diff-scroll contracted">
+				<div class="diff-body">
+					<div class="file ">
+			<div class="left side">
+			<div class="inner-side">
+				
+<div class="line-numbers">
+			<div class="line-numbers-section top-missing">
+												<div class="line line-number-line">
+						<code>34</code>
+					</div>
+																<div class="line line-number-line">
+						<code>35</code>
+					</div>
+																<div class="line line-number-line">
+						<code>36</code>
+					</div>
+																<div class="line line-number-line">
+						<code>37</code>
+					</div>
+																<div class="line line-number-line">
+						<code>38</code>
+					</div>
+																<div class="line line-number-line">
+						<code>39</code>
+					</div>
+																<div class="line line-number-line">
+						<code>40</code>
+					</div>
+									</div>
+	</div>
+<div class="diff-content">
+			<div class="section top-missing">
+												<div class="line diff-line ">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;div class="meta"&gt;</code>
+					</div>
+																<div class="line diff-line ">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;?php echo convertSqlDate($post['created_at']) ?&gt;</code>
+					</div>
+																<div class="line diff-line ">
+						<code></code>
+					</div>
+																<div class="line diff-line diff-line-deleted">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(&lt;?php echo countCommentsForPost($pdo, $post['id']) ?&gt; comments)</code>
+					</div>
+																<div class="line diff-line ">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;</code>
+					</div>
+																<div class="line diff-line ">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;p&gt;</code>
+					</div>
+																<div class="line diff-line ">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;?php echo htmlEscape($post['body']) ?&gt;</code>
+					</div>
+									</div>
+	</div>
+			</div>
+		</div>	
+				<div class="right side">
+			<div class="inner-side">
+				
+<div class="line-numbers">
+			<div class="line-numbers-section top-missing">
+												<div class="line line-number-line">
+						<code>34</code>
+					</div>
+																<div class="line line-number-line">
+						<code>35</code>
+					</div>
+																<div class="line line-number-line">
+						<code>36</code>
+					</div>
+																<div class="line line-number-line">
+						<code>37</code>
+					</div>
+																<div class="line line-number-line">
+						<code>38</code>
+					</div>
+																<div class="line line-number-line">
+						<code>39</code>
+					</div>
+																<div class="line line-number-line">
+						<code>40</code>
+					</div>
+									</div>
+	</div>
+<div class="diff-content">
+			<div class="section top-missing">
+												<div class="line diff-line ">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;div class="meta"&gt;</code>
+					</div>
+																<div class="line diff-line ">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;?php echo convertSqlDate($post['created_at']) ?&gt;</code>
+					</div>
+																<div class="line diff-line ">
+						<code></code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(&lt;?php echo $post['comment_count'] ?&gt; comments)</code>
+					</div>
+																<div class="line diff-line ">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;</code>
+					</div>
+																<div class="line diff-line ">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;p&gt;</code>
+					</div>
+																<div class="line diff-line ">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;?php echo htmlEscape($post['body']) ?&gt;</code>
+					</div>
+									</div>
+	</div>
+			</div>
+		</div>
+	</div>
+				</div>
+			</div>
+		</div>
+			<div id="tabs-df792be837d358f0ff6e-1" class="insert-diff" style="display: none;">
+			<div class="top-bar">
+
+				
+				<div class="download-block">
+					<span class="download">
+						<a href="https://ilovephp.jondh.me.uk/checkouts/rebase5/df792be837d358f0ff6e/lib/common.php" target="_blank"><img src="Make%20your%20own%20blog%20%3E%20Adding%20some%20polish_files/disk.png" alt="">
+						Download</a>
+					</span>
+				</div>
+
+			</div>
+			<div class="diff-scroll contracted">
+				<div class="diff-body">
+					<div class="file ">
+			<div class="left side">
+			<div class="inner-side">
+				
+<div class="line-numbers">
+			<div class="line-numbers-section top-missing">
+												<div class="line line-number-line">
+						<code>125</code>
+					</div>
+																<div class="line line-number-line">
+						<code>126</code>
+					</div>
+																<div class="line line-number-line">
+						<code>127</code>
+					</div>
+																<div class="line line-number-line">
+						<code>128</code>
+					</div>
+																<div class="line line-number-line">
+						<code>129</code>
+					</div>
+																<div class="line line-number-line">
+						<code>130</code>
+					</div>
+																<div class="line line-number-line">
+						<code>131</code>
+					</div>
+																<div class="line line-number-line">
+						<code>132</code>
+					</div>
+																<div class="line line-number-line">
+						<code>133</code>
+					</div>
+																<div class="line line-number-line">
+						<code>134</code>
+					</div>
+																<div class="line line-number-line">
+						<code>135</code>
+					</div>
+																<div class="line line-number-line">
+						<code>136</code>
+					</div>
+																<div class="line line-number-line">
+						<code>137</code>
+					</div>
+																<div class="line line-number-line">
+						<code>138</code>
+					</div>
+																<div class="line line-number-line">
+						<code>139</code>
+					</div>
+																<div class="line line-number-line">
+						<code>140</code>
+					</div>
+																<div class="line line-number-line">
+						<code>141</code>
+					</div>
+																<div class="line line-number-line">
+						<code>142</code>
+					</div>
+																<div class="line line-number-line">
+						<code>143</code>
+					</div>
+																<div class="line line-number-line">
+						<code>144</code>
+					</div>
+																<div class="line line-number-line">
+						<code>145</code>
+					</div>
+																<div class="line line-number-line">
+						<code>146</code>
+					</div>
+																<div class="line line-number-line">
+						<code>147</code>
+					</div>
+																<div class="line line-number-line">
+						<code>148</code>
+					</div>
+																<div class="line line-number-line">
+						<code>149</code>
+					</div>
+																<div class="line line-number-line">
+						<code>150</code>
+					</div>
+																<div class="line line-number-line">
+						<code>151</code>
+					</div>
+																<div class="line line-number-line">
+						<code>152</code>
+					</div>
+																<div class="line line-number-line">
+						<code>153</code>
+					</div>
+																<div class="line line-number-line">
+						<code>154</code>
+					</div>
+																<div class="line line-number-line">
+						<code>155</code>
+					</div>
+									</div>
+	</div>
+<div class="diff-content">
+			<div class="section top-missing">
+												<div class="line diff-line ">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;exit();</code>
+					</div>
+																<div class="line diff-line ">
+						<code>}</code>
+					</div>
+																<div class="line diff-line ">
+						<code></code>
+					</div>
+																<div class="line diff-line diff-line-deleted">
+						<code>/**</code>
+					</div>
+																<div class="line diff-line diff-line-deleted">
+						<code> * Returns the number of comments for the specified post</code>
+					</div>
+																<div class="line diff-line diff-line-deleted">
+						<code> *</code>
+					</div>
+																<div class="line diff-line diff-line-deleted">
+						<code> * @param PDO $pdo</code>
+					</div>
+																<div class="line diff-line diff-line-deleted">
+						<code> * @param integer $postId</code>
+					</div>
+																<div class="line diff-line diff-line-deleted">
+						<code> * @return integer</code>
+					</div>
+																<div class="line diff-line diff-line-deleted">
+						<code> */</code>
+					</div>
+																<div class="line diff-line diff-line-deleted">
+						<code>function countCommentsForPost(PDO $pdo, $postId)</code>
+					</div>
+																<div class="line diff-line diff-line-deleted">
+						<code>{</code>
+					</div>
+																<div class="line diff-line diff-line-deleted">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;$sql = "</code>
+					</div>
+																<div class="line diff-line diff-line-deleted">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SELECT</code>
+					</div>
+																<div class="line diff-line diff-line-deleted">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;COUNT(*) c</code>
+					</div>
+																<div class="line diff-line diff-line-deleted">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;FROM</code>
+					</div>
+																<div class="line diff-line diff-line-deleted">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;comment</code>
+					</div>
+																<div class="line diff-line diff-line-deleted">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;WHERE</code>
+					</div>
+																<div class="line diff-line diff-line-deleted">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;post_id = :post_id</code>
+					</div>
+																<div class="line diff-line diff-line-deleted">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;";</code>
+					</div>
+																<div class="line diff-line diff-line-deleted">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;$stmt = $pdo-&gt;prepare($sql);</code>
+					</div>
+																<div class="line diff-line diff-line-deleted">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;$stmt-&gt;execute(</code>
+					</div>
+																<div class="line diff-line diff-line-deleted">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;array('post_id' =&gt; $postId, )</code>
+					</div>
+																<div class="line diff-line diff-line-deleted">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;);</code>
+					</div>
+																<div class="line diff-line diff-line-deleted">
+						<code></code>
+					</div>
+																<div class="line diff-line diff-line-deleted">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;return (int) $stmt-&gt;fetchColumn();</code>
+					</div>
+																<div class="line diff-line diff-line-deleted">
+						<code>}</code>
+					</div>
+																<div class="line diff-line diff-line-deleted">
+						<code></code>
+					</div>
+																<div class="line diff-line ">
+						<code>/**</code>
+					</div>
+																<div class="line diff-line ">
+						<code> * Returns all the comments for the specified post</code>
+					</div>
+																<div class="line diff-line ">
+						<code> *</code>
+					</div>
+									</div>
+	</div>
+			</div>
+		</div>	
+				<div class="right side">
+			<div class="inner-side">
+				
+<div class="line-numbers">
+			<div class="line-numbers-section top-missing">
+												<div class="line line-number-line">
+						<code>125</code>
+					</div>
+																<div class="line line-number-line">
+						<code>126</code>
+					</div>
+																<div class="line line-number-line">
+						<code>127</code>
+					</div>
+																<div class="line line-number-empty">
+						<code>&nbsp;</code>
+					</div>
+																<div class="line line-number-empty">
+						<code>&nbsp;</code>
+					</div>
+																<div class="line line-number-empty">
+						<code>&nbsp;</code>
+					</div>
+																<div class="line line-number-empty">
+						<code>&nbsp;</code>
+					</div>
+																<div class="line line-number-empty">
+						<code>&nbsp;</code>
+					</div>
+																<div class="line line-number-empty">
+						<code>&nbsp;</code>
+					</div>
+																<div class="line line-number-empty">
+						<code>&nbsp;</code>
+					</div>
+																<div class="line line-number-empty">
+						<code>&nbsp;</code>
+					</div>
+																<div class="line line-number-empty">
+						<code>&nbsp;</code>
+					</div>
+																<div class="line line-number-empty">
+						<code>&nbsp;</code>
+					</div>
+																<div class="line line-number-empty">
+						<code>&nbsp;</code>
+					</div>
+																<div class="line line-number-empty">
+						<code>&nbsp;</code>
+					</div>
+																<div class="line line-number-empty">
+						<code>&nbsp;</code>
+					</div>
+																<div class="line line-number-empty">
+						<code>&nbsp;</code>
+					</div>
+																<div class="line line-number-empty">
+						<code>&nbsp;</code>
+					</div>
+																<div class="line line-number-empty">
+						<code>&nbsp;</code>
+					</div>
+																<div class="line line-number-empty">
+						<code>&nbsp;</code>
+					</div>
+																<div class="line line-number-empty">
+						<code>&nbsp;</code>
+					</div>
+																<div class="line line-number-empty">
+						<code>&nbsp;</code>
+					</div>
+																<div class="line line-number-empty">
+						<code>&nbsp;</code>
+					</div>
+																<div class="line line-number-empty">
+						<code>&nbsp;</code>
+					</div>
+																<div class="line line-number-empty">
+						<code>&nbsp;</code>
+					</div>
+																<div class="line line-number-empty">
+						<code>&nbsp;</code>
+					</div>
+																<div class="line line-number-empty">
+						<code>&nbsp;</code>
+					</div>
+																<div class="line line-number-empty">
+						<code>&nbsp;</code>
+					</div>
+																<div class="line line-number-line">
+						<code>128</code>
+					</div>
+																<div class="line line-number-line">
+						<code>129</code>
+					</div>
+																<div class="line line-number-line">
+						<code>130</code>
+					</div>
+									</div>
+	</div>
+<div class="diff-content">
+			<div class="section top-missing">
+												<div class="line diff-line ">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;exit();</code>
+					</div>
+																<div class="line diff-line ">
+						<code>}</code>
+					</div>
+																<div class="line diff-line ">
+						<code></code>
+					</div>
+																<div class="line diff-line-empty">
+						<code></code>
+					</div>
+																<div class="line diff-line-empty">
+						<code></code>
+					</div>
+																<div class="line diff-line-empty">
+						<code></code>
+					</div>
+																<div class="line diff-line-empty">
+						<code></code>
+					</div>
+																<div class="line diff-line-empty">
+						<code></code>
+					</div>
+																<div class="line diff-line-empty">
+						<code></code>
+					</div>
+																<div class="line diff-line-empty">
+						<code></code>
+					</div>
+																<div class="line diff-line-empty">
+						<code></code>
+					</div>
+																<div class="line diff-line-empty">
+						<code></code>
+					</div>
+																<div class="line diff-line-empty">
+						<code></code>
+					</div>
+																<div class="line diff-line-empty">
+						<code></code>
+					</div>
+																<div class="line diff-line-empty">
+						<code></code>
+					</div>
+																<div class="line diff-line-empty">
+						<code></code>
+					</div>
+																<div class="line diff-line-empty">
+						<code></code>
+					</div>
+																<div class="line diff-line-empty">
+						<code></code>
+					</div>
+																<div class="line diff-line-empty">
+						<code></code>
+					</div>
+																<div class="line diff-line-empty">
+						<code></code>
+					</div>
+																<div class="line diff-line-empty">
+						<code></code>
+					</div>
+																<div class="line diff-line-empty">
+						<code></code>
+					</div>
+																<div class="line diff-line-empty">
+						<code></code>
+					</div>
+																<div class="line diff-line-empty">
+						<code></code>
+					</div>
+																<div class="line diff-line-empty">
+						<code></code>
+					</div>
+																<div class="line diff-line-empty">
+						<code></code>
+					</div>
+																<div class="line diff-line-empty">
+						<code></code>
+					</div>
+																<div class="line diff-line-empty">
+						<code></code>
+					</div>
+																<div class="line diff-line ">
+						<code>/**</code>
+					</div>
+																<div class="line diff-line ">
+						<code> * Returns all the comments for the specified post</code>
+					</div>
+																<div class="line diff-line ">
+						<code> *</code>
+					</div>
+									</div>
+	</div>
+			</div>
+		</div>
+	</div>
+				</div>
+			</div>
+		</div>
+			<div id="tabs-df792be837d358f0ff6e-2" class="insert-diff" style="display: none;">
+			<div class="top-bar">
+
+				
+				<div class="download-block">
+					<span class="download">
+						<a href="https://ilovephp.jondh.me.uk/checkouts/rebase5/df792be837d358f0ff6e/lib/view-post.php" target="_blank"><img src="Make%20your%20own%20blog%20%3E%20Adding%20some%20polish_files/disk.png" alt="">
+						Download</a>
+					</span>
+				</div>
+
+			</div>
+			<div class="diff-scroll contracted">
+				<div class="diff-body">
+					<div class="file ">
+			<div class="left side">
+			<div class="inner-side">
+				
+<div class="line-numbers">
+			<div class="line-numbers-section top-missing">
+												<div class="line line-number-line">
+						<code>100</code>
+					</div>
+																<div class="line line-number-line">
+						<code>101</code>
+					</div>
+																<div class="line line-number-line">
+						<code>102</code>
+					</div>
+																<div class="line line-number-line">
+						<code>103</code>
+					</div>
+																<div class="line line-number-empty">
+						<code>&nbsp;</code>
+					</div>
+																<div class="line line-number-line">
+						<code>104</code>
+					</div>
+																<div class="line line-number-line">
+						<code>105</code>
+					</div>
+																<div class="line line-number-line">
+						<code>106</code>
+					</div>
+									</div>
+	</div>
+<div class="diff-content">
+			<div class="section top-missing">
+												<div class="line diff-line ">
+						<code>{</code>
+					</div>
+																<div class="line diff-line ">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;$stmt = $pdo-&gt;prepare(</code>
+					</div>
+																<div class="line diff-line ">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'SELECT</code>
+					</div>
+																<div class="line diff-line diff-line-deleted">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;title, created_at, body</code>
+					</div>
+																<div class="line diff-line-empty">
+						<code></code>
+					</div>
+																<div class="line diff-line ">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;FROM</code>
+					</div>
+																<div class="line diff-line ">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;post</code>
+					</div>
+																<div class="line diff-line ">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;WHERE</code>
+					</div>
+									</div>
+	</div>
+			</div>
+		</div>	
+				<div class="right side">
+			<div class="inner-side">
+				
+<div class="line-numbers">
+			<div class="line-numbers-section top-missing">
+												<div class="line line-number-line">
+						<code>100</code>
+					</div>
+																<div class="line line-number-line">
+						<code>101</code>
+					</div>
+																<div class="line line-number-line">
+						<code>102</code>
+					</div>
+																<div class="line line-number-line">
+						<code>103</code>
+					</div>
+																<div class="line line-number-line">
+						<code>104</code>
+					</div>
+																<div class="line line-number-line">
+						<code>105</code>
+					</div>
+																<div class="line line-number-line">
+						<code>106</code>
+					</div>
+																<div class="line line-number-line">
+						<code>107</code>
+					</div>
+									</div>
+	</div>
+<div class="diff-content">
+			<div class="section top-missing">
+												<div class="line diff-line ">
+						<code>{</code>
+					</div>
+																<div class="line diff-line ">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;$stmt = $pdo-&gt;prepare(</code>
+					</div>
+																<div class="line diff-line ">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'SELECT</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;title, created_at, body,</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(SELECT COUNT(*) FROM comment WHERE comment.post_id = post.id) comment_count</code>
+					</div>
+																<div class="line diff-line ">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;FROM</code>
+					</div>
+																<div class="line diff-line ">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;post</code>
+					</div>
+																<div class="line diff-line ">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;WHERE</code>
+					</div>
+									</div>
+	</div>
+			</div>
+		</div>
+	</div>
+				</div>
+			</div>
+		</div>
+			<div id="tabs-df792be837d358f0ff6e-3" class="insert-diff" style="display: none;">
+			<div class="top-bar">
+
+				
+				<div class="download-block">
+					<span class="download">
+						<a href="https://ilovephp.jondh.me.uk/checkouts/rebase5/df792be837d358f0ff6e/templates/list-comments.php" target="_blank"><img src="Make%20your%20own%20blog%20%3E%20Adding%20some%20polish_files/disk.png" alt="">
+						Download</a>
+					</span>
+				</div>
+
+			</div>
+			<div class="diff-scroll contracted">
+				<div class="diff-body">
+					<div class="file ">
+			<div class="left side">
+			<div class="inner-side">
+				
+<div class="line-numbers">
+			<div class="line-numbers-section top-missing">
+												<div class="line line-number-line">
+						<code>2</code>
+					</div>
+																<div class="line line-number-line">
+						<code>3</code>
+					</div>
+																<div class="line line-number-line">
+						<code>4</code>
+					</div>
+																<div class="line line-number-empty">
+						<code>&nbsp;</code>
+					</div>
+																<div class="line line-number-line">
+						<code>5</code>
+					</div>
+																<div class="line line-number-line">
+						<code>6</code>
+					</div>
+																<div class="line line-number-line">
+						<code>7</code>
+					</div>
+									</div>
+			<div class="line-numbers-section ">
+												<div class="line line-number-line">
+						<code>10</code>
+					</div>
+																<div class="line line-number-line">
+						<code>11</code>
+					</div>
+																<div class="line line-number-line">
+						<code>12</code>
+					</div>
+																<div class="line line-number-line">
+						<code>13</code>
+					</div>
+																<div class="line line-number-line">
+						<code>14</code>
+					</div>
+																<div class="line line-number-line">
+						<code>15</code>
+					</div>
+																<div class="line line-number-line">
+						<code>16</code>
+					</div>
+									</div>
+	</div>
+<div class="diff-content">
+			<div class="section top-missing">
+												<div class="line diff-line ">
+						<code>/**</code>
+					</div>
+																<div class="line diff-line ">
+						<code> * @var $pdo PDO</code>
+					</div>
+																<div class="line diff-line ">
+						<code> * @var $postId integer</code>
+					</div>
+																<div class="line diff-line-empty">
+						<code></code>
+					</div>
+																<div class="line diff-line ">
+						<code> */</code>
+					</div>
+																<div class="line diff-line ">
+						<code>?&gt;</code>
+					</div>
+																<div class="line diff-line ">
+						<code>&lt;form</code>
+					</div>
+									</div>
+			<div class="section ">
+												<div class="line diff-line ">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;method="post"</code>
+					</div>
+																<div class="line diff-line ">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;class="comment-list"</code>
+					</div>
+																<div class="line diff-line ">
+						<code>&gt;</code>
+					</div>
+																<div class="line diff-line diff-line-deleted">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&lt;h3&gt;&lt;?php echo countCommentsForPost($pdo, $postId) ?&gt; comments&lt;/h3&gt;</code>
+					</div>
+																<div class="line diff-line ">
+						<code></code>
+					</div>
+																<div class="line diff-line ">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&lt;?php foreach (getCommentsForPost($pdo, $postId) as $comment): ?&gt;</code>
+					</div>
+																<div class="line diff-line ">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;div class="comment"&gt;</code>
+					</div>
+									</div>
+	</div>
+			</div>
+		</div>	
+				<div class="right side">
+			<div class="inner-side">
+				
+<div class="line-numbers">
+			<div class="line-numbers-section top-missing">
+												<div class="line line-number-line">
+						<code>2</code>
+					</div>
+																<div class="line line-number-line">
+						<code>3</code>
+					</div>
+																<div class="line line-number-line">
+						<code>4</code>
+					</div>
+																<div class="line line-number-line">
+						<code>5</code>
+					</div>
+																<div class="line line-number-line">
+						<code>6</code>
+					</div>
+																<div class="line line-number-line">
+						<code>7</code>
+					</div>
+																<div class="line line-number-line">
+						<code>8</code>
+					</div>
+									</div>
+			<div class="line-numbers-section ">
+												<div class="line line-number-line">
+						<code>10</code>
+					</div>
+																<div class="line line-number-line">
+						<code>11</code>
+					</div>
+																<div class="line line-number-line">
+						<code>12</code>
+					</div>
+																<div class="line line-number-line">
+						<code>13</code>
+					</div>
+																<div class="line line-number-line">
+						<code>14</code>
+					</div>
+																<div class="line line-number-line">
+						<code>15</code>
+					</div>
+																<div class="line line-number-line">
+						<code>16</code>
+					</div>
+									</div>
+	</div>
+<div class="diff-content">
+			<div class="section top-missing">
+												<div class="line diff-line ">
+						<code>/**</code>
+					</div>
+																<div class="line diff-line ">
+						<code> * @var $pdo PDO</code>
+					</div>
+																<div class="line diff-line ">
+						<code> * @var $postId integer</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code> * @var $commentCount integer</code>
+					</div>
+																<div class="line diff-line ">
+						<code> */</code>
+					</div>
+																<div class="line diff-line ">
+						<code>?&gt;</code>
+					</div>
+																<div class="line diff-line ">
+						<code>&lt;form</code>
+					</div>
+									</div>
+			<div class="section ">
+												<div class="line diff-line ">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;method="post"</code>
+					</div>
+																<div class="line diff-line ">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;class="comment-list"</code>
+					</div>
+																<div class="line diff-line ">
+						<code>&gt;</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&lt;h3&gt;&lt;?php echo $commentCount ?&gt; comments&lt;/h3&gt;</code>
+					</div>
+																<div class="line diff-line ">
+						<code></code>
+					</div>
+																<div class="line diff-line ">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&lt;?php foreach (getCommentsForPost($pdo, $postId) as $comment): ?&gt;</code>
+					</div>
+																<div class="line diff-line ">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;div class="comment"&gt;</code>
+					</div>
+									</div>
+	</div>
+			</div>
+		</div>
+	</div>
+				</div>
+			</div>
+		</div>
+			<div id="tabs-df792be837d358f0ff6e-4" class="insert-diff" style="display: none;">
+			<div class="top-bar">
+
+				
+				<div class="download-block">
+					<span class="download">
+						<a href="https://ilovephp.jondh.me.uk/checkouts/rebase5/df792be837d358f0ff6e/view-post.php" target="_blank"><img src="Make%20your%20own%20blog%20%3E%20Adding%20some%20polish_files/disk.png" alt="">
+						Download</a>
+					</span>
+				</div>
+
+			</div>
+			<div class="diff-scroll contracted">
+				<div class="diff-body">
+					<div class="file ">
+			<div class="left side">
+			<div class="inner-side">
+				
+<div class="line-numbers">
+			<div class="line-numbers-section top-missing">
+												<div class="line line-number-line">
+						<code>18</code>
+					</div>
+																<div class="line line-number-line">
+						<code>19</code>
+					</div>
+																<div class="line line-number-line">
+						<code>20</code>
+					</div>
+																<div class="line line-number-empty">
+						<code>&nbsp;</code>
+					</div>
+																<div class="line line-number-line">
+						<code>21</code>
+					</div>
+																<div class="line line-number-line">
+						<code>22</code>
+					</div>
+																<div class="line line-number-line">
+						<code>23</code>
+					</div>
+									</div>
+	</div>
+<div class="diff-content">
+			<div class="section top-missing">
+												<div class="line diff-line ">
+						<code>// Connect to the database, run a query, handle errors</code>
+					</div>
+																<div class="line diff-line ">
+						<code>$pdo = getPDO();</code>
+					</div>
+																<div class="line diff-line ">
+						<code>$row = getPostRow($pdo, $postId);</code>
+					</div>
+																<div class="line diff-line-empty">
+						<code></code>
+					</div>
+																<div class="line diff-line ">
+						<code></code>
+					</div>
+																<div class="line diff-line ">
+						<code>// If the post does not exist, let's deal with that here</code>
+					</div>
+																<div class="line diff-line ">
+						<code>if (!$row)</code>
+					</div>
+									</div>
+	</div>
+			</div>
+		</div>	
+				<div class="right side">
+			<div class="inner-side">
+				
+<div class="line-numbers">
+			<div class="line-numbers-section top-missing">
+												<div class="line line-number-line">
+						<code>18</code>
+					</div>
+																<div class="line line-number-line">
+						<code>19</code>
+					</div>
+																<div class="line line-number-line">
+						<code>20</code>
+					</div>
+																<div class="line line-number-line">
+						<code>21</code>
+					</div>
+																<div class="line line-number-line">
+						<code>22</code>
+					</div>
+																<div class="line line-number-line">
+						<code>23</code>
+					</div>
+																<div class="line line-number-line">
+						<code>24</code>
+					</div>
+									</div>
+	</div>
+<div class="diff-content">
+			<div class="section top-missing">
+												<div class="line diff-line ">
+						<code>// Connect to the database, run a query, handle errors</code>
+					</div>
+																<div class="line diff-line ">
+						<code>$pdo = getPDO();</code>
+					</div>
+																<div class="line diff-line ">
+						<code>$row = getPostRow($pdo, $postId);</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>$commentCount = $row['comment_count'];</code>
+					</div>
+																<div class="line diff-line ">
+						<code></code>
+					</div>
+																<div class="line diff-line ">
+						<code>// If the post does not exist, let's deal with that here</code>
+					</div>
+																<div class="line diff-line ">
+						<code>if (!$row)</code>
+					</div>
+									</div>
+	</div>
+			</div>
+		</div>
+	</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+<p id="hash-955b0c7698" class="commentable">
+	I noticed when doing some testing at this point that posts which have comments cannot be
+	deleted - try that now. You'll get an error known as a <em>foreign key constraint violation</em>;
+	this is what happens when a row is deleted that a foreign key depends on (in our case we
+	are trying to delete a post to which comments are still attached). To fix this, comments
+	should be deleted first, prior to the post being deleted:
+</p>
+
+
+<div class="tab-container" id="tab-container-f1698a91826385782ad2f8dd01711cc7ada11c2d" data-easytabs="true">
+	
+			<img class="expand-toggle icon" src="Make%20your%20own%20blog%20%3E%20Adding%20some%20polish_files/code-expand.png" alt="Expand/contract code area">
+
+		<img class="tabs-move-left tabs-move icon" src="Make%20your%20own%20blog%20%3E%20Adding%20some%20polish_files/tab-left.png" alt="Select previous tab" style="display: none;">
+
+	<div class="tabs-chopper">
+
+				<ul class="tabs">
+							<li class="tab active">
+										<a href="#tabs-80a68ce5ca596353b206-0" class="active">lib/list-posts.php</a>
+
+										<span class="active">lib/list-posts.php</span>
+				</li>
+					</ul>
+
+	</div>
+
+	<img class="tabs-move-right tabs-move icon" src="Make%20your%20own%20blog%20%3E%20Adding%20some%20polish_files/tab-right.png" alt="Select next tab" style="display: none;">
+
+				<div id="tabs-80a68ce5ca596353b206-0" class="insert-diff active" style="">
+			<div class="top-bar">
+
+				
+				<div class="download-block">
+					<span class="download">
+						<a href="https://ilovephp.jondh.me.uk/checkouts/rebase5/80a68ce5ca596353b206/lib/list-posts.php" target="_blank"><img src="Make%20your%20own%20blog%20%3E%20Adding%20some%20polish_files/disk.png" alt="">
+						Download</a>
+					</span>
+				</div>
+
+			</div>
+			<div class="diff-scroll contracted">
+				<div class="diff-body">
+					<div class="file ">
+			<div class="left side">
+			<div class="inner-side">
+				
+<div class="line-numbers">
+			<div class="line-numbers-section top-missing">
+												<div class="line line-number-line">
+						<code>3</code>
+					</div>
+																<div class="line line-number-line">
+						<code>4</code>
+					</div>
+																<div class="line line-number-line">
+						<code>5</code>
+					</div>
+																<div class="line line-number-empty">
+						<code>&nbsp;</code>
+					</div>
+																<div class="line line-number-empty">
+						<code>&nbsp;</code>
+					</div>
+																<div class="line line-number-line">
+						<code>6</code>
+					</div>
+																<div class="line line-number-line">
+						<code>7</code>
+					</div>
+																<div class="line line-number-line">
+						<code>8</code>
+					</div>
+									</div>
+			<div class="line-numbers-section ">
+												<div class="line line-number-line">
+						<code>12</code>
+					</div>
+																<div class="line line-number-line">
+						<code>13</code>
+					</div>
+																<div class="line line-number-line">
+						<code>14</code>
+					</div>
+																<div class="line line-number-line">
+						<code>15</code>
+					</div>
+																<div class="line line-number-line">
+						<code>16</code>
+					</div>
+																<div class="line line-number-empty">
+						<code>&nbsp;</code>
+					</div>
+																<div class="line line-number-empty">
+						<code>&nbsp;</code>
+					</div>
+																<div class="line line-number-empty">
+						<code>&nbsp;</code>
+					</div>
+																<div class="line line-number-empty">
+						<code>&nbsp;</code>
+					</div>
+																<div class="line line-number-empty">
+						<code>&nbsp;</code>
+					</div>
+																<div class="line line-number-empty">
+						<code>&nbsp;</code>
+					</div>
+																<div class="line line-number-line">
+						<code>17</code>
+					</div>
+																<div class="line line-number-line">
+						<code>18</code>
+					</div>
+																<div class="line line-number-line">
+						<code>19</code>
+					</div>
+																<div class="line line-number-line">
+						<code>20</code>
+					</div>
+																<div class="line line-number-line">
+						<code>21</code>
+					</div>
+																<div class="line line-number-line">
+						<code>22</code>
+					</div>
+																<div class="line line-number-line">
+						<code>23</code>
+					</div>
+																<div class="line line-number-line">
+						<code>24</code>
+					</div>
+																<div class="line line-number-line">
+						<code>25</code>
+					</div>
+																<div class="line line-number-empty">
+						<code>&nbsp;</code>
+					</div>
+																<div class="line line-number-empty">
+						<code>&nbsp;</code>
+					</div>
+																<div class="line line-number-empty">
+						<code>&nbsp;</code>
+					</div>
+																<div class="line line-number-line">
+						<code>26</code>
+					</div>
+																<div class="line line-number-line">
+						<code>27</code>
+					</div>
+																<div class="line line-number-line">
+						<code>28</code>
+					</div>
+																<div class="line line-number-line">
+						<code>29</code>
+					</div>
+																<div class="line line-number-empty">
+						<code>&nbsp;</code>
+					</div>
+																<div class="line line-number-empty">
+						<code>&nbsp;</code>
+					</div>
+																<div class="line line-number-empty">
+						<code>&nbsp;</code>
+					</div>
+																<div class="line line-number-empty">
+						<code>&nbsp;</code>
+					</div>
+																<div class="line line-number-empty">
+						<code>&nbsp;</code>
+					</div>
+																<div class="line line-number-empty">
+						<code>&nbsp;</code>
+					</div>
+																<div class="line line-number-empty">
+						<code>&nbsp;</code>
+					</div>
+																<div class="line line-number-line">
+						<code>30</code>
+					</div>
+																<div class="line line-number-line">
+						<code>31</code>
+					</div>
+																<div class="line line-number-line">
+						<code>32</code>
+					</div>
+									</div>
+	</div>
+<div class="diff-content">
+			<div class="section top-missing">
+												<div class="line diff-line ">
+						<code>/**</code>
+					</div>
+																<div class="line diff-line ">
+						<code> * Tries to delete the specified post</code>
+					</div>
+																<div class="line diff-line ">
+						<code> *</code>
+					</div>
+																<div class="line diff-line-empty">
+						<code></code>
+					</div>
+																<div class="line diff-line-empty">
+						<code></code>
+					</div>
+																<div class="line diff-line ">
+						<code> * @param PDO $pdo</code>
+					</div>
+																<div class="line diff-line ">
+						<code> * @param integer $postId</code>
+					</div>
+																<div class="line diff-line ">
+						<code> * @return boolean Returns true on successful deletion</code>
+					</div>
+									</div>
+			<div class="section ">
+												<div class="line diff-line ">
+						<code> */</code>
+					</div>
+																<div class="line diff-line ">
+						<code>function deletePost(PDO $pdo, $postId)</code>
+					</div>
+																<div class="line diff-line ">
+						<code>{</code>
+					</div>
+																<div class="line diff-line diff-line-deleted">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;$sql = "</code>
+					</div>
+																<div class="line diff-line diff-line-deleted">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DELETE FROM</code>
+					</div>
+																<div class="line diff-line-empty">
+						<code></code>
+					</div>
+																<div class="line diff-line-empty">
+						<code></code>
+					</div>
+																<div class="line diff-line-empty">
+						<code></code>
+					</div>
+																<div class="line diff-line-empty">
+						<code></code>
+					</div>
+																<div class="line diff-line-empty">
+						<code></code>
+					</div>
+																<div class="line diff-line-empty">
+						<code></code>
+					</div>
+																<div class="line diff-line ">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;post</code>
+					</div>
+																<div class="line diff-line ">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;WHERE</code>
+					</div>
+																<div class="line diff-line diff-line-deleted">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;id = :id</code>
+					</div>
+																<div class="line diff-line diff-line-deleted">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;";</code>
+					</div>
+																<div class="line diff-line diff-line-deleted">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;$stmt = $pdo-&gt;prepare($sql);</code>
+					</div>
+																<div class="line diff-line diff-line-deleted">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;if ($stmt === false)</code>
+					</div>
+																<div class="line diff-line ">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;{</code>
+					</div>
+																<div class="line diff-line diff-line-deleted">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;throw new Exception('There was a problem preparing this query');</code>
+					</div>
+																<div class="line diff-line diff-line-deleted">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;}</code>
+					</div>
+																<div class="line diff-line-empty">
+						<code></code>
+					</div>
+																<div class="line diff-line-empty">
+						<code></code>
+					</div>
+																<div class="line diff-line-empty">
+						<code></code>
+					</div>
+																<div class="line diff-line ">
+						<code></code>
+					</div>
+																<div class="line diff-line diff-line-deleted">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;$result = $stmt-&gt;execute(</code>
+					</div>
+																<div class="line diff-line diff-line-deleted">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;array('id' =&gt; $postId, )</code>
+					</div>
+																<div class="line diff-line diff-line-deleted">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;);</code>
+					</div>
+																<div class="line diff-line-empty">
+						<code></code>
+					</div>
+																<div class="line diff-line-empty">
+						<code></code>
+					</div>
+																<div class="line diff-line-empty">
+						<code></code>
+					</div>
+																<div class="line diff-line-empty">
+						<code></code>
+					</div>
+																<div class="line diff-line-empty">
+						<code></code>
+					</div>
+																<div class="line diff-line-empty">
+						<code></code>
+					</div>
+																<div class="line diff-line-empty">
+						<code></code>
+					</div>
+																<div class="line diff-line ">
+						<code></code>
+					</div>
+																<div class="line diff-line ">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;return $result !== false;</code>
+					</div>
+																<div class="line diff-line ">
+						<code>}</code>
+					</div>
+									</div>
+	</div>
+			</div>
+		</div>	
+				<div class="right side">
+			<div class="inner-side">
+				
+<div class="line-numbers">
+			<div class="line-numbers-section top-missing">
+												<div class="line line-number-line">
+						<code>3</code>
+					</div>
+																<div class="line line-number-line">
+						<code>4</code>
+					</div>
+																<div class="line line-number-line">
+						<code>5</code>
+					</div>
+																<div class="line line-number-line">
+						<code>6</code>
+					</div>
+																<div class="line line-number-line">
+						<code>7</code>
+					</div>
+																<div class="line line-number-line">
+						<code>8</code>
+					</div>
+																<div class="line line-number-line">
+						<code>9</code>
+					</div>
+																<div class="line line-number-line">
+						<code>10</code>
+					</div>
+									</div>
+			<div class="line-numbers-section ">
+												<div class="line line-number-line">
+						<code>12</code>
+					</div>
+																<div class="line line-number-line">
+						<code>13</code>
+					</div>
+																<div class="line line-number-line">
+						<code>14</code>
+					</div>
+																<div class="line line-number-line">
+						<code>15</code>
+					</div>
+																<div class="line line-number-line">
+						<code>16</code>
+					</div>
+																<div class="line line-number-line">
+						<code>17</code>
+					</div>
+																<div class="line line-number-line">
+						<code>18</code>
+					</div>
+																<div class="line line-number-line">
+						<code>19</code>
+					</div>
+																<div class="line line-number-line">
+						<code>20</code>
+					</div>
+																<div class="line line-number-line">
+						<code>21</code>
+					</div>
+																<div class="line line-number-line">
+						<code>22</code>
+					</div>
+																<div class="line line-number-line">
+						<code>23</code>
+					</div>
+																<div class="line line-number-line">
+						<code>24</code>
+					</div>
+																<div class="line line-number-line">
+						<code>25</code>
+					</div>
+																<div class="line line-number-line">
+						<code>26</code>
+					</div>
+																<div class="line line-number-line">
+						<code>27</code>
+					</div>
+																<div class="line line-number-line">
+						<code>28</code>
+					</div>
+																<div class="line line-number-line">
+						<code>29</code>
+					</div>
+																<div class="line line-number-line">
+						<code>30</code>
+					</div>
+																<div class="line line-number-line">
+						<code>31</code>
+					</div>
+																<div class="line line-number-line">
+						<code>32</code>
+					</div>
+																<div class="line line-number-line">
+						<code>33</code>
+					</div>
+																<div class="line line-number-line">
+						<code>34</code>
+					</div>
+																<div class="line line-number-line">
+						<code>35</code>
+					</div>
+																<div class="line line-number-line">
+						<code>36</code>
+					</div>
+																<div class="line line-number-line">
+						<code>37</code>
+					</div>
+																<div class="line line-number-line">
+						<code>38</code>
+					</div>
+																<div class="line line-number-line">
+						<code>39</code>
+					</div>
+																<div class="line line-number-line">
+						<code>40</code>
+					</div>
+																<div class="line line-number-line">
+						<code>41</code>
+					</div>
+																<div class="line line-number-line">
+						<code>42</code>
+					</div>
+																<div class="line line-number-line">
+						<code>43</code>
+					</div>
+																<div class="line line-number-line">
+						<code>44</code>
+					</div>
+																<div class="line line-number-line">
+						<code>45</code>
+					</div>
+																<div class="line line-number-line">
+						<code>46</code>
+					</div>
+																<div class="line line-number-line">
+						<code>47</code>
+					</div>
+																<div class="line line-number-line">
+						<code>48</code>
+					</div>
+									</div>
+	</div>
+<div class="diff-content">
+			<div class="section top-missing">
+												<div class="line diff-line ">
+						<code>/**</code>
+					</div>
+																<div class="line diff-line ">
+						<code> * Tries to delete the specified post</code>
+					</div>
+																<div class="line diff-line ">
+						<code> *</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code> * We first delete the comments attached to the post, and then delete the post itself</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code> *</code>
+					</div>
+																<div class="line diff-line ">
+						<code> * @param PDO $pdo</code>
+					</div>
+																<div class="line diff-line ">
+						<code> * @param integer $postId</code>
+					</div>
+																<div class="line diff-line ">
+						<code> * @return boolean Returns true on successful deletion</code>
+					</div>
+									</div>
+			<div class="section ">
+												<div class="line diff-line ">
+						<code> */</code>
+					</div>
+																<div class="line diff-line ">
+						<code>function deletePost(PDO $pdo, $postId)</code>
+					</div>
+																<div class="line diff-line ">
+						<code>{</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;$sqls = array(</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// Delete comments first, to remove the foreign key objection</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"DELETE FROM</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;comment</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;WHERE</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;post_id = :id",</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// Now we can delete the post</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"DELETE FROM</code>
+					</div>
+																<div class="line diff-line ">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;post</code>
+					</div>
+																<div class="line diff-line ">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;WHERE</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;id = :id",</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;);</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code></code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;foreach ($sqls as $sql)</code>
+					</div>
+																<div class="line diff-line ">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;{</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$stmt = $pdo-&gt;prepare($sql);</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if ($stmt === false)</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;throw new Exception('There was a problem preparing this query');</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</code>
+					</div>
+																<div class="line diff-line ">
+						<code></code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$result = $stmt-&gt;execute(</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;array('id' =&gt; $postId, )</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;);</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code></code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// Don't continue if something went wrong</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if ($result === false)</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;break;</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;}</code>
+					</div>
+																<div class="line diff-line ">
+						<code></code>
+					</div>
+																<div class="line diff-line ">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;return $result !== false;</code>
+					</div>
+																<div class="line diff-line ">
+						<code>}</code>
+					</div>
+									</div>
+	</div>
+			</div>
+		</div>
+	</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+<p id="hash-f9f1750da9" class="commentable">
+	Whilst we are looking at the database side of things, I noticed that the
+	<code class="inline">user.is_enabled</code> field hasn't yet been used. This was intended mainly for future
+	enhancements (in particular for a user administration page), but the application can make an
+	initial use of it immediately, by disallowing authenticated features to non-enabled users.
+</p>
+
+<p id="hash-d8330f26cf" class="commentable">
+	The installer sets the test user to <code class="inline">is_enabled=1</code> already, so all we need
+	to do is to adjust the SQL statements that fetch data from the user table.
+</p>
+
+
+<div class="tab-container" id="tab-container-c08f44a590195c26dfb78b557ce749a36873d521" data-easytabs="true">
+	
+			<img class="expand-toggle icon" src="Make%20your%20own%20blog%20%3E%20Adding%20some%20polish_files/code-expand.png" alt="Expand/contract code area" style="display: none;">
+
+		<img class="tabs-move-left tabs-move icon" src="Make%20your%20own%20blog%20%3E%20Adding%20some%20polish_files/tab-left.png" alt="Select previous tab" style="display: none;">
+
+	<div class="tabs-chopper">
+
+				<ul class="tabs">
+							<li class="tab active">
+										<a href="#tabs-3f67b49085e50b6bd74f-0" class="active">lib/common.php</a>
+
+										<span class="active">lib/common.php</span>
+				</li>
+					</ul>
+
+	</div>
+
+	<img class="tabs-move-right tabs-move icon" src="Make%20your%20own%20blog%20%3E%20Adding%20some%20polish_files/tab-right.png" alt="Select next tab" style="display: none;">
+
+				<div id="tabs-3f67b49085e50b6bd74f-0" class="insert-diff active" style="">
+			<div class="top-bar">
+
+				
+				<div class="download-block">
+					<span class="download">
+						<a href="https://ilovephp.jondh.me.uk/checkouts/rebase5/3f67b49085e50b6bd74f/lib/common.php" target="_blank"><img src="Make%20your%20own%20blog%20%3E%20Adding%20some%20polish_files/disk.png" alt="">
+						Download</a>
+					</span>
+				</div>
+
+			</div>
+			<div class="diff-scroll contracted">
+				<div class="diff-body">
+					<div class="file ">
+			<div class="left side">
+			<div class="inner-side">
+				
+<div class="line-numbers">
+			<div class="line-numbers-section top-missing">
+												<div class="line line-number-line">
+						<code>159</code>
+					</div>
+																<div class="line line-number-line">
+						<code>160</code>
+					</div>
+																<div class="line line-number-line">
+						<code>161</code>
+					</div>
+																<div class="line line-number-empty">
+						<code>&nbsp;</code>
+					</div>
+																<div class="line line-number-line">
+						<code>162</code>
+					</div>
+																<div class="line line-number-line">
+						<code>163</code>
+					</div>
+																<div class="line line-number-line">
+						<code>164</code>
+					</div>
+									</div>
+			<div class="line-numbers-section ">
+												<div class="line line-number-line">
+						<code>225</code>
+					</div>
+																<div class="line line-number-line">
+						<code>226</code>
+					</div>
+																<div class="line line-number-line">
+						<code>227</code>
+					</div>
+																<div class="line line-number-empty">
+						<code>&nbsp;</code>
+					</div>
+																<div class="line line-number-line">
+						<code>228</code>
+					</div>
+																<div class="line line-number-line">
+						<code>229</code>
+					</div>
+																<div class="line line-number-line">
+						<code>230</code>
+					</div>
+									</div>
+	</div>
+<div class="diff-content">
+			<div class="section top-missing">
+												<div class="line diff-line ">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;user</code>
+					</div>
+																<div class="line diff-line ">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;WHERE</code>
+					</div>
+																<div class="line diff-line ">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;username = :username</code>
+					</div>
+																<div class="line diff-line-empty">
+						<code></code>
+					</div>
+																<div class="line diff-line ">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;";</code>
+					</div>
+																<div class="line diff-line ">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;$stmt = $pdo-&gt;prepare($sql);</code>
+					</div>
+																<div class="line diff-line ">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;$stmt-&gt;execute(</code>
+					</div>
+									</div>
+			<div class="section ">
+												<div class="line diff-line ">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;user</code>
+					</div>
+																<div class="line diff-line ">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;WHERE</code>
+					</div>
+																<div class="line diff-line ">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;username = :username</code>
+					</div>
+																<div class="line diff-line-empty">
+						<code></code>
+					</div>
+																<div class="line diff-line ">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;";</code>
+					</div>
+																<div class="line diff-line ">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;$stmt = $pdo-&gt;prepare($sql);</code>
+					</div>
+																<div class="line diff-line ">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;$stmt-&gt;execute(</code>
+					</div>
+									</div>
+	</div>
+			</div>
+		</div>	
+				<div class="right side">
+			<div class="inner-side">
+				
+<div class="line-numbers">
+			<div class="line-numbers-section top-missing">
+												<div class="line line-number-line">
+						<code>159</code>
+					</div>
+																<div class="line line-number-line">
+						<code>160</code>
+					</div>
+																<div class="line line-number-line">
+						<code>161</code>
+					</div>
+																<div class="line line-number-line">
+						<code>162</code>
+					</div>
+																<div class="line line-number-line">
+						<code>163</code>
+					</div>
+																<div class="line line-number-line">
+						<code>164</code>
+					</div>
+																<div class="line line-number-line">
+						<code>165</code>
+					</div>
+									</div>
+			<div class="line-numbers-section ">
+												<div class="line line-number-line">
+						<code>225</code>
+					</div>
+																<div class="line line-number-line">
+						<code>226</code>
+					</div>
+																<div class="line line-number-line">
+						<code>227</code>
+					</div>
+																<div class="line line-number-line">
+						<code>228</code>
+					</div>
+																<div class="line line-number-line">
+						<code>229</code>
+					</div>
+																<div class="line line-number-line">
+						<code>230</code>
+					</div>
+																<div class="line line-number-line">
+						<code>231</code>
+					</div>
+									</div>
+	</div>
+<div class="diff-content">
+			<div class="section top-missing">
+												<div class="line diff-line ">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;user</code>
+					</div>
+																<div class="line diff-line ">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;WHERE</code>
+					</div>
+																<div class="line diff-line ">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;username = :username</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;AND is_enabled = 1</code>
+					</div>
+																<div class="line diff-line ">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;";</code>
+					</div>
+																<div class="line diff-line ">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;$stmt = $pdo-&gt;prepare($sql);</code>
+					</div>
+																<div class="line diff-line ">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;$stmt-&gt;execute(</code>
+					</div>
+									</div>
+			<div class="section ">
+												<div class="line diff-line ">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;user</code>
+					</div>
+																<div class="line diff-line ">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;WHERE</code>
+					</div>
+																<div class="line diff-line ">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;username = :username</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;AND is_enabled = 1</code>
+					</div>
+																<div class="line diff-line ">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;";</code>
+					</div>
+																<div class="line diff-line ">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;$stmt = $pdo-&gt;prepare($sql);</code>
+					</div>
+																<div class="line diff-line ">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;$stmt-&gt;execute(</code>
+					</div>
+									</div>
+	</div>
+			</div>
+		</div>
+	</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+<p id="hash-d0f891bafb" class="commentable">
+	Our final improvement is to add some labels and make use of existing form styles:
+</p>
+
+
+<div class="tab-container" id="tab-container-11dd9ca1f486f836b4f96c57020dfb6b62fafd0e" data-easytabs="true">
+	
+			<img class="expand-toggle icon" src="Make%20your%20own%20blog%20%3E%20Adding%20some%20polish_files/code-expand.png" alt="Expand/contract code area">
+
+		<img class="tabs-move-left tabs-move icon" src="Make%20your%20own%20blog%20%3E%20Adding%20some%20polish_files/tab-left.png" alt="Select previous tab" style="display: none;">
+
+	<div class="tabs-chopper">
+
+				<ul class="tabs">
+							<li class="tab active">
+										<a href="#tabs-6a496e8cb552cbcccfe5-0" class="active">login.php</a>
+
+										<span class="active">login.php</span>
+				</li>
+					</ul>
+
+	</div>
+
+	<img class="tabs-move-right tabs-move icon" src="Make%20your%20own%20blog%20%3E%20Adding%20some%20polish_files/tab-right.png" alt="Select next tab" style="display: none;">
+
+				<div id="tabs-6a496e8cb552cbcccfe5-0" class="insert-diff active" style="">
+			<div class="top-bar">
+
+				
+				<div class="download-block">
+					<span class="download">
+						<a href="https://ilovephp.jondh.me.uk/checkouts/rebase5/6a496e8cb552cbcccfe5/login.php" target="_blank"><img src="Make%20your%20own%20blog%20%3E%20Adding%20some%20polish_files/disk.png" alt="">
+						Download</a>
+					</span>
+				</div>
+
+			</div>
+			<div class="diff-scroll contracted">
+				<div class="diff-body">
+					<div class="file ">
+			<div class="left side">
+			<div class="inner-side">
+				
+<div class="line-numbers">
+			<div class="line-numbers-section top-missing">
+												<div class="line line-number-line">
+						<code>56</code>
+					</div>
+																<div class="line line-number-line">
+						<code>57</code>
+					</div>
+																<div class="line line-number-line">
+						<code>58</code>
+					</div>
+																<div class="line line-number-empty">
+						<code>&nbsp;</code>
+					</div>
+																<div class="line line-number-line">
+						<code>59</code>
+					</div>
+																<div class="line line-number-line">
+						<code>60</code>
+					</div>
+																<div class="line line-number-line">
+						<code>61</code>
+					</div>
+																<div class="line line-number-empty">
+						<code>&nbsp;</code>
+					</div>
+																<div class="line line-number-empty">
+						<code>&nbsp;</code>
+					</div>
+																<div class="line line-number-line">
+						<code>62</code>
+					</div>
+																<div class="line line-number-line">
+						<code>63</code>
+					</div>
+																<div class="line line-number-empty">
+						<code>&nbsp;</code>
+					</div>
+																<div class="line line-number-line">
+						<code>64</code>
+					</div>
+																<div class="line line-number-line">
+						<code>65</code>
+					</div>
+																<div class="line line-number-line">
+						<code>66</code>
+					</div>
+																<div class="line line-number-line">
+						<code>67</code>
+					</div>
+																<div class="line line-number-line">
+						<code>68</code>
+					</div>
+																<div class="line line-number-line">
+						<code>69</code>
+					</div>
+																<div class="line line-number-line">
+						<code>70</code>
+					</div>
+																<div class="line line-number-line">
+						<code>71</code>
+					</div>
+																<div class="line line-number-empty">
+						<code>&nbsp;</code>
+					</div>
+																<div class="line line-number-empty">
+						<code>&nbsp;</code>
+					</div>
+																<div class="line line-number-empty">
+						<code>&nbsp;</code>
+					</div>
+																<div class="line line-number-empty">
+						<code>&nbsp;</code>
+					</div>
+																<div class="line line-number-empty">
+						<code>&nbsp;</code>
+					</div>
+																<div class="line line-number-empty">
+						<code>&nbsp;</code>
+					</div>
+																<div class="line line-number-line">
+						<code>72</code>
+					</div>
+																<div class="line line-number-line">
+						<code>73</code>
+					</div>
+																<div class="line line-number-line">
+						<code>74</code>
+					</div>
+									</div>
+	</div>
+<div class="diff-content">
+			<div class="section top-missing">
+												<div class="line diff-line ">
+						<code></code>
+					</div>
+																<div class="line diff-line ">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;form</code>
+					</div>
+																<div class="line diff-line ">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;method="post"</code>
+					</div>
+																<div class="line diff-line-empty">
+						<code></code>
+					</div>
+																<div class="line diff-line ">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&gt;</code>
+					</div>
+																<div class="line diff-line diff-line-deleted">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;p&gt;</code>
+					</div>
+																<div class="line diff-line diff-line-deleted">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Username:</code>
+					</div>
+																<div class="line diff-line-empty">
+						<code></code>
+					</div>
+																<div class="line diff-line-empty">
+						<code></code>
+					</div>
+																<div class="line diff-line ">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;input</code>
+					</div>
+																<div class="line diff-line ">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;type="text"</code>
+					</div>
+																<div class="line diff-line-empty">
+						<code></code>
+					</div>
+																<div class="line diff-line ">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;name="username"</code>
+					</div>
+																<div class="line diff-line ">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;value="&lt;?php echo htmlEscape($username) ?&gt;"</code>
+					</div>
+																<div class="line diff-line ">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/&gt;</code>
+					</div>
+																<div class="line diff-line diff-line-deleted">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/p&gt;</code>
+					</div>
+																<div class="line diff-line diff-line-deleted">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;p&gt;</code>
+					</div>
+																<div class="line diff-line diff-line-deleted">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Password:</code>
+					</div>
+																<div class="line diff-line diff-line-deleted">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;input type="password" name="password" /&gt;</code>
+					</div>
+																<div class="line diff-line diff-line-deleted">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/p&gt;</code>
+					</div>
+																<div class="line diff-line-empty">
+						<code></code>
+					</div>
+																<div class="line diff-line-empty">
+						<code></code>
+					</div>
+																<div class="line diff-line-empty">
+						<code></code>
+					</div>
+																<div class="line diff-line-empty">
+						<code></code>
+					</div>
+																<div class="line diff-line-empty">
+						<code></code>
+					</div>
+																<div class="line diff-line-empty">
+						<code></code>
+					</div>
+																<div class="line diff-line ">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;input type="submit" name="submit" value="Login" /&gt;</code>
+					</div>
+																<div class="line diff-line ">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/form&gt;</code>
+					</div>
+																<div class="line diff-line ">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&lt;/body&gt;</code>
+					</div>
+									</div>
+	</div>
+			</div>
+		</div>	
+				<div class="right side">
+			<div class="inner-side">
+				
+<div class="line-numbers">
+			<div class="line-numbers-section top-missing">
+												<div class="line line-number-line">
+						<code>56</code>
+					</div>
+																<div class="line line-number-line">
+						<code>57</code>
+					</div>
+																<div class="line line-number-line">
+						<code>58</code>
+					</div>
+																<div class="line line-number-line">
+						<code>59</code>
+					</div>
+																<div class="line line-number-line">
+						<code>60</code>
+					</div>
+																<div class="line line-number-line">
+						<code>61</code>
+					</div>
+																<div class="line line-number-line">
+						<code>62</code>
+					</div>
+																<div class="line line-number-line">
+						<code>63</code>
+					</div>
+																<div class="line line-number-line">
+						<code>64</code>
+					</div>
+																<div class="line line-number-line">
+						<code>65</code>
+					</div>
+																<div class="line line-number-line">
+						<code>66</code>
+					</div>
+																<div class="line line-number-line">
+						<code>67</code>
+					</div>
+																<div class="line line-number-line">
+						<code>68</code>
+					</div>
+																<div class="line line-number-line">
+						<code>69</code>
+					</div>
+																<div class="line line-number-line">
+						<code>70</code>
+					</div>
+																<div class="line line-number-line">
+						<code>71</code>
+					</div>
+																<div class="line line-number-line">
+						<code>72</code>
+					</div>
+																<div class="line line-number-line">
+						<code>73</code>
+					</div>
+																<div class="line line-number-line">
+						<code>74</code>
+					</div>
+																<div class="line line-number-line">
+						<code>75</code>
+					</div>
+																<div class="line line-number-line">
+						<code>76</code>
+					</div>
+																<div class="line line-number-line">
+						<code>77</code>
+					</div>
+																<div class="line line-number-line">
+						<code>78</code>
+					</div>
+																<div class="line line-number-line">
+						<code>79</code>
+					</div>
+																<div class="line line-number-line">
+						<code>80</code>
+					</div>
+																<div class="line line-number-line">
+						<code>81</code>
+					</div>
+																<div class="line line-number-line">
+						<code>82</code>
+					</div>
+																<div class="line line-number-line">
+						<code>83</code>
+					</div>
+																<div class="line line-number-line">
+						<code>84</code>
+					</div>
+									</div>
+	</div>
+<div class="diff-content">
+			<div class="section top-missing">
+												<div class="line diff-line ">
+						<code></code>
+					</div>
+																<div class="line diff-line ">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;form</code>
+					</div>
+																<div class="line diff-line ">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;method="post"</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;class="user-form"</code>
+					</div>
+																<div class="line diff-line ">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&gt;</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;div&gt;</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;label for="username"&gt;</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Username:</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/label&gt;</code>
+					</div>
+																<div class="line diff-line ">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;input</code>
+					</div>
+																<div class="line diff-line ">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;type="text"</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;id="username"</code>
+					</div>
+																<div class="line diff-line ">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;name="username"</code>
+					</div>
+																<div class="line diff-line ">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;value="&lt;?php echo htmlEscape($username) ?&gt;"</code>
+					</div>
+																<div class="line diff-line ">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/&gt;</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;div&gt;</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;label for="password"&gt;</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Password:</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/label&gt;</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;input</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;type="password"</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;id="password"</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;name="password"</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/&gt;</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;</code>
+					</div>
+																<div class="line diff-line ">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;input type="submit" name="submit" value="Login" /&gt;</code>
+					</div>
+																<div class="line diff-line ">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/form&gt;</code>
+					</div>
+																<div class="line diff-line ">
+						<code>&nbsp;&nbsp;&nbsp;&nbsp;&lt;/body&gt;</code>
+					</div>
+									</div>
+	</div>
+			</div>
+		</div>
+	</div>
+				</div>
+			</div>
+		</div>
+	</div>
+ 
+
+<p id="hash-5483af5e41" class="commentable">
+	Well done, you have finished the tutorial! It is a good idea to regenerate the database one last
+	time, and then give the whole application a thorough testing. Add some posts and comments, both
+	while logged in and while logged out, and delete comments in the admin interface.
+</p>
+							</div>
+							
+		<div id="footer">
+			<a href="https://www.reddit.com/r/ilovephp">Support channel</a>
+|
+<a href="https://github.com/halfer/php-tutorial-text/issues">Bug reports</a>
+|
+<a href="https://blog.jondh.me.uk/2014/08/online-php-beginners-tutorial/">Related blog post</a>
+|
+<a href="https://www.reddit.com/r/webdev/comments/2iqps3/ive_written_a_phpsql_app_dev_tutorial_for/">Original announcement</a>
+|
+<a href="http://validator.w3.org/check/referer">Valid HTML5</a>
+		</div>
+			<script>
+	  var _paq = _paq || [];
+	  _paq.push(['trackPageView']);
+	  _paq.push(['enableLinkTracking']);
+	  (function() {
+		var u="//analytics.jondh.me.uk/";
+		_paq.push(['setTrackerUrl', u+'piwik.php']);
+		_paq.push(['setSiteId', 1]);
+		var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+		g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+	  })();
+	</script>
+	<noscript><p><img src="//analytics.jondh.me.uk/piwik.php?idsite=1" style="border:0;" alt="" /></p></noscript>
+		
+        <!-- env: live -->
+	
+
+</body></html>

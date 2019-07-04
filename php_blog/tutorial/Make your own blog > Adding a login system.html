@@ -1,0 +1,1612 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+		<title>
+						Make your own blog
+			&gt; Adding a login system		</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+				            <link type="text/css" rel="stylesheet" href="Make%20your%20own%20blog%20%3E%20Adding%20a%20login%20system_files/local-file.css">
+		
+				<style id="dynamic-styles">
+			#content		{
+							font-family: 'Open Sans', sans-serif;
+			
+							font-weight: 300;
+					}
+			#contents-menu		{
+							font-family: 'Open Sans', sans-serif;
+			
+							font-weight: 300;
+					}
+			#contents-menu h2		{
+			
+							font-weight: 400;
+					}
+			#content h1		{
+			
+							font-weight: 300;
+					}
+			#content h2		{
+			
+							font-weight: 400;
+					}
+			.sidebar .heading p		{
+			
+							font-weight: 400;
+					}
+	</style>
+
+				<script src="Make%20your%20own%20blog%20%3E%20Adding%20a%20login%20system_files/compiled.js"></script>
+
+				<link type="text/css" rel="stylesheet" href="Make%20your%20own%20blog%20%3E%20Adding%20a%20login%20system_files/compiled.css">
+
+	</head>
+	<body>
+		<div id="fixed-panel">
+			<div id="version-chooser">
+				<div class="inner">
+					<p>
+	Choose a version here. If you've not already started the tutorial, just go
+	with the latest one.
+</p>
+
+<table>
+	<tbody>
+					<tr>
+				<td>30 Aug 2014</td>
+				<td>Preview version</td>
+				<td>
+					<a href="https://ilovephp.jondh.me.uk/en/tutorial/make-your-own-blog/adding-a-login-system?version=v1">Choose</a>
+									</td>
+			</tr>
+					<tr>
+				<td>5 Oct 2014</td>
+				<td>Explicitly adds a specific charset for htmlspecialchars(), and wraps it with a custom function</td>
+				<td>
+					<a href="https://ilovephp.jondh.me.uk/en/tutorial/make-your-own-blog/adding-a-login-system?version=v2">Choose</a>
+									</td>
+			</tr>
+					<tr>
+				<td>16 Oct 2014</td>
+				<td>Updated redirect function to work with vhost subfolders</td>
+				<td>
+					<a href="https://ilovephp.jondh.me.uk/en/tutorial/make-your-own-blog/adding-a-login-system?version=v3">Choose</a>
+									</td>
+			</tr>
+					<tr>
+				<td>4 Nov 2014</td>
+				<td>Minor improvements: added missing docblock, fixed security 
+issue, CSS tweak. Switched hashing method to DEFAULT instead of BCRYPT, 
+this is best practice.</td>
+				<td>
+					<a href="https://ilovephp.jondh.me.uk/en/tutorial/make-your-own-blog/adding-a-login-system?version=v4">Choose</a>
+									</td>
+			</tr>
+					<tr>
+				<td>25 Nov 2014</td>
+				<td>Improve the notes on getting started, in particular choosing a programmer's editor. Added introduction to mod_rewrite rules.</td>
+				<td>
+					<a href="https://ilovephp.jondh.me.uk/en/tutorial/make-your-own-blog/adding-a-login-system?version=v5">Choose</a>
+									</td>
+			</tr>
+					<tr>
+				<td>16 Aug 2018</td>
+				<td>Some bug fixes, remove compatibility library for earlier version of PHP</td>
+				<td>
+					<a href="https://ilovephp.jondh.me.uk/en/tutorial/make-your-own-blog/adding-a-login-system?version=v6">Choose</a>
+											♥
+									</td>
+			</tr>
+			</tbody>
+</table>				</div>
+			</div>
+			<div id="header">
+				<div id="header-inner">
+					<a href="https://ilovephp.jondh.me.uk/" title="Home">I ♥ PHP</a>
+
+
+
+
+<a id="version-chooser-toggle" class="section" title="See the different available versions">
+	Versions
+</a>
+				</div>
+			</div>
+		</div>
+
+				<div id="hidden-padding"></div>
+
+					<div id="versions-note">
+		<span id="versions-note-close">
+			OK
+		</span>
+		<div id="versions-note-inner">
+			NB:
+			There are several versions of this tutorial, each successive one
+			containing additional improvements. If you're in the middle of
+			working through it, please check the versions panel above, to
+			ensure you're not mixing code from different versions.
+		</div>
+	</div>
+
+							<div id="popup-sections">
+				
+<div id="contents-menu">
+	<h2>Contents</h2>
+
+			<div class="menu-entry unselected">
+			<div class="title">
+				1.
+
+									<a href="https://ilovephp.jondh.me.uk/en/tutorial/make-your-own-blog/introduction">Introduction</a>
+							</div>
+					</div>
+			<div class="menu-entry unselected">
+			<div class="title">
+				2.
+
+									<a href="https://ilovephp.jondh.me.uk/en/tutorial/make-your-own-blog/using-real-data">Using real data</a>
+							</div>
+					</div>
+			<div class="menu-entry unselected">
+			<div class="title">
+				3.
+
+									<a href="https://ilovephp.jondh.me.uk/en/tutorial/make-your-own-blog/adding-more-features">Adding more features</a>
+							</div>
+					</div>
+			<div class="menu-entry unselected">
+			<div class="title">
+				4.
+
+									<a href="https://ilovephp.jondh.me.uk/en/tutorial/make-your-own-blog/improving-the-installer">Improving the installer</a>
+							</div>
+					</div>
+			<div class="menu-entry unselected">
+			<div class="title">
+				5.
+
+									<a href="https://ilovephp.jondh.me.uk/en/tutorial/make-your-own-blog/commenting-form">Commenting form</a>
+							</div>
+					</div>
+			<div class="menu-entry selected">
+			<div class="title">
+				6.
+
+														Adding a login system							</div>
+					</div>
+			<div class="menu-entry unselected">
+			<div class="title">
+				7.
+
+									<a href="https://ilovephp.jondh.me.uk/en/tutorial/make-your-own-blog/tidy-up">Tidy up</a>
+							</div>
+					</div>
+			<div class="menu-entry unselected">
+			<div class="title">
+				8.
+
+									<a href="https://ilovephp.jondh.me.uk/en/tutorial/make-your-own-blog/new-post-creation">New post creation</a>
+							</div>
+					</div>
+			<div class="menu-entry unselected">
+			<div class="title">
+				9.
+
+									<a href="https://ilovephp.jondh.me.uk/en/tutorial/make-your-own-blog/post-editing">Post editing</a>
+							</div>
+					</div>
+			<div class="menu-entry unselected">
+			<div class="title">
+				10.
+
+									<a href="https://ilovephp.jondh.me.uk/en/tutorial/make-your-own-blog/all-posts-page">All posts page</a>
+							</div>
+					</div>
+			<div class="menu-entry unselected">
+			<div class="title">
+				11.
+
+									<a href="https://ilovephp.jondh.me.uk/en/tutorial/make-your-own-blog/comment-admin">Comment admin</a>
+							</div>
+					</div>
+			<div class="menu-entry unselected">
+			<div class="title">
+				12.
+
+									<a href="https://ilovephp.jondh.me.uk/en/tutorial/make-your-own-blog/adding-some-polish">Adding some polish</a>
+							</div>
+					</div>
+	</div>
+							</div>
+
+			<div id="content">
+				<h1>Make your own blog</h1>
+
+									
+
+<h2>Adding a login system</h2>
+
+<p id="hash-573d993da5" class="commentable">
+	The next thing I decided to implement was a log-on system. This will allow a blog administrator
+	to write, edit and delete posts, and to delete comments. In this set of changes, I add a
+	users table, and allow the installer to create an admin user with a new password each time it
+	is run. So, make the following changes, and then re-create the database:
+</p>
+
+
+<div class="tab-container" id="tab-container-f16f833e354ce771ff3381380acddf019c829fa3">
+	
+			<img class="expand-toggle icon" src="Make%20your%20own%20blog%20%3E%20Adding%20a%20login%20system_files/code-expand.png" alt="Expand/contract code area">
+
+		<img class="tabs-move-left tabs-move icon" src="Make%20your%20own%20blog%20%3E%20Adding%20a%20login%20system_files/tab-left.png" alt="Select previous tab">
+
+	<div class="tabs-chopper">
+
+				<ul class="tabs">
+							<li class="tab">
+										<a href="#tabs-e75faf17ee106cf89d66-0">data/init.sql</a>
+
+										<span>data/init.sql</span>
+				</li>
+							<li class="tab">
+										<a href="#tabs-e75faf17ee106cf89d66-1">install.php</a>
+
+										<span>install.php</span>
+				</li>
+							<li class="tab">
+										<a href="#tabs-e75faf17ee106cf89d66-2">lib/install.php</a>
+
+										<span>lib/install.php</span>
+				</li>
+					</ul>
+
+	</div>
+
+	<img class="tabs-move-right tabs-move icon" src="Make%20your%20own%20blog%20%3E%20Adding%20a%20login%20system_files/tab-right.png" alt="Select next tab">
+
+				<div id="tabs-e75faf17ee106cf89d66-0" class="insert-diff">
+			<div class="top-bar">
+
+				
+				<div class="download-block">
+					<span class="download">
+						<a href="https://ilovephp.jondh.me.uk/checkouts/rebase5/e75faf17ee106cf89d66/data/init.sql" target="_blank"><img src="Make%20your%20own%20blog%20%3E%20Adding%20a%20login%20system_files/disk.png" alt="">
+						Download</a>
+					</span>
+				</div>
+
+			</div>
+			<div class="diff-scroll">
+				<div class="diff-body">
+					<div class="file ">
+			<div class="left side">
+			<div class="inner-side">
+				
+<div class="line-numbers">
+			<div class="line-numbers-section top-missing">
+												<div class="line line-number-line">
+						<code>93</code>
+					</div>
+																<div class="line line-number-line">
+						<code>94</code>
+					</div>
+																<div class="line line-number-line">
+						<code>95</code>
+					</div>
+																<div class="line line-number-line">
+						<code>96</code>
+					</div>
+									</div>
+	</div>
+<div class="diff-content">
+			<div class="section top-missing">
+												<div class="line diff-line ">
+						<code>		'http://anotherexample.com/',</code>
+					</div>
+																<div class="line diff-line ">
+						<code>		"This is a comment from Jonny"</code>
+					</div>
+																<div class="line diff-line ">
+						<code>	)</code>
+					</div>
+																<div class="line diff-line diff-line-deleted">
+						<code>;</code>
+					</div>
+									</div>
+	</div>
+			</div>
+		</div>	
+				<div class="right side">
+			<div class="inner-side">
+				
+<div class="line-numbers">
+			<div class="line-numbers-section top-missing">
+												<div class="line line-number-line">
+						<code>93</code>
+					</div>
+																<div class="line line-number-line">
+						<code>94</code>
+					</div>
+																<div class="line line-number-line">
+						<code>95</code>
+					</div>
+																<div class="line line-number-line">
+						<code>96</code>
+					</div>
+																<div class="line line-number-line">
+						<code>97</code>
+					</div>
+																<div class="line line-number-line">
+						<code>98</code>
+					</div>
+																<div class="line line-number-line">
+						<code>99</code>
+					</div>
+																<div class="line line-number-line">
+						<code>100</code>
+					</div>
+																<div class="line line-number-line">
+						<code>101</code>
+					</div>
+																<div class="line line-number-line">
+						<code>102</code>
+					</div>
+																<div class="line line-number-line">
+						<code>103</code>
+					</div>
+																<div class="line line-number-line">
+						<code>104</code>
+					</div>
+									</div>
+	</div>
+<div class="diff-content">
+			<div class="section top-missing">
+												<div class="line diff-line ">
+						<code>		'http://anotherexample.com/',</code>
+					</div>
+																<div class="line diff-line ">
+						<code>		"This is a comment from Jonny"</code>
+					</div>
+																<div class="line diff-line ">
+						<code>	)</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>;</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code></code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>CREATE TABLE user (</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>	id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>	username VARCHAR NOT NULL,</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>	password VARCHAR NOT NULL,</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>	created_at VARCHAR NOT NULL,</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>	is_enabled BOOLEAN NOT NULL DEFAULT true</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>);</code>
+					</div>
+									</div>
+	</div>
+			</div>
+		</div>
+	</div>
+				</div>
+			</div>
+		</div>
+			<div id="tabs-e75faf17ee106cf89d66-1" class="insert-diff">
+			<div class="top-bar">
+
+				
+				<div class="download-block">
+					<span class="download">
+						<a href="https://ilovephp.jondh.me.uk/checkouts/rebase5/e75faf17ee106cf89d66/install.php" target="_blank"><img src="Make%20your%20own%20blog%20%3E%20Adding%20a%20login%20system_files/disk.png" alt="">
+						Download</a>
+					</span>
+				</div>
+
+			</div>
+			<div class="diff-scroll">
+				<div class="diff-body">
+					<div class="file ">
+			<div class="left side">
+			<div class="inner-side">
+				
+<div class="line-numbers">
+			<div class="line-numbers-section top-missing">
+												<div class="line line-number-line">
+						<code>10</code>
+					</div>
+																<div class="line line-number-line">
+						<code>11</code>
+					</div>
+																<div class="line line-number-line">
+						<code>12</code>
+					</div>
+																<div class="line line-number-line">
+						<code>13</code>
+					</div>
+																<div class="line line-number-empty">
+						<code>&nbsp;</code>
+					</div>
+																<div class="line line-number-empty">
+						<code>&nbsp;</code>
+					</div>
+																<div class="line line-number-empty">
+						<code>&nbsp;</code>
+					</div>
+																<div class="line line-number-empty">
+						<code>&nbsp;</code>
+					</div>
+																<div class="line line-number-empty">
+						<code>&nbsp;</code>
+					</div>
+																<div class="line line-number-empty">
+						<code>&nbsp;</code>
+					</div>
+																<div class="line line-number-empty">
+						<code>&nbsp;</code>
+					</div>
+																<div class="line line-number-empty">
+						<code>&nbsp;</code>
+					</div>
+																<div class="line line-number-empty">
+						<code>&nbsp;</code>
+					</div>
+																<div class="line line-number-empty">
+						<code>&nbsp;</code>
+					</div>
+																<div class="line line-number-empty">
+						<code>&nbsp;</code>
+					</div>
+																<div class="line line-number-empty">
+						<code>&nbsp;</code>
+					</div>
+																<div class="line line-number-empty">
+						<code>&nbsp;</code>
+					</div>
+																<div class="line line-number-line">
+						<code>14</code>
+					</div>
+																<div class="line line-number-line">
+						<code>15</code>
+					</div>
+																<div class="line line-number-line">
+						<code>16</code>
+					</div>
+									</div>
+			<div class="line-numbers-section ">
+												<div class="line line-number-line">
+						<code>31</code>
+					</div>
+																<div class="line line-number-line">
+						<code>32</code>
+					</div>
+																<div class="line line-number-line">
+						<code>33</code>
+					</div>
+																<div class="line line-number-line">
+						<code>34</code>
+					</div>
+																<div class="line line-number-line">
+						<code>35</code>
+					</div>
+																<div class="line line-number-line">
+						<code>36</code>
+					</div>
+																<div class="line line-number-line">
+						<code>37</code>
+					</div>
+																<div class="line line-number-line">
+						<code>38</code>
+					</div>
+																<div class="line line-number-empty">
+						<code>&nbsp;</code>
+					</div>
+																<div class="line line-number-empty">
+						<code>&nbsp;</code>
+					</div>
+																<div class="line line-number-line">
+						<code>39</code>
+					</div>
+																<div class="line line-number-line">
+						<code>40</code>
+					</div>
+																<div class="line line-number-line">
+						<code>41</code>
+					</div>
+																<div class="line line-number-line">
+						<code>42</code>
+					</div>
+																<div class="line line-number-empty">
+						<code>&nbsp;</code>
+					</div>
+																<div class="line line-number-empty">
+						<code>&nbsp;</code>
+					</div>
+																<div class="line line-number-empty">
+						<code>&nbsp;</code>
+					</div>
+																<div class="line line-number-line">
+						<code>43</code>
+					</div>
+																<div class="line line-number-line">
+						<code>44</code>
+					</div>
+																<div class="line line-number-line">
+						<code>45</code>
+					</div>
+									</div>
+			<div class="line-numbers-section ">
+												<div class="line line-number-line">
+						<code>78</code>
+					</div>
+																<div class="line line-number-line">
+						<code>79</code>
+					</div>
+																<div class="line line-number-line">
+						<code>80</code>
+					</div>
+																<div class="line line-number-empty">
+						<code>&nbsp;</code>
+					</div>
+																<div class="line line-number-line">
+						<code>81</code>
+					</div>
+																<div class="line line-number-line">
+						<code>82</code>
+					</div>
+																<div class="line line-number-line">
+						<code>83</code>
+					</div>
+									</div>
+			<div class="line-numbers-section ">
+												<div class="line line-number-line">
+						<code>88</code>
+					</div>
+																<div class="line line-number-line">
+						<code>89</code>
+					</div>
+																<div class="line line-number-line">
+						<code>90</code>
+					</div>
+																<div class="line line-number-empty">
+						<code>&nbsp;</code>
+					</div>
+																<div class="line line-number-empty">
+						<code>&nbsp;</code>
+					</div>
+																<div class="line line-number-empty">
+						<code>&nbsp;</code>
+					</div>
+																<div class="line line-number-empty">
+						<code>&nbsp;</code>
+					</div>
+																<div class="line line-number-empty">
+						<code>&nbsp;</code>
+					</div>
+																<div class="line line-number-line">
+						<code>91</code>
+					</div>
+																<div class="line line-number-line">
+						<code>92</code>
+					</div>
+																<div class="line line-number-line">
+						<code>93</code>
+					</div>
+									</div>
+	</div>
+<div class="diff-content">
+			<div class="section top-missing">
+												<div class="line diff-line ">
+						<code>{</code>
+					</div>
+																<div class="line diff-line ">
+						<code>	// Here's the install</code>
+					</div>
+																<div class="line diff-line ">
+						<code>	$pdo = getPDO();</code>
+					</div>
+																<div class="line diff-line diff-line-deleted">
+						<code>	list($_SESSION['count'], $_SESSION['error']) = installBlog($pdo);</code>
+					</div>
+																<div class="line diff-line-empty">
+						<code></code>
+					</div>
+																<div class="line diff-line-empty">
+						<code></code>
+					</div>
+																<div class="line diff-line-empty">
+						<code></code>
+					</div>
+																<div class="line diff-line-empty">
+						<code></code>
+					</div>
+																<div class="line diff-line-empty">
+						<code></code>
+					</div>
+																<div class="line diff-line-empty">
+						<code></code>
+					</div>
+																<div class="line diff-line-empty">
+						<code></code>
+					</div>
+																<div class="line diff-line-empty">
+						<code></code>
+					</div>
+																<div class="line diff-line-empty">
+						<code></code>
+					</div>
+																<div class="line diff-line-empty">
+						<code></code>
+					</div>
+																<div class="line diff-line-empty">
+						<code></code>
+					</div>
+																<div class="line diff-line-empty">
+						<code></code>
+					</div>
+																<div class="line diff-line-empty">
+						<code></code>
+					</div>
+																<div class="line diff-line ">
+						<code></code>
+					</div>
+																<div class="line diff-line ">
+						<code>	// ... and here we redirect from POST to GET</code>
+					</div>
+																<div class="line diff-line ">
+						<code>	redirectAndExit('install.php');</code>
+					</div>
+									</div>
+			<div class="section ">
+												<div class="line diff-line ">
+						<code></code>
+					</div>
+																<div class="line diff-line ">
+						<code>// Let's see if we've just installed</code>
+					</div>
+																<div class="line diff-line ">
+						<code>$attempted = false;</code>
+					</div>
+																<div class="line diff-line diff-line-deleted">
+						<code>if ($_SESSION)</code>
+					</div>
+																<div class="line diff-line ">
+						<code>{</code>
+					</div>
+																<div class="line diff-line ">
+						<code>	$attempted = true;</code>
+					</div>
+																<div class="line diff-line ">
+						<code>	$count = $_SESSION['count'];</code>
+					</div>
+																<div class="line diff-line ">
+						<code>	$error = $_SESSION['error'];</code>
+					</div>
+																<div class="line diff-line-empty">
+						<code></code>
+					</div>
+																<div class="line diff-line-empty">
+						<code></code>
+					</div>
+																<div class="line diff-line ">
+						<code></code>
+					</div>
+																<div class="line diff-line ">
+						<code>	// Unset session variables, so we only report the install/failure once</code>
+					</div>
+																<div class="line diff-line ">
+						<code>	unset($_SESSION['count']);</code>
+					</div>
+																<div class="line diff-line ">
+						<code>	unset($_SESSION['error']);</code>
+					</div>
+																<div class="line diff-line-empty">
+						<code></code>
+					</div>
+																<div class="line diff-line-empty">
+						<code></code>
+					</div>
+																<div class="line diff-line-empty">
+						<code></code>
+					</div>
+																<div class="line diff-line ">
+						<code>}</code>
+					</div>
+																<div class="line diff-line ">
+						<code></code>
+					</div>
+																<div class="line diff-line ">
+						<code>?&gt;</code>
+					</div>
+									</div>
+			<div class="section ">
+												<div class="line diff-line ">
+						<code>				&lt;div class="success box"&gt;</code>
+					</div>
+																<div class="line diff-line ">
+						<code>					The database and demo data was created OK.</code>
+					</div>
+																<div class="line diff-line ">
+						<code></code>
+					</div>
+																<div class="line diff-line-empty">
+						<code></code>
+					</div>
+																<div class="line diff-line ">
+						<code>					&lt;?php foreach (array('post', 'comment') as $tableName): ?&gt;</code>
+					</div>
+																<div class="line diff-line ">
+						<code>						&lt;?php if (isset($count[$tableName])): ?&gt;</code>
+					</div>
+																<div class="line diff-line ">
+						<code>							&lt;?php // Prints the count ?&gt;</code>
+					</div>
+									</div>
+			<div class="section ">
+												<div class="line diff-line ">
+						<code>							were created.</code>
+					</div>
+																<div class="line diff-line ">
+						<code>						&lt;?php endif ?&gt;</code>
+					</div>
+																<div class="line diff-line ">
+						<code>					&lt;?php endforeach ?&gt;</code>
+					</div>
+																<div class="line diff-line-empty">
+						<code></code>
+					</div>
+																<div class="line diff-line-empty">
+						<code></code>
+					</div>
+																<div class="line diff-line-empty">
+						<code></code>
+					</div>
+																<div class="line diff-line-empty">
+						<code></code>
+					</div>
+																<div class="line diff-line-empty">
+						<code></code>
+					</div>
+																<div class="line diff-line ">
+						<code>				&lt;/div&gt;</code>
+					</div>
+																<div class="line diff-line ">
+						<code></code>
+					</div>
+																<div class="line diff-line ">
+						<code>				&lt;p&gt;</code>
+					</div>
+									</div>
+	</div>
+			</div>
+		</div>	
+				<div class="right side">
+			<div class="inner-side">
+				
+<div class="line-numbers">
+			<div class="line-numbers-section top-missing">
+												<div class="line line-number-line">
+						<code>10</code>
+					</div>
+																<div class="line line-number-line">
+						<code>11</code>
+					</div>
+																<div class="line line-number-line">
+						<code>12</code>
+					</div>
+																<div class="line line-number-line">
+						<code>13</code>
+					</div>
+																<div class="line line-number-line">
+						<code>14</code>
+					</div>
+																<div class="line line-number-line">
+						<code>15</code>
+					</div>
+																<div class="line line-number-line">
+						<code>16</code>
+					</div>
+																<div class="line line-number-line">
+						<code>17</code>
+					</div>
+																<div class="line line-number-line">
+						<code>18</code>
+					</div>
+																<div class="line line-number-line">
+						<code>19</code>
+					</div>
+																<div class="line line-number-line">
+						<code>20</code>
+					</div>
+																<div class="line line-number-line">
+						<code>21</code>
+					</div>
+																<div class="line line-number-line">
+						<code>22</code>
+					</div>
+																<div class="line line-number-line">
+						<code>23</code>
+					</div>
+																<div class="line line-number-line">
+						<code>24</code>
+					</div>
+																<div class="line line-number-line">
+						<code>25</code>
+					</div>
+																<div class="line line-number-line">
+						<code>26</code>
+					</div>
+																<div class="line line-number-line">
+						<code>27</code>
+					</div>
+																<div class="line line-number-line">
+						<code>28</code>
+					</div>
+																<div class="line line-number-line">
+						<code>29</code>
+					</div>
+									</div>
+			<div class="line-numbers-section ">
+												<div class="line line-number-line">
+						<code>31</code>
+					</div>
+																<div class="line line-number-line">
+						<code>32</code>
+					</div>
+																<div class="line line-number-line">
+						<code>33</code>
+					</div>
+																<div class="line line-number-line">
+						<code>34</code>
+					</div>
+																<div class="line line-number-line">
+						<code>35</code>
+					</div>
+																<div class="line line-number-line">
+						<code>36</code>
+					</div>
+																<div class="line line-number-line">
+						<code>37</code>
+					</div>
+																<div class="line line-number-line">
+						<code>38</code>
+					</div>
+																<div class="line line-number-line">
+						<code>39</code>
+					</div>
+																<div class="line line-number-line">
+						<code>40</code>
+					</div>
+																<div class="line line-number-line">
+						<code>41</code>
+					</div>
+																<div class="line line-number-line">
+						<code>42</code>
+					</div>
+																<div class="line line-number-line">
+						<code>43</code>
+					</div>
+																<div class="line line-number-line">
+						<code>44</code>
+					</div>
+																<div class="line line-number-line">
+						<code>45</code>
+					</div>
+																<div class="line line-number-line">
+						<code>46</code>
+					</div>
+																<div class="line line-number-line">
+						<code>47</code>
+					</div>
+																<div class="line line-number-line">
+						<code>48</code>
+					</div>
+																<div class="line line-number-line">
+						<code>49</code>
+					</div>
+																<div class="line line-number-line">
+						<code>50</code>
+					</div>
+									</div>
+			<div class="line-numbers-section ">
+												<div class="line line-number-line">
+						<code>78</code>
+					</div>
+																<div class="line line-number-line">
+						<code>79</code>
+					</div>
+																<div class="line line-number-line">
+						<code>80</code>
+					</div>
+																<div class="line line-number-line">
+						<code>81</code>
+					</div>
+																<div class="line line-number-line">
+						<code>82</code>
+					</div>
+																<div class="line line-number-line">
+						<code>83</code>
+					</div>
+																<div class="line line-number-line">
+						<code>84</code>
+					</div>
+									</div>
+			<div class="line-numbers-section ">
+												<div class="line line-number-line">
+						<code>88</code>
+					</div>
+																<div class="line line-number-line">
+						<code>89</code>
+					</div>
+																<div class="line line-number-line">
+						<code>90</code>
+					</div>
+																<div class="line line-number-line">
+						<code>91</code>
+					</div>
+																<div class="line line-number-line">
+						<code>92</code>
+					</div>
+																<div class="line line-number-line">
+						<code>93</code>
+					</div>
+																<div class="line line-number-line">
+						<code>94</code>
+					</div>
+																<div class="line line-number-line">
+						<code>95</code>
+					</div>
+																<div class="line line-number-line">
+						<code>96</code>
+					</div>
+																<div class="line line-number-line">
+						<code>97</code>
+					</div>
+																<div class="line line-number-line">
+						<code>98</code>
+					</div>
+									</div>
+	</div>
+<div class="diff-content">
+			<div class="section top-missing">
+												<div class="line diff-line ">
+						<code>{</code>
+					</div>
+																<div class="line diff-line ">
+						<code>	// Here's the install</code>
+					</div>
+																<div class="line diff-line ">
+						<code>	$pdo = getPDO();</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>	list($rowCounts, $error) = installBlog($pdo);</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code></code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>	$password = '';</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>	if (!$error)</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>	{</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>		$username = 'admin';</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>		list($password, $error) = createUser($pdo, $username);</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>	}</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code></code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>	$_SESSION['count'] = $rowCounts;</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>	$_SESSION['error'] = $error;</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>	$_SESSION['username'] = $username;</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>	$_SESSION['password'] = $password;</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>	$_SESSION['try-install'] = true;</code>
+					</div>
+																<div class="line diff-line ">
+						<code></code>
+					</div>
+																<div class="line diff-line ">
+						<code>	// ... and here we redirect from POST to GET</code>
+					</div>
+																<div class="line diff-line ">
+						<code>	redirectAndExit('install.php');</code>
+					</div>
+									</div>
+			<div class="section ">
+												<div class="line diff-line ">
+						<code></code>
+					</div>
+																<div class="line diff-line ">
+						<code>// Let's see if we've just installed</code>
+					</div>
+																<div class="line diff-line ">
+						<code>$attempted = false;</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>if (isset($_SESSION['try-install']))</code>
+					</div>
+																<div class="line diff-line ">
+						<code>{</code>
+					</div>
+																<div class="line diff-line ">
+						<code>	$attempted = true;</code>
+					</div>
+																<div class="line diff-line ">
+						<code>	$count = $_SESSION['count'];</code>
+					</div>
+																<div class="line diff-line ">
+						<code>	$error = $_SESSION['error'];</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>	$username = $_SESSION['username'];</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>	$password = $_SESSION['password'];</code>
+					</div>
+																<div class="line diff-line ">
+						<code></code>
+					</div>
+																<div class="line diff-line ">
+						<code>	// Unset session variables, so we only report the install/failure once</code>
+					</div>
+																<div class="line diff-line ">
+						<code>	unset($_SESSION['count']);</code>
+					</div>
+																<div class="line diff-line ">
+						<code>	unset($_SESSION['error']);</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>	unset($_SESSION['username']);</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>	unset($_SESSION['password']);</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>	unset($_SESSION['try-install']);</code>
+					</div>
+																<div class="line diff-line ">
+						<code>}</code>
+					</div>
+																<div class="line diff-line ">
+						<code></code>
+					</div>
+																<div class="line diff-line ">
+						<code>?&gt;</code>
+					</div>
+									</div>
+			<div class="section ">
+												<div class="line diff-line ">
+						<code>				&lt;div class="success box"&gt;</code>
+					</div>
+																<div class="line diff-line ">
+						<code>					The database and demo data was created OK.</code>
+					</div>
+																<div class="line diff-line ">
+						<code></code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>					&lt;?php // Report the counts for each table ?&gt;</code>
+					</div>
+																<div class="line diff-line ">
+						<code>					&lt;?php foreach (array('post', 'comment') as $tableName): ?&gt;</code>
+					</div>
+																<div class="line diff-line ">
+						<code>						&lt;?php if (isset($count[$tableName])): ?&gt;</code>
+					</div>
+																<div class="line diff-line ">
+						<code>							&lt;?php // Prints the count ?&gt;</code>
+					</div>
+									</div>
+			<div class="section ">
+												<div class="line diff-line ">
+						<code>							were created.</code>
+					</div>
+																<div class="line diff-line ">
+						<code>						&lt;?php endif ?&gt;</code>
+					</div>
+																<div class="line diff-line ">
+						<code>					&lt;?php endforeach ?&gt;</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code></code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>					&lt;?php // Report the new password ?&gt;</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>					The new '&lt;?php echo htmlEscape($username) ?&gt;' password is</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>					&lt;span style="font-size: 1.2em;"&gt;&lt;?php echo htmlEscape($password) ?&gt;&lt;/span&gt;</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>					(copy it to clipboard if you wish).</code>
+					</div>
+																<div class="line diff-line ">
+						<code>				&lt;/div&gt;</code>
+					</div>
+																<div class="line diff-line ">
+						<code></code>
+					</div>
+																<div class="line diff-line ">
+						<code>				&lt;p&gt;</code>
+					</div>
+									</div>
+	</div>
+			</div>
+		</div>
+	</div>
+				</div>
+			</div>
+		</div>
+			<div id="tabs-e75faf17ee106cf89d66-2" class="insert-diff">
+			<div class="top-bar">
+
+				
+				<div class="download-block">
+					<span class="download">
+						<a href="https://ilovephp.jondh.me.uk/checkouts/rebase5/e75faf17ee106cf89d66/lib/install.php" target="_blank"><img src="Make%20your%20own%20blog%20%3E%20Adding%20a%20login%20system_files/disk.png" alt="">
+						Download</a>
+					</span>
+				</div>
+
+			</div>
+			<div class="diff-scroll">
+				<div class="diff-body">
+					<div class="file ">
+			<div class="left side">
+			<div class="inner-side">
+				
+<div class="line-numbers">
+			<div class="line-numbers-section top-missing">
+												<div class="line line-number-line">
+						<code>72</code>
+					</div>
+																<div class="line line-number-line">
+						<code>73</code>
+					</div>
+																<div class="line line-number-line">
+						<code>74</code>
+					</div>
+									</div>
+	</div>
+<div class="diff-content">
+			<div class="section top-missing">
+												<div class="line diff-line ">
+						<code></code>
+					</div>
+																<div class="line diff-line ">
+						<code>	return array($count, $error);</code>
+					</div>
+																<div class="line diff-line ">
+						<code>}</code>
+					</div>
+									</div>
+	</div>
+			</div>
+		</div>	
+				<div class="right side">
+			<div class="inner-side">
+				
+<div class="line-numbers">
+			<div class="line-numbers-section top-missing">
+												<div class="line line-number-line">
+						<code>72</code>
+					</div>
+																<div class="line line-number-line">
+						<code>73</code>
+					</div>
+																<div class="line line-number-line">
+						<code>74</code>
+					</div>
+																<div class="line line-number-line">
+						<code>75</code>
+					</div>
+																<div class="line line-number-line">
+						<code>76</code>
+					</div>
+																<div class="line line-number-line">
+						<code>77</code>
+					</div>
+																<div class="line line-number-line">
+						<code>78</code>
+					</div>
+																<div class="line line-number-line">
+						<code>79</code>
+					</div>
+																<div class="line line-number-line">
+						<code>80</code>
+					</div>
+																<div class="line line-number-line">
+						<code>81</code>
+					</div>
+																<div class="line line-number-line">
+						<code>82</code>
+					</div>
+																<div class="line line-number-line">
+						<code>83</code>
+					</div>
+																<div class="line line-number-line">
+						<code>84</code>
+					</div>
+																<div class="line line-number-line">
+						<code>85</code>
+					</div>
+																<div class="line line-number-line">
+						<code>86</code>
+					</div>
+																<div class="line line-number-line">
+						<code>87</code>
+					</div>
+																<div class="line line-number-line">
+						<code>88</code>
+					</div>
+																<div class="line line-number-line">
+						<code>89</code>
+					</div>
+																<div class="line line-number-line">
+						<code>90</code>
+					</div>
+																<div class="line line-number-line">
+						<code>91</code>
+					</div>
+																<div class="line line-number-line">
+						<code>92</code>
+					</div>
+																<div class="line line-number-line">
+						<code>93</code>
+					</div>
+																<div class="line line-number-line">
+						<code>94</code>
+					</div>
+																<div class="line line-number-line">
+						<code>95</code>
+					</div>
+																<div class="line line-number-line">
+						<code>96</code>
+					</div>
+																<div class="line line-number-line">
+						<code>97</code>
+					</div>
+																<div class="line line-number-line">
+						<code>98</code>
+					</div>
+																<div class="line line-number-line">
+						<code>99</code>
+					</div>
+																<div class="line line-number-line">
+						<code>100</code>
+					</div>
+																<div class="line line-number-line">
+						<code>101</code>
+					</div>
+																<div class="line line-number-line">
+						<code>102</code>
+					</div>
+																<div class="line line-number-line">
+						<code>103</code>
+					</div>
+																<div class="line line-number-line">
+						<code>104</code>
+					</div>
+																<div class="line line-number-line">
+						<code>105</code>
+					</div>
+																<div class="line line-number-line">
+						<code>106</code>
+					</div>
+																<div class="line line-number-line">
+						<code>107</code>
+					</div>
+																<div class="line line-number-line">
+						<code>108</code>
+					</div>
+																<div class="line line-number-line">
+						<code>109</code>
+					</div>
+																<div class="line line-number-line">
+						<code>110</code>
+					</div>
+																<div class="line line-number-line">
+						<code>111</code>
+					</div>
+																<div class="line line-number-line">
+						<code>112</code>
+					</div>
+																<div class="line line-number-line">
+						<code>113</code>
+					</div>
+																<div class="line line-number-line">
+						<code>114</code>
+					</div>
+																<div class="line line-number-line">
+						<code>115</code>
+					</div>
+																<div class="line line-number-line">
+						<code>116</code>
+					</div>
+																<div class="line line-number-line">
+						<code>117</code>
+					</div>
+																<div class="line line-number-line">
+						<code>118</code>
+					</div>
+																<div class="line line-number-line">
+						<code>119</code>
+					</div>
+																<div class="line line-number-line">
+						<code>120</code>
+					</div>
+																<div class="line line-number-line">
+						<code>121</code>
+					</div>
+																<div class="line line-number-line">
+						<code>122</code>
+					</div>
+																<div class="line line-number-line">
+						<code>123</code>
+					</div>
+																<div class="line line-number-line">
+						<code>124</code>
+					</div>
+																<div class="line line-number-line">
+						<code>125</code>
+					</div>
+																<div class="line line-number-line">
+						<code>126</code>
+					</div>
+																<div class="line line-number-line">
+						<code>127</code>
+					</div>
+																<div class="line line-number-line">
+						<code>128</code>
+					</div>
+																<div class="line line-number-line">
+						<code>129</code>
+					</div>
+																<div class="line line-number-line">
+						<code>130</code>
+					</div>
+																<div class="line line-number-line">
+						<code>131</code>
+					</div>
+																<div class="line line-number-line">
+						<code>132</code>
+					</div>
+																<div class="line line-number-line">
+						<code>133</code>
+					</div>
+																<div class="line line-number-line">
+						<code>134</code>
+					</div>
+																<div class="line line-number-line">
+						<code>135</code>
+					</div>
+																<div class="line line-number-line">
+						<code>136</code>
+					</div>
+									</div>
+	</div>
+<div class="diff-content">
+			<div class="section top-missing">
+												<div class="line diff-line ">
+						<code></code>
+					</div>
+																<div class="line diff-line ">
+						<code>	return array($count, $error);</code>
+					</div>
+																<div class="line diff-line ">
+						<code>}</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code></code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>/**</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code> * Creates a new user in the database</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code> *</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code> * @param PDO $pdo</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code> * @param string $username</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code> * @param integer $length</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code> * @return array Duple of (password, error)</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code> */</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>function createUser(PDO $pdo, $username, $length = 10)</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>{</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>	// This algorithm creates a random password</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>	$alphabet = range(ord('A'), ord('z'));</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>	$alphabetLength = count($alphabet);</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code></code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>	$password = '';</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>	for($i = 0; $i &lt; $length; $i++)</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>	{</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>		$letterCode = $alphabet[rand(0, $alphabetLength - 1)];</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>		$password .= chr($letterCode);</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>	}</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code></code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>	$error = '';</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code></code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>	// Insert the credentials into the database</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>	$sql = "</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>		INSERT INTO</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>			user</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>			(username, password, created_at)</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>			VALUES (</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>				:username, :password, :created_at</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>			)</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>	";</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>	$stmt = $pdo-&gt;prepare($sql);</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>	if ($stmt === false)</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>	{</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>		$error = 'Could not prepare the user creation';</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>	}</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code></code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>	// We're storing the password in plaintext, will fix that later</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>	if (!$error)</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>	{</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>		$result = $stmt-&gt;execute(</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>			array(</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>				'username' =&gt; $username,</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>				'password' =&gt; $password,</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>				'created_at' =&gt; getSqlDateForNow(),</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>			)</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>		);</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>		if ($result === false)</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>		{</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>			$error = 'Could not run the user creation';</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>		}</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>	}</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code></code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>	if ($error)</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>	{</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>		$password = '';</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code>	}</code>
+					</div>
+																<div class="line diff-line diff-line-added">
+						<code></code>
+		</div></div></div></div></div></div></div></div></div></div></div></body></html>
